@@ -16,15 +16,13 @@ set mouse+=a
 
 " Smaller tabs
 set tabstop=4
-set shiftwidth=4
-set expandtab
+set noexpandtab
 
 " Tab completion when typing commands
 set wildmode=longest,list,full
 set wildmenu
 
 " Colors
-colorscheme SerialExperimentsLain
 syntax on
 
 " Dumb key - literally nobody uses it anyways
@@ -49,6 +47,3 @@ autocmd BufNewFile,BufRead *.zsh_profile set syntax=bash
 autocmd BufNewFile,BufRead zshrc set syntax=bash
 autocmd BufNewFile,BufRead *.css set tabstop=2
 autocmd BufNewFile,BufRead *.css set shiftwidth=2
-
-" Fortunes
-map <F5> mX:sp ~/.fortunes<CR>ggd/^--/<CR>Gp:wq<CR>'XGA<CR><Esc>p`X
