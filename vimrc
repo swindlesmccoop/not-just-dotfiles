@@ -31,14 +31,18 @@ nmap Q <Nop>
 " Sets relative numbers while editing and absolute while not
 set number
 augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set nornu | endif
-  autocmd BufLeave,FocusLost,InsertEnter,WinLeave * if &nu | set rnu | endif
+	autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set nornu | endif
+	autocmd BufLeave,FocusLost,InsertEnter,WinLeave * if &nu | set rnu | endif
 augroup END
 
 " If file is a txt file, set spell check to on and have auto word completion
 au FileType * execute 'setlocal dict+=/usr/share/dict/words'.&filetype.'.txt'
 autocmd BufNewFile,BufRead *.txt set spell
+
+" Copy and paste between vim and other programs using device register
+vnoremap <C-c> "*y :let @+=@*<CR>
+map <C-v> "+P"
 
 " Config syntax highlighting
 autocmd BufNewFile,BufRead *.bashrc set syntax=bash
