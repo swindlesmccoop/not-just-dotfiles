@@ -3,7 +3,10 @@ setopt autocd
 setopt interactive_comments
 EDITOR=vim
 BROWSER=chromium
+
+#have vim respect xdg
 export ZDOTDIR=$HOME/.config/zsh
+export VIMINIT='let $MYVIMRC="$HOME/.config/vim/vimrc" | source $MYVIMRC'
 
 #history stuff
 HISTFILE=$HOME/.config/zsh/.zsh_history
@@ -57,6 +60,7 @@ alias p="paru -S"
 alias install="paru -S"
 alias syyu="sudo pacman -Syyu"
 alias ":q"="exit"
+alias timeset="date -s '[DAY] [MONTH] [YEAR] [HOURS]:[MINUTES]:[SECONDS]'"
 alias cmatrix="neo --fps=60 --screensaver"
 alias sitedl="wget --recursive --domains swindlesmccoop.xyz --page-requisites swindlesmccoop.xyz"
 alias vi="vim"
