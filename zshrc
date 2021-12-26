@@ -4,7 +4,7 @@ setopt interactive_comments
 EDITOR=vim
 BROWSER=chromium
 
-#have vim respect xdg
+#have vim and zsh respect xdg
 export ZDOTDIR=$HOME/.config/zsh
 export VIMINIT='let $MYVIMRC="$HOME/.config/vim/vimrc" | source $MYVIMRC'
 
@@ -59,6 +59,7 @@ alias pms="paru -S"
 alias p="paru -S"
 alias install="paru -S"
 alias syyu="sudo pacman -Syyu"
+alias gdl="gdrive download"
 alias ":q"="exit"
 alias timeset="date -s '[DAY] [MONTH] [YEAR] [HOURS]:[MINUTES]:[SECONDS]'"
 alias cmatrix="neo --fps=60 --screensaver"

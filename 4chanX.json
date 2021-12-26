@@ -1,6 +1,6 @@
 {
   "version": "1.14.21.7",
-  "date": 1640131695804,
+  "date": 1640546373356,
   "Conf": {
     "Redirect to HTTPS": true,
     "JSON Index": true,
@@ -199,7 +199,7 @@
     "Shortcut Icons": true,
     "Custom Board Navigation": true,
     "archiveLists": "https://4chenz.github.io/archives.json/archives.json",
-    "lastarchivecheck": 1640078207323,
+    "lastarchivecheck": 1640489419611,
     "archiveAutoUpdate": true,
     "externalCatalogURLs": "//catalog.neet.tv/%board/;boards:4chan.org:3,a,adv,an,asp,biz,c,cgl,ck,cm,co,diy,f,fa,fit,g,gd,his,i,int,jp,k,lgbt,lit,m,mlp,mu,n,news,o,out,p,po,pol,s4s,sci,sp,tg,toy,trv,tv,v,vg,vip,vp,vr,w,wg,wsg,wsr,x",
     "boardnav": "[ toggle-all ]\n[current-index-text:\"Index\"\ncurrent-catalog-text:\"Catalog\"\ncurrent-expired-text:\"Expired\"\ncurrent-archive-text:\"Archive\"]\n[external-text:\"FAQ\",\"https://github.com/ccd0/4chan-x/wiki/Frequently-Asked-Questions\"]",
@@ -305,22 +305,26 @@
     "hiddenPosts": {
       "4chan.org": {
         "boards": {},
-        "lastChecked": 1640131368360
+        "lastChecked": 1640546146436
       }
     },
     "lastReadPosts": {
       "4chan.org": {
         "boards": {
-          "vt": {
-            "15008115": 15011414
-          },
           "g": {
-            "84838521": 84871115
+            "84838521": 84872083
+          },
+          "h": {
+            "6460468": 6460472,
+            "6489566": 6493036
+          },
+          "vg": {
+            "365373773": 365408334
           }
         },
-        "lastChecked": 1640131368365
+        "lastChecked": 1640546146444
       },
-      "version": 27
+      "version": 83
     },
     "yourPosts": {
       "4chan.org": {
@@ -331,11 +335,22 @@
               "84870221": true,
               "84870251": true
             }
+          },
+          "h": {
+            "6489566": {
+              "6489998": true,
+              "6492537": true
+            }
+          },
+          "vg": {
+            "365373773": {
+              "365408334": true
+            }
           }
         },
-        "lastChecked": 1640131368362
+        "lastChecked": 1640546146437
       },
-      "version": 3
+      "version": 6
     },
     "watchedThreads": {
       "4chan.org": {
@@ -343,32 +358,64 @@
           "g": {
             "84838521": {
               "excerpt": "/g/ - DESKTOP THREAD",
-              "page": 6,
+              "replies": 312,
+              "isDead": true,
+              "isArchived": true,
+              "unread": 0,
+              "quotingYou": 0,
+              "modified": 1640129484,
+              "last": 84872083
+            }
+          },
+          "h": {
+            "6489566": {
+              "excerpt": "/h/ - Netorare / NTR / 寝取られ - Thread #274",
+              "page": 1,
               "lastPage": false,
-              "replies": 309,
+              "replies": 131,
               "isDead": false,
               "isArchived": false,
               "unread": 0,
               "quotingYou": 0,
-              "modified": 1640129484,
-              "last": 84871115
+              "modified": 1640488577,
+              "last": 6493036
+            }
+          },
+          "vg": {
+            "365373773": {
+              "excerpt": "/vg/ - /4ccg/ - 4chan Cup General - Christmas Edition",
+              "page": 6,
+              "lastPage": false,
+              "modified": 1640545677,
+              "last": 365694967,
+              "replies": 353,
+              "isDead": false,
+              "isArchived": false,
+              "unread": 315,
+              "quotingYou": 0
             }
           }
         }
       },
-      "lastChecked": 1640131669892,
-      "lastChecked2": 1640131368446,
-      "version": 51
+      "lastChecked": 1640546146520,
+      "lastChecked2": 1640546146520,
+      "version": 110
     },
     "watcherLastModified": {
       "4chan.org": {
         "boards": {
           "g": {
-            "https://a.4cdn.org/g/threads.json": "Wed, 22 Dec 2021 00:07:21 GMT"
+            "https://a.4cdn.org/g/threads.json": "Thu, 23 Dec 2021 22:46:55 GMT"
+          },
+          "h": {
+            "https://a.4cdn.org/h/threads.json": "Sun, 26 Dec 2021 19:12:55 GMT"
+          },
+          "vg": {
+            "https://a.4cdn.org/vg/threads.json": "Sun, 26 Dec 2021 19:15:51 GMT"
           }
         }
       },
-      "version": 8
+      "version": 18
     },
     "customTitles": {
       "4chan.org": {
@@ -1105,6 +1152,18 @@
         "1640125284804": {
           "threadID": 84838521,
           "postID": 84870251
+        }
+      },
+      "vg": {
+        "1640342610737": {
+          "threadID": 365373773,
+          "postID": 365408334
+        }
+      },
+      "h": {
+        "1640489632404": {
+          "threadID": 6489566,
+          "postID": 6492537
         }
       }
     },
