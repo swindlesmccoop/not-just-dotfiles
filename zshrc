@@ -27,7 +27,7 @@ LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:c
 export LS_COLORS
 alias ls="ls --color"
 WALL=$HOME/.config/wall.jpg
-wal -i $WALL > /dev/null 2>&1
+#wal -i $WALL > /dev/null 2>&1
 
 ###############ALIASES###############
 
@@ -62,7 +62,6 @@ alias syyu="sudo pacman -Syyu"
 alias gdl="gdrive download"
 alias ":q"="exit"
 alias timeset="date -s '[DAY] [MONTH] [YEAR] [HOURS]:[MINUTES]:[SECONDS]'"
-alias cmatrix="neo --fps=60 --screensaver"
 alias sitedl="wget --recursive --domains swindlesmccoop.xyz --page-requisites swindlesmccoop.xyz"
 alias vi="vim"
 alias c="clear"
@@ -146,6 +145,11 @@ preexec() { echo -ne '\e[1 q' ;} #use blinking block on new prompt
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+#source autocompletion from man pages
+#zstyle ':completion:*:manuals'    separate-sections true
+#zstyle ':completion:*:manuals.*'  insert-sections   true
+#zstyle ':completion:*:man:*'      menu yes select
+
 #have to have this function twice so aliases expand when pressing enter AND space
 function expand-alias() {
         zle _expand_alias
@@ -154,7 +158,10 @@ function expand-alias() {
 zle -N expand-alias
 bindkey -M main ' ' expand-alias
 
-eval $(thefuck --alias)
+eval $(thefuck --alias) 2>/dev/null
 
-#syntax highlighting
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+#autosuggestions and syntax highlighting
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
+source /usr/share/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh 2>/dev/null
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh 2>/dev/null
