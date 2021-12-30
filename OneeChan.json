@@ -2,7 +2,7 @@
   "Left Margin": 5,
   "Custom Left Margin": 0,
   "Right Margin": 5,
-  "Custom Right Margin": 0,
+  "Custom Right Margin": 300,
   "Style Thread Stats": false,
   "Rounded Corners": true,
   "Underline All Links": true,
@@ -46,7 +46,7 @@
   "OP Background": false,
   "Recolor Even Replies": false,
   "Reduce Thumbnail Opacity": false,
-  "Backlink Icons": true,
+  "Backlink Icons": false,
   "Backlinks on Bottom": false,
   "Borders": 1,
   "Margin Between Replies": "",
@@ -68,6 +68,6 @@
   "Backlink Font Size": 9,
   "Bitmap Font": false,
   "Version Fix": 1,
-  "Selected Theme": 8,
-  "NSFW Theme": 8
+  "Selected Theme": 33,
+  "NSFW Theme": 33
 }

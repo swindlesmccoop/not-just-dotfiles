@@ -58,3 +58,5 @@ autocmd BufNewFile,BufRead *.zsh_profile set syntax=bash
 autocmd BufNewFile,BufRead zshrc set syntax=bash
 autocmd BufNewFile,BufRead *.css set tabstop=2
 autocmd BufNewFile,BufRead *.css set shiftwidth=2
+
+autocmd BufNewFile,BufRead rc.conf set syntax=vim
