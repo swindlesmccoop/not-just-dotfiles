@@ -1,12 +1,11 @@
 #options
 setopt autocd
 setopt interactive_comments
-EDITOR=vim
+EDITOR=nvim
 BROWSER=chromium
 
-#have vim and zsh respect xdg
+#have zsh respect xdg
 export ZDOTDIR=$HOME/.config/zsh
-export VIMINIT='let $MYVIMRC="$HOME/.config/vim/vimrc" | source $MYVIMRC'
 
 #history stuff
 HISTFILE=$HOME/.config/zsh/.zsh_history
@@ -49,7 +48,8 @@ zle -N expand-alias
 bindkey -M main ' ' expand-alias
 
 #general aliases
-alias vi=vim
+alias vi=nvim
+alias vim=nvim
 alias yay=paru
 alias flac-mp3="flac2mp3 -b 320 *.flac"
 alias sentra="cp *.mp3 /run/media/swindles/SENTRA/"
@@ -76,9 +76,9 @@ alias cL="clear"
 alias eC="echo"
 
 #edit configurations
-alias vimrc="vim ~/.vimrc"
-alias bashrc="vim ~/.bashrc"
-alias sudoers="sudo vim /etc/sudoers"
+alias vimrc="vim ~/.config/nvim/init.vim"
+alias zshrc="vim ~/.config/zsh/.zshrc"
+alias sudoers="sudo visudo"
 alias pacman.conf="sudo vim /etc/pacman.conf"
 alias sddm.conf="sudo vim /etc/sddm.conf"
 alias preview="sddm-greeter --test-mode --theme"
@@ -146,9 +146,9 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 #source autocompletion from man pages
-#zstyle ':completion:*:manuals'    separate-sections true
-#zstyle ':completion:*:manuals.*'  insert-sections   true
-#zstyle ':completion:*:man:*'      menu yes select
+zstyle ':completion:*:manuals'    separate-sections true
+zstyle ':completion:*:manuals.*'  insert-sections   true
+zstyle ':completion:*:man:*'      menu yes select
 
 #have to have this function twice so aliases expand when pressing enter AND space
 function expand-alias() {
