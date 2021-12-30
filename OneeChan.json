@@ -33,7 +33,7 @@
   "Expanding Form Inputs": true,
   "Force QR to Sidebar Size": false,
   "Hide Mascots in Catalog": false,
-  "Mascots Overlap Posts": false,
+  "Mascots Overlap Posts": true,
   "Reduce Mascot Opacity": true,
   "Grayscale Mascots": false,
   "Fit Width": true,
@@ -68,6 +68,6 @@
   "Backlink Font Size": 9,
   "Bitmap Font": false,
   "Version Fix": 1,
-  "Selected Theme": 33,
-  "NSFW Theme": 33
+  "Selected Theme": 31,
+  "NSFW Theme": 31
 }
