@@ -17,7 +17,7 @@ setopt appendhistory
 VITASDK=/usr/local/vitasdk
 
 #path
-PATH=$VITASDK/bin:$PATH:/home/swindles/.local/bin:/home/swindles/scripts:/home/swindles/scripts/bin:/home/swindles/scripts/swindlesmccoop
+PATH=$VITASDK/bin:$PATH:/$HOME/.local/bin:$HOME/scripts:$HOME/scripts/bin:$HOME/scripts/swindlesmccoop
 
 #colors and stuff
 autoload -U colors && colors
@@ -67,7 +67,7 @@ alias vi="vim"
 alias c="clear"
 alias py="python"
 alias py3="python3"
-alias 4ch="python3 ~/scripts/4chan-downloader/inb4404.py"
+alias scrape="python3 ~/scripts/4chan-downloader/inb4404.py"
 
 #petscii type aliases
 alias mK="mkdir"
@@ -160,8 +160,17 @@ bindkey -M main ' ' expand-alias
 
 eval $(thefuck --alias) 2>/dev/null
 
-#autosuggestions and syntax highlighting
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh 2>/dev/null
+#determine platform and source syntax highlighting based on it
+function zshplugins_pc {
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
+    source /usr/share/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh 2>/dev/null
+    source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh 2>/dev/null
+}
+function zshplugins_android {
+    source /data/data/com.termux/files/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
+    source /data/data/com.termux/files/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
+    source /data/data/com.termux/files/usr/share/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh 2>/dev/null
+    source /data/data/com.termux/files/usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh 2>/dev/null
+}
+uname -a | grep "Android" && zshplugins_android || zshplugins_pc

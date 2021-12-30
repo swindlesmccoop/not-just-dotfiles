@@ -12,7 +12,15 @@ set incsearch
 "plugin stuff
 filetype plugin on
 call plug#begin('~/.local/share/nivm/site/autoload/plugvim')
-Plug 'vimwiki/vimwiki'
+    Plug 'vimwiki/vimwiki'
+    Plug 'tpope/vim-surround'
+    Plug 'preservim/nerdtree'
+		Plug 'ryanoasis/vim-devicons'
+    Plug 'junegunn/goyo.vim'
+	Plug 'vim-airline/vim-airline'
+		Plug 'vim-airline/vim-airline-themes'
+    Plug 'tpope/vim-commentary'
+
 call plug#end()
 
 "no sound
@@ -31,6 +39,9 @@ set wildmenu
 
 "dumb key - literally nobody uses it anyways
 nmap Q <Nop>
+
+"run script in shellcheck
+map <leader>s :!clear && shellcheck -x %<CR>
 
 "set relative numbers while editing and absolute while not
 set number
@@ -57,3 +68,5 @@ autocmd BufNewFile,BufRead *.khotkeys set syntax=bash
 autocmd BufNewFile,BufRead pacman.conf set syntax=bash
 autocmd BufNewFile,BufRead rc.conf set syntax=vim
 autocmd BufNewFile,BufRead zathurarc set syntax=vim
+autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
+autocmd BufRead,BufNewFile *.tex set filetype=tex
