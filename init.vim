@@ -13,14 +13,23 @@ set incsearch
 filetype plugin on
 call plug#begin('~/.local/share/nivm/site/autoload/plugvim')
 
-    Plug 'vimwiki/vimwiki'
-    Plug 'tpope/vim-surround'
-    Plug 'preservim/nerdtree'
+	Plug 'vimwiki/vimwiki'
+	Plug 'tpope/vim-surround'
 		Plug 'ryanoasis/vim-devicons'
-    Plug 'junegunn/goyo.vim'
+	Plug 'junegunn/goyo.vim'
 	Plug 'vim-airline/vim-airline'
 		Plug 'vim-airline/vim-airline-themes'
-    Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-commentary'
+	Plug 'ThePrimeagen/vim-apm'
+	Plug 'alec-gibson/nvim-tetris'
+	Plug 'seandewar/nvimesweeper'
+	Plug 'ThePrimeagen/vim-be-good'
+	Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+		Plug 'adelarsq/vim-devicons-emoji'
+		Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+	Plug 'ggandor/lightspeed.nvim'
+	Plug 'andweeb/presence.nvim'
+	Plug 'Xuyuanp/scrollbar.nvim'
 
 call plug#end()
 
@@ -51,6 +60,14 @@ augroup numbertoggle
 	autocmd!
 	autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set nornu | endif
 	autocmd BufLeave,FocusLost,InsertEnter,WinLeave * if &nu | set rnu | endif
+augroup END
+
+"scroll bar config
+augroup ScrollbarInit
+  autocmd!
+  autocmd WinScrolled,VimResized,QuitPre * silent! lua require('scrollbar').show()
+  autocmd WinEnter,FocusGained		   * silent! lua require('scrollbar').show()
+  autocmd WinLeave,BufLeave,BufWinLeave,FocusLost			* silent! lua require('scrollbar').clear()
 augroup END
 
 "spell check for .txt files only
