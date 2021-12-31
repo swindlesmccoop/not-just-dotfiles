@@ -173,4 +173,4 @@ function zshplugins_android {
     source /data/data/com.termux/files/usr/share/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh 2>/dev/null
     source /data/data/com.termux/files/usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh 2>/dev/null
 }
-uname -a | grep "Android" && zshplugins_android || zshplugins_pc
+uname -a | grep "Android" > /dev/null && zshplugins_android || zshplugins_pc
