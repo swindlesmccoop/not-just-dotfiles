@@ -21,7 +21,7 @@ call plug#begin('~/.local/share/nivm/site/autoload/plugvim')
 	Plug 'vim-airline/vim-airline'
 		Plug 'vim-airline/vim-airline-themes'
     Plug 'tpope/vim-commentary'
-
+	Plug 'psliwka/vim-smoothie'
 call plug#end()
 
 "no sound
