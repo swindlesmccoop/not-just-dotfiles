@@ -20,6 +20,7 @@ call plug#begin('~/.local/share/nivm/site/autoload/plugvim')
 	Plug 'vim-airline/vim-airline'
 		Plug 'vim-airline/vim-airline-themes'
 	Plug 'tpope/vim-commentary'
+	Plug 'psliwka/vim-smoothie'
 	Plug 'ThePrimeagen/vim-apm'
 	Plug 'alec-gibson/nvim-tetris'
 	Plug 'seandewar/nvimesweeper'
