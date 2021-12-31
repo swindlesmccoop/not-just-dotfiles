@@ -12,6 +12,7 @@ set incsearch
 "plugin stuff
 filetype plugin on
 call plug#begin('~/.local/share/nivm/site/autoload/plugvim')
+
     Plug 'vimwiki/vimwiki'
     Plug 'tpope/vim-surround'
     Plug 'preservim/nerdtree'
@@ -30,6 +31,7 @@ set noerrorbells visualbell t_vb=
 set mouse+=a
 
 "4 space wide tab characters
+set shiftwidth=0
 set tabstop=4
 set noexpandtab
 
