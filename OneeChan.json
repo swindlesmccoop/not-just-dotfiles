@@ -32,7 +32,7 @@
   "Remove Controls": false,
   "Expanding Form Inputs": true,
   "Force QR to Sidebar Size": false,
-  "Hide Mascots in Catalog": false,
+  "Hide Mascots in Catalog": true,
   "Mascots Overlap Posts": true,
   "Reduce Mascot Opacity": true,
   "Grayscale Mascots": false,

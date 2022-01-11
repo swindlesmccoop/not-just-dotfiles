@@ -25,7 +25,6 @@ call plug#begin('~/.local/share/nivm/site/autoload/plugvim')
 	Plug 'alec-gibson/nvim-tetris'
 	Plug 'seandewar/nvimesweeper'
 	Plug 'ThePrimeagen/vim-be-good'
-	Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 		Plug 'adelarsq/vim-devicons-emoji'
 		Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 	Plug 'ggandor/lightspeed.nvim'
