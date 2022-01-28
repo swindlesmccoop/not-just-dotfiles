@@ -9,7 +9,7 @@ alias enc="gpg -c --no-symkey-cache --cipher-algo AES256"
 alias pms="paru -S"
 alias p="paru -S"
 alias install="paru -S"
-alias syyu="sudo pacman -Syyu"
+alias syyu="pacman -Syyu"
 alias gdl="gdrive download"
 alias ":q"="exit"
 alias timeset="date -s '[DAY] [MONTH] [YEAR] [HOURS]:[MINUTES]:[SECONDS]'"
@@ -29,7 +29,7 @@ alias eC="echo"
 #edit configurations
 alias vimrc="vim ~/.config/nvim/init.vim"
 alias zshrc="vim ~/.config/zsh/.zshrc"
-alias sudoers="sudo visudo"
+alias sudoers="visudo"
 alias pacman.conf="sudo vim /etc/pacman.conf"
 alias sddm.conf="sudo vim /etc/sddm.conf"
 alias preview="sddm-greeter --test-mode --theme"
@@ -49,6 +49,10 @@ alias cd..="cd .."
 #youtube-dl
 alias ytdl="youtube-dl"
 alias mp3="youtube-dl --audio-format mp3 -k"
-alias m4a="youtube-dl --audio-format best -k"
+alias yta="yt -x -f bestaudio/best"
 
+#replace root-only commands with sudo [command]
+for command in mount umount sv visudo pacman updatedb su shutdown poweroff reboot ; do
+	alias $command="sudo $command"
+done; unset command
 
