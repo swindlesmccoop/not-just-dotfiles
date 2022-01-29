@@ -1,6 +1,6 @@
 {
   "version": "1.14.21.7",
-  "date": 1640810804641,
+  "date": 1643485126600,
   "Conf": {
     "Redirect to HTTPS": true,
     "JSON Index": true,
@@ -11,7 +11,7 @@
     "External Catalog": false,
     "Catalog Links": false,
     "Announcement Hiding": true,
-    "Desktop Notifications": true,
+    "Desktop Notifications": false,
     "404 Redirect": true,
     "Archive Report": true,
     "Exempt Archives from Encryption": true,
@@ -177,14 +177,14 @@
     "dimensions": "# Highlight potential wallpapers:\n#/1920x1080/;op:yes;highlight;top:no;boards:w,wg",
     "filesize": "",
     "MD5": "",
-    "sauces": "# Known filename formats:\nhttps://www.pixiv.net/member_illust.php?mode=medium&illust_id=%$1;regexp:/^(\\d+)_p\\d+/\njavascript:void(open(\"https://www.deviantart.com/\"+%$1.replace(/_/g,\"-\")+\"/art/\"+parseInt(%$2,36)));regexp:/^\\w+_by_(\\w+)[_-]d([\\da-z]{6})\\b/\nhttps://imgur.com/%$1;regexp:/^(?![a-zA-Z][a-z]{6})(?![A-Z]{7})(?!\\d{7})([\\da-zA-Z]{7})(?: \\(\\d+\\))?\\.\\w+$/\nhttps://flickr.com/photo.gne?id=%$1;regexp:/^(\\d+)_[\\da-f]{10}(?:_\\w)*\\b/\nhttps://www.facebook.com/photo.php?fbid=%$1;regexp:/^\\d+_(\\d+)_\\d+_[no]\\b/\n\n# Reverse image search:\nhttps://www.google.com/searchbyimage?image_url=%IMG&safe=off\nhttps://yandex.com/images/search?rpt=imageview&url=%IMG\n#//tineye.com/search?url=%IMG\n#//www.bing.com/images/search?q=imgurl:%IMG&view=detailv2&iss=sbi#enterInsights\n\n# Specialized reverse image search:\n//iqdb.org/?url=%IMG\nhttps://trace.moe/?auto&url=%IMG;text:wait\n#//3d.iqdb.org/?url=%IMG\n#//saucenao.com/search.php?url=%IMG\n\n# \"View Same\" in archives:\nhttp://eye.swfchan.com/search/?q=%name;types:swf\n#https://desuarchive.org/_/search/image/%sMD5/\n#https://archive.4plebs.org/_/search/image/%sMD5/\n#https://boards.fireden.net/_/search/image/%sMD5/\n#https://foolz.fireden.net/_/search/image/%sMD5/\n\n# Other tools:\n#http://exif.regex.info/exif.cgi?imgurl=%URL\n#//imgops.com/start?url=%URL;types:gif,jpg,png\n#//www.gif-explode.com/%URL;types:gif",
+    "sauces": "# Known filename formats:\nhttps://www.pixiv.net/member_illust.php?mode=medium&illust_id=%$1;regexp:/^(\\d+)_p\\d+/\njavascript:void(open(\"https://www.deviantart.com/\"+%$1.replace(/_/g,\"-\")+\"/art/\"+parseInt(%$2,36)));regexp:/^\\w+_by_(\\w+)[_-]d([\\da-z]{6})\\b/\nhttps://imgur.com/%$1;regexp:/^(?![a-zA-Z][a-z]{6})(?![A-Z]{7})(?!\\d{7})([\\da-zA-Z]{7})(?: \\(\\d+\\))?\\.\\w+$/\nhttps://flickr.com/photo.gne?id=%$1;regexp:/^(\\d+)_[\\da-f]{10}(?:_\\w)*\\b/\nhttps://www.facebook.com/photo.php?fbid=%$1;regexp:/^\\d+_(\\d+)_\\d+_[no]\\b/\n\n# Reverse image search:\nhttps://www.google.com/searchbyimage?image_url=%IMG&safe=off\nhttps://yandex.com/images/search?rpt=imageview&url=%IMG\n#//tineye.com/search?url=%IMG\n#//www.bing.com/images/search?q=imgurl:%IMG&view=detailv2&iss=sbi#enterInsights\n\n# Specialized reverse image search:\n#//iqdb.org/?url=%IMG\n#https://trace.moe/?auto&url=%IMG;text:wait\n#//3d.iqdb.org/?url=%IMG\n//saucenao.com/search.php?url=%IMG\n\n# \"View Same\" in archives:\nhttp://eye.swfchan.com/search/?q=%name;types:swf\n#https://desuarchive.org/_/search/image/%sMD5/\n#https://archive.4plebs.org/_/search/image/%sMD5/\n#https://boards.fireden.net/_/search/image/%sMD5/\n#https://foolz.fireden.net/_/search/image/%sMD5/\n\n# Other tools:\n#http://exif.regex.info/exif.cgi?imgurl=%URL\n#//imgops.com/start?url=%URL;types:gif,jpg,png\n#//www.gif-explode.com/%URL;types:gif",
     "werk": false,
     "Custom CSS": true,
-    "Index Mode": "paged",
+    "Index Mode": "catalog",
     "Previous Index Mode": "paged",
     "Index Size": "small",
     "Show Replies": true,
-    "Catalog Hover Expand": false,
+    "Catalog Hover Expand": true,
     "Catalog Hover Toggle": true,
     "Pin Watched Threads": false,
     "Anchor Hidden Threads": true,
@@ -199,7 +199,7 @@
     "Shortcut Icons": true,
     "Custom Board Navigation": true,
     "archiveLists": "https://4chenz.github.io/archives.json/archives.json",
-    "lastarchivecheck": 1640767832290,
+    "lastarchivecheck": 1643374793547,
     "archiveAutoUpdate": true,
     "externalCatalogURLs": "//catalog.neet.tv/%board/;boards:4chan.org:3,a,adv,an,asp,biz,c,cgl,ck,cm,co,diy,f,fa,fit,g,gd,his,i,int,jp,k,lgbt,lit,m,mlp,mu,n,news,o,out,p,po,pol,s4s,sci,sp,tg,toy,trv,tv,v,vg,vip,vp,vr,w,wg,wsg,wsr,x",
     "boardnav": "[ toggle-all ]\n[current-index-text:\"Index\"\ncurrent-catalog-text:\"Catalog\"\ncurrent-expired-text:\"Expired\"\ncurrent-archive-text:\"Archive\"]\n[external-text:\"FAQ\",\"https://github.com/ccd0/4chan-x/wiki/Frequently-Asked-Questions\"]",
@@ -283,12 +283,12 @@
     "customCooldownEnabled": true,
     "Thread Quotes": false,
     "Max Replies": 1000,
-    "Autohiding Scrollbar": false,
+    "Autohiding Scrollbar": true,
     "embedding.position": "top: 50px; right: 0px;",
     "thread-stats.position": "bottom: 0px; right: 0px;",
     "updater.position": "bottom: 0px; left: 0px;",
     "thread-watcher.position": "top: 50px; left: 0px;",
-    "qr.position": "top: 50px; right: 0px;",
+    "qr.position": "top: 6.47477%; left: 57.1345%;",
     "captchaServiceDomain": "",
     "captchaServiceKey": {
       "https://api.captcha.guru": "",
@@ -304,59 +304,105 @@
     "hiddenThreads": {},
     "hiddenPosts": {
       "4chan.org": {
-        "boards": {},
-        "lastChecked": 1640810781893
-      }
+        "boards": {
+          "g": {
+            "85396463": {
+              "85403667": {
+                "thisPost": true
+              }
+            }
+          }
+        },
+        "lastChecked": 1643484101076
+      },
+      "version": 10
     },
     "lastReadPosts": {
       "4chan.org": {
         "boards": {
           "g": {
-            "84838521": 84872083,
-            "84926784": 84976213,
-            "84943398": 84970073,
-            "84969839": 84971381
+            "85367532": 85370383,
+            "85368174": 85374130,
+            "85395248": 85397273,
+            "85395427": 85397372,
+            "85395885": 85397025,
+            "85396463": 85403981,
+            "85397292": 85400110,
+            "85435648": 85445867,
+            "85442774": 85443439
           },
           "h": {
-            "6460468": 6460472,
-            "6489566": 6495929
+            "6420766": 6525415,
+            "6495569": 6512268,
+            "6497754": 6499053,
+            "6514814": 6516168,
+            "6520524": 6526621,
+            "6524724": 6525193,
+            "6526058": 6526473,
+            "6526622": 6527482
+          },
+          "wg": {
+            "7848668": 7861727
+          },
+          "soc": {
+            "30811658": 30854162
           },
           "vg": {
-            "365373773": 365408334
+            "368309958": 368439429
           }
         },
-        "lastChecked": 1640806266781
+        "lastChecked": 1643484083955
       },
-      "version": 124
+      "version": 966
     },
     "yourPosts": {
       "4chan.org": {
         "boards": {
-          "g": {
-            "84838521": {
-              "84870068": true,
-              "84870221": true,
-              "84870251": true
-            },
-            "84926784": {
-              "84972400": true
+          "wg": {
+            "7848668": {
+              "7861712": true,
+              "7861713": true
             }
           },
           "h": {
-            "6489566": {
-              "6489998": true,
-              "6492537": true
+            "6520524": {
+              "6521262": true,
+              "6521269": true,
+              "6521270": true,
+              "6521271": true,
+              "6524744": true,
+              "6524745": true,
+              "6525169": true,
+              "6525312": true,
+              "6525454": true,
+              "6525456": true,
+              "6525949": true,
+              "6526064": true,
+              "6526104": true
+            },
+            "6522627": {
+              "6525447": true
+            },
+            "6526622": {
+              "6527146": true
             }
           },
-          "vg": {
-            "365373773": {
-              "365408334": true
+          "g": {
+            "85395248": {
+              "85397507": true
+            },
+            "85397292": {
+              "85410857": true
+            },
+            "85435648": {
+              "85445782": true,
+              "85445867": true
             }
           }
         },
-        "lastChecked": 1640806266777
+        "lastChecked": 1643484083949
       },
-      "version": 9
+      "version": 39
     },
     "watchedThreads": {
       "4chan.org": {
@@ -374,29 +420,133 @@
             },
             "84926784": {
               "excerpt": "/g/ - desktop thread",
-              "page": 9,
-              "lastPage": false,
               "modified": 1640781009,
               "last": 84976213,
-              "replies": 292,
+              "replies": 311,
+              "isDead": true,
+              "isArchived": true,
+              "unread": 0,
+              "quotingYou": 0
+            },
+            "84975827": {
+              "excerpt": "/g/ - Desktop Bread",
+              "replies": 315,
+              "isDead": true,
+              "isArchived": true,
+              "unread": 1,
+              "quotingYou": 0,
+              "modified": 1641017010,
+              "last": 85012402
+            },
+            "85012274": {
+              "excerpt": "/g/ - desktop thread",
+              "replies": 318,
+              "isDead": true,
+              "isArchived": true,
+              "unread": 238,
+              "quotingYou": 0,
+              "last": 85052778
+            },
+            "85017042": {
+              "excerpt": "/g/ - > 2022 // > no threads about it being the year of the Linux desk...",
+              "replies": 14,
+              "isDead": true,
+              "isArchived": true,
+              "unread": 0,
+              "quotingYou": 0,
+              "last": 85022055
+            },
+            "85017506": {
+              "excerpt": "/g/ - It will never be the year of the linux desktop",
+              "last": 85022243,
+              "replies": 22,
+              "isDead": true,
+              "isArchived": true,
+              "unread": 14,
+              "quotingYou": 85020644,
+              "modified": 1641083792
+            },
+            "85197694": {
+              "excerpt": "/g/ - I'm about to distro hop again. // So far it's been // Debian ( i...",
+              "modified": 1642083888,
+              "last": 85204638,
+              "replies": 17,
+              "isDead": true,
+              "isArchived": true,
+              "unread": 9,
+              "quotingYou": 0
+            },
+            "85395248": {
+              "excerpt": "/g/ - Buy an iPhone",
+              "replies": 65,
+              "isDead": true,
+              "isArchived": true,
+              "unread": 44,
+              "quotingYou": 0,
+              "last": 85408617
+            },
+            "85397292": {
+              "excerpt": "/g/ - This shit is unusable. // I fell for the MacOS meme last year. B...",
+              "last": 85414994,
+              "replies": 144,
+              "isDead": true,
+              "isArchived": true,
+              "unread": 121,
+              "quotingYou": 85411160
+            },
+            "85435648": {
+              "excerpt": "/g/ - datamining thread",
+              "page": 2,
+              "lastPage": false,
+              "replies": 114,
               "isDead": false,
               "isArchived": false,
               "unread": 0,
-              "quotingYou": 0
+              "quotingYou": 0,
+              "modified": 1643484462,
+              "last": 85445867
             }
           },
           "h": {
             "6489566": {
               "excerpt": "/h/ - Netorare / NTR / 寝取られ - Thread #274",
-              "page": 10,
-              "lastPage": true,
-              "replies": 443,
+              "replies": 452,
+              "isDead": true,
+              "isArchived": true,
+              "unread": 54,
+              "quotingYou": 0,
+              "modified": 1640856150,
+              "last": 6497593
+            },
+            "6520524": {
+              "excerpt": "/h/ - Netorare / NTR / 寝取られ - Thread #279",
+              "replies": 387,
+              "isDead": true,
+              "isArchived": true,
+              "unread": 1,
+              "quotingYou": 0,
+              "modified": 1643108516,
+              "last": 6526624
+            },
+            "6523287": {
+              "excerpt": "/h/ - Suggestions and resources: le nipponic cumo edition",
+              "replies": 5,
+              "isDead": true,
+              "quotingYou": 0,
+              "modified": 1643055818,
+              "last": 6525441
+            },
+            "6526622": {
+              "excerpt": "/h/ - Netorare / NTR / 寝取られ - Thread #280",
+              "page": 1,
+              "lastPage": false,
+              "modified": 1643482615,
+              "last": 6531165,
+              "replies": 248,
               "isDead": false,
               "isArchived": false,
-              "unread": 45,
-              "quotingYou": 0,
-              "modified": 1640806752,
-              "last": 6496450
+              "unread": 194,
+              "quotingYou": 0
             }
           },
           "vg": {
@@ -410,28 +560,60 @@
               "unread": 717,
               "quotingYou": 0
             }
+          },
+          "fit": {
+            "65118324": {
+              "excerpt": "/fit/ - What are some good ass media to motivate me for lifting heavy ...",
+              "last": 65130093,
+              "isDead": true,
+              "isArchived": true,
+              "unread": 44,
+              "quotingYou": 65124961,
+              "modified": 1642076188,
+              "replies": 90
+            }
+          },
+          "wg": {
+            "7848668": {
+              "excerpt": "/wg/ - Official Homescreen Thread #205",
+              "page": 1,
+              "lastPage": false,
+              "replies": 152,
+              "isDead": false,
+              "isArchived": false,
+              "unread": 45,
+              "quotingYou": 7862813,
+              "modified": 1643481647,
+              "last": 7866780
+            }
           }
         }
       },
-      "lastChecked": 1640810491515,
-      "lastChecked2": 1640806266800,
-      "version": 178
+      "lastChecked": 1643484998381,
+      "lastChecked2": 1643484084586,
+      "version": 748
     },
     "watcherLastModified": {
       "4chan.org": {
         "boards": {
           "g": {
-            "https://a.4cdn.org/g/threads.json": "Wed, 29 Dec 2021 20:41:38 GMT"
+            "https://a.4cdn.org/g/threads.json": "Sat, 29 Jan 2022 19:36:33 GMT"
           },
           "h": {
-            "https://a.4cdn.org/h/threads.json": "Wed, 29 Dec 2021 20:41:39 GMT"
+            "https://a.4cdn.org/h/threads.json": "Sat, 29 Jan 2022 19:35:40 GMT"
           },
           "vg": {
             "https://a.4cdn.org/vg/threads.json": "Wed, 29 Dec 2021 08:50:46 GMT"
+          },
+          "fit": {
+            "https://a.4cdn.org/fit/threads.json": "Fri, 14 Jan 2022 13:39:37 GMT"
+          },
+          "wg": {
+            "https://a.4cdn.org/wg/threads.json": "Sat, 29 Jan 2022 19:36:27 GMT"
           }
         }
       },
-      "version": 52
+      "version": 203
     },
     "customTitles": {
       "4chan.org": {
@@ -1170,16 +1352,28 @@
           "postID": 365408334
         }
       },
+      "fit": {
+        "1642031397677": {
+          "threadID": 65118324,
+          "postID": 65123759
+        }
+      },
+      "wg": {
+        "1642206003570": {
+          "threadID": 7848668,
+          "postID": 7861713
+        }
+      },
       "h": {
-        "1640573654196": {
-          "threadID": 6489566,
-          "postID": 6493325
+        "1643175687855": {
+          "threadID": 6526622,
+          "postID": 6527146
         }
       },
       "g": {
-        "1640781271874": {
-          "threadID": 84926784,
-          "postID": 84972400
+        "1643484728076": {
+          "threadID": 85435648,
+          "postID": 85445867
         }
       }
     },
