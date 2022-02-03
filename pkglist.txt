@@ -1,0 +1,6 @@
+zsh
+zathura
+ranger
+neovim
+vim
+
