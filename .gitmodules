@@ -22,3 +22,24 @@
 [submodule ".local/etc/chromium/extensions/ClearURLs"]
 	path = .local/etc/chromium/extensions/ClearURLs
 	url = https://github.com/ClearURLs/Addon
+[submodule ".local/etc/chromium/extensions/DarkReader"]
+	path = .local/etc/chromium/extensions/DarkReader
+	url = https://github.com/darkreader/darkreader
+[submodule ".local/etc/chromium/extensions/SearchByImage"]
+	path = .local/etc/chromium/extensions/SearchByImage
+	url = https://github.com/dessant/search-by-image
+[submodule ".local/etc/chromium/extensions/uBlock"]
+	path = .local/etc/chromium/extensions/uBlock
+	url = https://github.com/gorhill/uBlock
+[submodule ".local/etc/chromium/extensions/UniversalBypass"]
+	path = .local/etc/chromium/extensions/UniversalBypass
+	url = https://github.com/Sainan/Universal-Bypass
+[submodule ".local/etc/chromium/extensions/UserAgentSwitcher"]
+	path = .local/etc/chromium/extensions/UserAgentSwitcher
+	url = https://github.com/ray-lothian/UserAgent-Switcher
+[submodule ".local/etc/chromium/extensions/ViolentMonkey"]
+	path = .local/etc/chromium/extensions/ViolentMonkey
+	url = https://github.com/violentmonkey/violentmonkey
+[submodule ".local/etc/chromium/extensions/WebRTCLeakPreventToggle"]
+	path = .local/etc/chromium/extensions/WebRTCLeakPreventToggle
+	url = https://github.com/aghorler/WebRTC-Leak-Prevent-Toggle
