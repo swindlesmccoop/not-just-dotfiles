@@ -1,6 +1,3 @@
-[submodule "etc/chromium/extensions/AutoScroll"]
-	path = .local/etc/chromium/extensions/AutoScroll
-	url = https://github.com/Pauan/AutoScroll
 [submodule "etc/chromium/extensions/buster"]
 	path = .local/etc/chromium/extensions/buster
 	url = https://github.com/dessant/buster
