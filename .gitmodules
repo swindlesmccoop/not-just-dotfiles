@@ -19,3 +19,6 @@
 [submodule ".local/etc/chromium/extensions/AutoScroll"]
 	path = .local/etc/chromium/extensions/AutoScroll
 	url = https://github.com/Pauan/AutoScroll
+[submodule ".local/etc/chromium/extensions/ClearURLs"]
+	path = .local/etc/chromium/extensions/ClearURLs
+	url = https://github.com/ClearURLs/Addon
