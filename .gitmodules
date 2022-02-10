@@ -1,3 +1,18 @@
 [submodule "etc/chromium/extensions/vimium"]
-	path = etc/chromium/extensions/vimium
+	path = .local/etc/chromium/extensions/vimium
 	url = https://github.com/philc/vimium.git
+[submodule "etc/chromium/extensions/AutoScroll"]
+	path = .local/etc/chromium/extensions/AutoScroll
+	url = https://github.com/Pauan/AutoScroll
+[submodule "etc/chromium/extensions/buster"]
+	path = .local/etc/chromium/extensions/buster
+	url = https://github.com/dessant/buster
+[submodule ".local/etc/chromium/extensions/chromium-web-store"]
+	path = .local/etc/chromium/extensions/chromium-web-store
+	url = https://github.com/NeverDecaf/chromium-web-store
+[submodule ".local/etc/chromium/extensions/Addon"]
+	path = .local/etc/chromium/extensions/Addon
+	url = https://github.com/ClearURLs/Addon
+[submodule ".local/etc/chromium/extensions/Vimium"]
+	path = .local/etc/chromium/extensions/Vimium
+	url = https://github.com/philc/Vimium
