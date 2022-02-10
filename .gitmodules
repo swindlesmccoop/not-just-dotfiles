@@ -13,3 +13,9 @@
 [submodule ".local/etc/chromium/extensions/Vimium"]
 	path = .local/etc/chromium/extensions/Vimium
 	url = https://github.com/philc/Vimium
+[submodule ".local/etc/chromium/extensions/stylus"]
+	path = .local/etc/chromium/extensions/stylus
+	url = https://github.com/openstyles/stylus
+[submodule ".local/etc/chromium/extensions/LocalCDN"]
+	path = .local/etc/chromium/extensions/LocalCDN
+	url = https://codeberg.org/nobody/LocalCDN.git
