@@ -1,0 +1,1 @@
+Go to the extensions menu, enable Developer Options, load unpacked extension, and navigate into one of the directories and select it. If there's an error, just zip up the directory and rename the extension to .crx
