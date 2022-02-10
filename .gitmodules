@@ -1,0 +1,3 @@
+[submodule "etc/chromium/extensions/vimium"]
+	path = etc/chromium/extensions/vimium
+	url = https://github.com/philc/vimium.git

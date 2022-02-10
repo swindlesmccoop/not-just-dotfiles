@@ -23,10 +23,10 @@ if [ $DISTRO = ubuntu ]; then
 fi
 
 #actually deploying dotfiles
-sudo sh -c "echo 'ZDOTDIR=$HOME/.config/zsh' >> /etc/zsh/zshenv"
-
-link zshrc "$HOME/.config/zsh/.zshrc"
-link aliases.zsh "$HOME/.config/zsh/aliases.zsh"
-link init.vim "$HOME/.config/neovim/init.vim"
-link rc.conf "$HOME/.config/ranger/rc.conf"
-link zathurarc "$HOME/.config/zathura/zathurarc"
+#sudo sh -c "echo 'ZDOTDIR=$HOME/.config/zsh' >> /etc/zsh/zshenv"
+#
+#link zshrc "$HOME/.config/zsh/.zshrc"
+#link aliases.zsh "$HOME/.config/zsh/aliases.zsh"
+#link init.vim "$HOME/.config/neovim/init.vim"
+#link rc.conf "$HOME/.config/ranger/rc.conf"
+#link zathurarc "$HOME/.config/zathura/zathurarc"
