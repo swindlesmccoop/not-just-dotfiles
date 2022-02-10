@@ -1,4 +1,4 @@
-[submodule "etc/chromium/extensions/buster"]
+[submodule ".local/etc/chromium/extensions/buster"]
 	path = .local/etc/chromium/extensions/buster
 	url = https://github.com/dessant/buster
 [submodule ".local/etc/chromium/extensions/chromium-web-store"]
@@ -16,3 +16,6 @@
 [submodule ".local/etc/chromium/extensions/LocalCDN"]
 	path = .local/etc/chromium/extensions/LocalCDN
 	url = https://codeberg.org/nobody/LocalCDN.git
+[submodule ".local/etc/chromium/extensions/AutoScroll"]
+	path = .local/etc/chromium/extensions/AutoScroll
+	url = https://github.com/Pauan/AutoScroll
