@@ -43,3 +43,6 @@
 [submodule ".local/etc/chromium/extensions/WebRTCLeakPreventToggle"]
 	path = .local/etc/chromium/extensions/WebRTCLeakPreventToggle
 	url = https://github.com/aghorler/WebRTC-Leak-Prevent-Toggle
+[submodule ".local/etc/chromium/extensions/audio-only-youtube"]
+	path = .local/etc/chromium/extensions/audio-only-youtube
+	url = https://github.com/Ashish-Bansal/audio-only-youtube
