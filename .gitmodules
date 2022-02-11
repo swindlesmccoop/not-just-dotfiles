@@ -1,6 +1,3 @@
-[submodule ".local/etc/chromium/extensions/buster"]
-	path = .local/etc/chromium/extensions/buster
-	url = https://github.com/dessant/buster
 [submodule ".local/etc/chromium/extensions/chromium-web-store"]
 	path = .local/etc/chromium/extensions/chromium-web-store
 	url = https://github.com/NeverDecaf/chromium-web-store
