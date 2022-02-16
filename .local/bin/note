@@ -1,0 +1,7 @@
+#!/bin/bash
+
+vim /tmp/note_temp
+echo "[$(date | sed 's/ UTC//g' | sed 's/ EST//g')]" >> ~/.notes
+cat /tmp/note_temp >> ~/.notes
+echo "" >> ~/.notes
+rm /tmp/note_temp

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ "$(git status | head -n 1)" = "On branch master" ]; then
+	echo "You are already racist!!1!!!11!!"
+	exit 1
+fi
+
+#do the actual thing
+git branch -m main master
+git push -u origin master
+
+echo "You are now racist!!!1!!!11!!!!1!!!!11!!!"

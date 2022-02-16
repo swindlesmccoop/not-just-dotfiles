@@ -1,0 +1,7 @@
+#!/bin/sh
+
+alias open="konsole --hold -e"
+
+open neofetch &
+desktopgirls &
+chromium https://4chan.org/g/desktop &

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+function disp {
+	sxiv -q "$(find "$HOME/images/girls" -type f | shuf -n 1)" &
+}
+
+function unset {
+	echo "How many girls shall I populate the screen with?"
+	read -r COUNT
+	populate "$@"
+}
+
+function populate {
+	if [ -z ${COUNT+x} ]; then
+	for i in $(seq "$1"); do
+		disp
+	done
+	else
+	for i in $(seq "$COUNT"); do
+		disp
+	done
+#i want to add xdotool integration
+	fi
+}
+
+case "$1" in
+	kill) killall sxiv && exit 1 ;;
+esac
+
+if [ -z ${1+x} ]; then
+	unset "$@"
+else populate "$@"
+fi

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+printf "IP Address: "
+curl -s https://am.i.mullvad.net/ip
+
+printf "Location: "
+CITY=$(curl -s https://am.i.mullvad.net/city)
+COUNTRY=$(curl -s https://am.i.mullvad.net/country)
+printf "$CITY, $COUNTRY\n"
