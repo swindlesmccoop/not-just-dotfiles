@@ -1,16 +1,16 @@
-#!/bin/bash
+#!/bin/sh
 
-function disp {
+disp () {
 	sxiv -q "$(find "$HOME/images/girls" -type f | shuf -n 1)" &
 }
 
-function unset {
+varunset () {
 	echo "How many girls shall I populate the screen with?"
 	read -r COUNT
 	populate "$@"
 }
 
-function populate {
+populate () {
 	if [ -z ${COUNT+x} ]; then
 	for i in $(seq "$1"); do
 		disp
@@ -19,15 +19,15 @@ function populate {
 	for i in $(seq "$COUNT"); do
 		disp
 	done
-#i want to add xdotool integration
+	#i want to add xdotool integration
 	fi
 }
 
 case "$1" in
-	kill) killall sxiv && exit 1 ;;
+	killit) killall sxiv && exit 1 ;;
 esac
 
 if [ -z ${1+x} ]; then
-	unset "$@"
+	varunset "$@"
 else populate "$@"
 fi
