@@ -78,10 +78,17 @@ au FileType * execute "setlocal dict+=/usr/share/dict/words".&filetype.'.txt'
 autocmd BufNewFile,BufRead *.txt set spell
 
 "traditional copy paste commands using device register
-vnoremap <C-C> "*y :let @+=@*<CR>
-map <C-V> "+P"
+vnoremap <C-C> "*y :let @+=@*<CR>"
+map <S-Insert> "+P"
 
-"syntax highlighting for various configs
+"enforce h and l movement in normal mode
+nnoremap <Left>  :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+
+"map p to P since p sucks
+map p P
+
+"syntax highlighting for various file formats
 autocmd BufNewFile,BufRead *.bashrc,*.zsh*,zshrc,*.khotkeys,*.kksrc,pacman.conf set syntax=bash
 autocmd BufNewFile,BufRead rc.conf,zathurarc set syntax=vim
 autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
