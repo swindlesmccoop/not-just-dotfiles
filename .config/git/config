@@ -1,0 +1,9 @@
+[user]
+	email = swindlesmccoop@waifu.club
+	name = swindlesmccoop
+[core]
+	editor = vim
+[init]
+	defaultBranch = master
+[credential]
+        helper = store
