@@ -6,7 +6,8 @@ if [ "$(git status | head -n 1)" = "On branch master" ]; then
 fi
 
 #do the actual thing
+git config --global init.defaultBranch master
 git branch -m main master
 git push -u origin master
-
+git push origin --delete main
 echo "You are now racist!!!1!!!11!!!!1!!!!11!!!"
