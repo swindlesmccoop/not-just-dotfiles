@@ -1,14 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 
-function randomize {
+randomize () {
 	while true; do
 	ln -s --force "$(find $PWD -type f | shuf -n 1)" Random.png
 	sleep 1
 	done
 }
 
-if [ $(basename "$PWD") == "Highways" ]; then
-  randomize
+if [ $(basename "$PWD") = "Highways" ]; then
+	randomize
 else
-  echo "This script must be run inside of you Highways directory to keep it platform agnostic."
+	echo "This script must be run inside of you Highways directory to keep it platform agnostic."
 fi

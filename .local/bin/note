@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 vim /tmp/note_temp
 echo "[$(date | sed 's/ UTC//g' | sed 's/ EST//g')]" >> ~/.notes
