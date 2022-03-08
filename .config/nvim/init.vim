@@ -45,7 +45,7 @@ endif
 set noerrorbells visualbell t_vb=
 
 "enable mouse
-set mouse+=a
+"set mouse+=a
 
 "4 space wide tab characters
 set shiftwidth=0
