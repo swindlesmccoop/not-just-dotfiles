@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if echo $1 | grep .png; then
+	sxiv "$1" && exit
+fi
+
+if echo $1 | grep .jpg; then
+	sxiv "$1" && exit
+fi
+
+if echo $1 | grep .gif; then
+	sxiv "$1" && exit
+fi
+
+vim "$1"
