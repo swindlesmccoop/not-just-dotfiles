@@ -8,40 +8,8 @@ set hidden
 set ignorecase
 set smartcase
 set incsearch
-
-"plugin stuff
+let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 filetype plugin on
-if filereadable('~/.local/share/nvim/site/autoload/plug.vim')
-	call plug#begin('~/.local/share/nvim/site/autoload/plug.vim')
-		Plug 'vimwiki/vimwiki'
-		Plug 'tpope/vim-surround'
-			Plug 'ryanoasis/vim-devicons'
-		Plug 'junegunn/goyo.vim'
-		Plug 'vim-airline/vim-airline'
-			Plug 'vim-airline/vim-airline-themes'
-		Plug 'tpope/vim-commentary'
-		Plug 'psliwka/vim-smoothie'
-		Plug 'ThePrimeagen/vim-apm'
-		Plug 'alec-gibson/nvim-tetris'
-		Plug 'seandewar/nvimesweeper'
-		Plug 'ThePrimeagen/vim-be-good'
-			Plug 'adelarsq/vim-devicons-emoji'
-			Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-		Plug 'ggandor/lightspeed.nvim'
-		Plug 'andweeb/presence.nvim'
-		Plug 'Xuyuanp/scrollbar.nvim'
-		
-		"scroll bar config
-		augroup ScrollbarInit
-			autocmd!
-			autocmd WinScrolled,VimResized,QuitPre * silent! lua require('scrollbar').show()
-			autocmd WinEnter,FocusGained		   * silent! lua require('scrollbar').show()
-			autocmd WinLeave,BufLeave,BufWinLeave,FocusLost			* silent! lua require('scrollbar').clear()
-		augroup END
-	call plug#end()
-endif
-
-"no sound
 set noerrorbells visualbell t_vb=
 
 "enable mouse
@@ -62,8 +30,23 @@ nmap Q <Nop>
 "run script in shellcheck
 map <leader>s :!clear && shellcheck -x %<CR>
 
+nnoremap cl S<Esc>
+
 "shift+s enables sed mode
 nnoremap S :%s//g<Left><Left>
+
+"some 'macros'
+nnoremap css i<link rel="stylesheet" href="/css/sitewide.css"><Esc>
+nnoremap h1 i<h1></h1><Left><Left><Left><Left><Left>
+nnoremap h2 i<h1></h1><Left><Left><Left><Left><Left>
+nnoremap h3 i<h1></h1><Left><Left><Left><Left><Left>
+nnoremap br a<br><Esc>
+nnoremap <C-S-R> :source ~/.config/vim/vimrc<Enter>
+nnoremap "l I"<Esc>
+nnoremap #l I#<Esc>
+
+"disable automatic commenting on newline
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 "set relative numbers while editing and absolute while not
 set number
@@ -73,13 +56,29 @@ augroup numbertoggle
 	autocmd BufLeave,FocusLost,InsertEnter,WinLeave * if &nu | set rnu | endif
 augroup END
 
-"spell check for .txt files only
-au FileType * execute "setlocal dict+=/usr/share/dict/words".&filetype.'.txt'
-autocmd BufNewFile,BufRead *.txt set spell
+"toggle spell check
+map <leader>sc :setlocal spell! spelllang=en_us<CR>
+
+"fix command mistakes
+cnoremap qw wq
+cnoremap Wq wq
+cnoremap WQ wq
+cnoremap Q q
+cnoremap Q! q!
+
+"delete trailing whitespace and newlines at end of file on save
+autocmd BufWritePre * let currPos = getpos(".")
+autocmd BufWritePre * %s/\s\+$//e
+autocmd BufWritePre * %s/\n\+\%$//e
+autocmd BufWritePre *.[ch] %s/\%$/\r/e
+
+"perform dot commands on visual blocks
+vnoremap . :normal .<CR>
 
 "traditional copy paste commands using device register
 vnoremap <C-C> "*y :let @+=@*<CR>"
 map <S-Insert> "+P"
+map <C-Shift-V> "+P"
 
 "enforce h and l movement in normal mode
 nnoremap <Left>  :echoe "Use h"<CR>
@@ -87,6 +86,18 @@ nnoremap <Right> :echoe "Use l"<CR>
 
 "map p to P since p sucks
 map p P
+
+"let arrow keys always be g<Arrow>
+map <Up> g<Up>
+map <Down> g<Down>
+vnoremap j gj
+vnoremap k gk
+
+"arrow key shift movement is nice
+map H b
+map L w
+map J <S-Down>
+map K <S-Up>
 
 "syntax highlighting for various file formats
 autocmd BufNewFile,BufRead *.bashrc,*.zsh*,zshrc,*.khotkeys,*.kksrc,pacman.conf set syntax=bash

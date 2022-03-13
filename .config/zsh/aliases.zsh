@@ -16,8 +16,7 @@ alias sitedl="wget --recursive --domains swindlesmccoop.xyz --page-requisites sw
 alias syyu="pacman -Syyu"
 alias timeset="date -s '[DAY] [MONTH] [YEAR] [HOURS]:[MINUTES]:[SECONDS]'"
 alias vi="vim"
-alias vi=nvim
-alias vim=nvim
+alias nvim="vim"
 alias yay=paru
 
 #petscii type aliases
@@ -31,7 +30,7 @@ alias pacman.conf="sudo vim /etc/pacman.conf"
 alias preview="sddm-greeter --test-mode --theme"
 alias sddm.conf="sudo vim /etc/sddm.conf"
 alias sudoers="visudo"
-alias vimrc="vim ~/.config/nvim/init.vim"
+alias vimrc="vim ~/.config/vim/vimrc"
 alias zshrc="vim ~/.config/zsh/.zshrc"
 
 #git aliases
@@ -55,4 +54,3 @@ alias ytdl="youtube-dl"
 for command in mount umount sv visudo pacman updatedb su shutdown poweroff reboot ; do
 	alias $command="sudo $command"
 done; unset command
-

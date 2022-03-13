@@ -2,8 +2,8 @@
 	email = swindlesmccoop@waifu.club
 	name = swindlesmccoop
 [core]
-	editor = nvim
+	editor = vim
 [init]
 	defaultBranch = master
 [credential]
-        helper = store
+	helper = store

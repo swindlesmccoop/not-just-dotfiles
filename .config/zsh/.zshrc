@@ -1,11 +1,12 @@
 #options
 setopt autocd
 setopt interactive_comments
-EDITOR=nvim
+EDITOR=vim
 BROWSER=chromium
 
-#have zsh respect xdg
+#make programs respect xdg
 export ZDOTDIR=$HOME/.config/zsh
+export VIMINIT="set nocp | source ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc"
 
 #history stuff
 HISTFILE=$HOME/.config/zsh/.zsh_history
