@@ -37,9 +37,6 @@ nnoremap S :%s//g<Left><Left>
 
 "some 'macros'
 nnoremap css i<link rel="stylesheet" href="/css/sitewide.css"><Esc>
-nnoremap h1 i<h1></h1><Left><Left><Left><Left><Left>
-nnoremap h2 i<h1></h1><Left><Left><Left><Left><Left>
-nnoremap h3 i<h1></h1><Left><Left><Left><Left><Left>
 nnoremap br a<br><Esc>
 nnoremap <C-S-R> :source ~/.config/vim/vimrc<Enter>
 nnoremap "l I"<Esc>
