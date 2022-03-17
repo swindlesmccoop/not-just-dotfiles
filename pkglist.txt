@@ -1,6 +1,5 @@
 zsh
 zathura
 ranger
-neovim
 vim
-
+newsboat
