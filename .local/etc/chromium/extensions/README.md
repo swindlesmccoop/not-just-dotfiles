@@ -3,7 +3,7 @@
 2. Enable Developer Mode
 3. Clone the repo of any of the extensions you want to enable
 4. Click "Load unpacked extension"
-5. Navigate into the clone directory of the extension you want to load. Note: some extensions may have the actual extension code inside of something like `src/`. As long as the folder you select has a file named `manifest.json`, you should be able to use it just fine.
+5. Navigate into the clone directory of the extension you want to load. Note: some extensions may have the actual extension code inside of something like `src/`. As long as the folder you select has a file named `manifest.json`, you should be able to use it just fine.\
 5a. If loading the extension fails, zip up the folder containing the `manifest.json` and rename the extension to `.crx`. Then, load the packed extension.
 
 # List of extensions and their functions
