@@ -51,7 +51,7 @@ alias yta="yt -x -f bestaudio/best"
 alias ytdl="youtube-dl"
 
 #replace root-only commands with sudo [command]
-if [ -f /bin/sudo ];
+if [ -f /bin/sudo ]; then
 	for command in mount umount sv visudo pacman updatedb su shutdown poweroff reboot ; do
 		alias $command="sudo $command"
 	done; unset command
