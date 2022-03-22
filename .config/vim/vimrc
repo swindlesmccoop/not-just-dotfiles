@@ -12,9 +12,6 @@ let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 filetype plugin on
 set noerrorbells visualbell t_vb=
 
-"enable mouse
-"set mouse+=a
-
 "4 space wide tab characters
 set shiftwidth=0
 set tabstop=4
@@ -36,9 +33,7 @@ nnoremap cl S<Esc>
 nnoremap S :%s//g<Left><Left>
 
 "some 'macros'
-nnoremap css i<link rel="stylesheet" href="/css/sitewide.css"><Esc>
-nnoremap br a<br><Esc>
-nnoremap <C-S-R> :source ~/.config/vim/vimrc<Enter>
+nnoremap <Leader>so :source ~/.config/vim/vimrc<Enter>
 nnoremap "l I"<Esc>
 nnoremap #l I#<Esc>
 
@@ -78,8 +73,8 @@ map <S-Insert> "+P"
 map <C-Shift-V> "+P"
 
 "enforce h and l movement in normal mode
-nnoremap <Left>  :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Left> :echo ""<Enter>
+nnoremap <Right> :echo ""<Enter>
 
 "map p to P since p sucks
 map p P
@@ -91,8 +86,8 @@ vnoremap j gj
 vnoremap k gk
 
 "arrow key shift movement is nice
-map H b
-map L w
+map H <S-Left>
+map L <S-Right>
 map J <S-Down>
 map K <S-Up>
 
@@ -101,3 +96,17 @@ autocmd BufNewFile,BufRead *.bashrc,*.zsh*,zshrc,*.khotkeys,*.kksrc,pacman.conf 
 autocmd BufNewFile,BufRead rc.conf,zathurarc set syntax=vim
 autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 autocmd BufRead,BufNewFile *.tex set filetype=tex
+
+"file specific shortcuts
+autocmd BufNewFile *.html norm i<!DOCTYPE html>
+
+if &filetype ==# 'html'
+	nnoremap css i<link rel="stylesheet" href="/css/sitewide.css"><Esc>
+	nnoremap br a<br><Esc>
+	inoremap <F5> <C-R>=strftime("%b %d, %Y")<CR>
+endif
+
+if &filetype ==# 'sh'
+	nnoremap case icase "$1" in<Enter><Tab>-h) <Enter><Esc>!!basename %<Enter>i<Backspace><Esc>A_help ;; #make sure to include "$@" on other functions<Enter><Esc>Iesac<Esc>
+	nnoremap <Leader>binsh ggI<Enter><Up>#!/bin/sh<Esc>
+endif
