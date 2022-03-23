@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+
+read -r -p "Title: " TITLE
+read -r -p "File name: " FILENAME
+
+touch "$FILENAME"
+printf "<!DOCTYPE html>\n\n<title>$TITLE</title>\n<link rel="stylesheet" href="/css/blog.css">\n\n<h1>$TITLE</h1>\n<p>\n\n</p>" > "$FILENAME"
+vim -c ":norm Gki" "$FILENAME"
