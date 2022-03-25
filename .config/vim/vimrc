@@ -12,6 +12,10 @@ let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 filetype plugin on
 set noerrorbells visualbell t_vb=
 
+"start in normal mode always
+set t_u7=
+set ambw=double
+
 "4 space wide tab characters
 set shiftwidth=0
 set tabstop=4
