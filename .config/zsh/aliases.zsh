@@ -1,3 +1,13 @@
+#one-liners
+vimcurl () {
+	curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.109 Safari/537.36" -sL "$1" | vim - -c set ro
+}
+search () {
+	filehandler "$(du -a $PWD/ | awk '{print $2}' | fzf)"
+}
+se () {
+	filehandler "$(du -a $HOME/.local/bin/ $HOME/.scripts/ | awk '{print $2}' | fzf)"
+}
 #general aliases
 alias ":q"="exit"
 alias c="clear"
@@ -44,6 +54,7 @@ alias claer="clear"
 alias clare="clear"
 alias cleae="clear"
 alias clera="clear"
+alias ="clear"
 
 #youtube-dl
 alias mp3="youtube-dl --audio-format mp3 -k"
