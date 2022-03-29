@@ -21,7 +21,7 @@ setopt appendhistory
 VITASDK=/usr/local/vitasdk
 
 #path
-PATH=$VITASDK/bin:$PATH:/$HOME/.local/bin:$HOME/scripts:$HOME/scripts/bin:$HOME/scripts/swindlesmccoop
+PATH=$VITASDK/bin:$PATH:/$HOME/.local/bin:$HOME/scripts:$HOME/scripts/bin:$HOME/scripts/swindlesmccoop:$HOME/not-just-dotfiles/.local/bin
 
 #colors and stuff
 autoload -U colors && colors
@@ -100,8 +100,8 @@ zstyle ':completion:*:man:*'      menu yes select
 
 #have to have this function twice so aliases expand when pressing enter AND space
 function expand-alias() {
-        zle _expand_alias
-        zle self-insert
+    zle _expand_alias
+	zle self-insert
 }
 zle -N expand-alias
 bindkey -M main ' ' expand-alias
