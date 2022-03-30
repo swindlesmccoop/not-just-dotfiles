@@ -4,6 +4,7 @@ set nocompatible
 set shortmess+=I
 set number
 set backspace=indent,eol,start
+set smartindent
 set hidden
 set ignorecase
 set smartcase
@@ -11,6 +12,10 @@ set incsearch
 let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 filetype plugin on
 set noerrorbells visualbell t_vb=
+
+"always start in normal mode
+set t_u7=
+set ambw=double
 
 "4 space wide tab characters
 set shiftwidth=0
@@ -36,6 +41,8 @@ nnoremap S :%s//g<Left><Left>
 nnoremap <Leader>so :source ~/.config/vim/vimrc<Enter>
 nnoremap "l I"<Esc>
 nnoremap #l I#<Esc>
+
+"real macros
 
 "disable automatic commenting on newline
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -97,13 +104,14 @@ autocmd BufNewFile,BufRead rc.conf,zathurarc set syntax=vim
 autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 autocmd BufRead,BufNewFile *.tex set filetype=tex
 
-"file specific shortcuts
+"file specific shortcuts and macros
 autocmd BufNewFile *.html norm i<!DOCTYPE html>
 
 if &filetype ==# 'html'
 	nnoremap css i<link rel="stylesheet" href="/css/sitewide.css"><Esc>
 	nnoremap br a<br><Esc>
 	inoremap <F5> <C-R>=strftime("%b %d, %Y")<CR>
+	let @a='i<a href="">link</a>9hi'
 endif
 
 if &filetype ==# 'sh'
