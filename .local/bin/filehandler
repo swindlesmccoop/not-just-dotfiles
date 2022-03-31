@@ -1,12 +1,11 @@
 #!/bin/sh
-
-[ -z "$1" ] && exit
-
-[ $(echo "$1" | grep .png) ] && sxiv "$1" && exit
-[ $(echo "$1" | grep .jpg) ] && sxiv "$1" && exit
-[ $(echo "$1" | grep .gif) ] && sxiv "$1" && exit
-
-[ $(echo "$1" | grep .psd) ] && gimp "$1" && exit
-[ $(echo "$1" | grep .xcf) ] && gimp "$1" && exit
-
-vim $1
+[ $# -eq 0 ] && echo 'Usage: filehandler (file)' && exit
+[ -z $1 ] && echo 'Usage: filehandler (file)' && exit
+case "$1" in
+	*.png) sxiv "$1" ;;
+	*.jpg) sxiv "$1" ;;
+	*.gif) sxiv "$1" ;;
+	*.psd) gimp "$1" ;;
+	*.xcf) gimp "$1" ;;
+	*) vim "$1" ;;
+esac
