@@ -3,13 +3,11 @@ setopt autocd
 setopt interactive_comments
 EDITOR=vim
 BROWSER=chromium
+FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 
 #make programs respect xdg
 export ZDOTDIR=$HOME/.config/zsh
 export VIMINIT="set nocp | source ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc"
-
-source "$HOME/.config/zsh/key-bindings.zsh"
-source "$HOME/.config/zsh/completion.zsh"
 
 #history stuff
 HISTFILE=$HOME/.config/zsh/.zsh_history

@@ -1,26 +1,15 @@
 #one-liners
-vimcurl () {
-	curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.109 Safari/537.36" -sL "$1" | vim - -c set ro
-}
-search () {
-	filehandler "$(du -a $PWD/ | awk '{print $2}' | fzf)"
-}
-se () {
-	filehandler "$(du -a $HOME/.local/bin/ $HOME/.scripts/ | awk '{print $2}' | fzf)"
-}
+vimcurl () {curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.109 Safari/537.36" -sL "$1" | vim -}
+search () {filehandler "$(du -a $PWD/ | awk '{print $2}' | fzf --layout=reverse --height 40%)"}
+scripts () {filehandler "$(du -a $HOME/.local/bin/ | awk '{print $2}' | fzf --layout=reverse --height 40%)"}
+downloads () {filehandler "$(du -a $HOME/downloads/ | awk '{print $2}' | fzf --layout=reverse --height 40%)"}
+
 #general aliases
+alias enc="gpg -c --cipher-algo AES256"
 alias ":q"="exit"
 alias c="clear"
-alias enc="gpg -c --no-symkey-cache --cipher-algo AES256"
 alias flac-mp3="flac2mp3 -b 320 *.flac"
-alias gdl="gdrive download"
-alias home="cd ~"
-alias install="paru -S"
-alias p="paru -S"
 alias pms="paru -S"
-alias py3="python3"
-alias py="python"
-alias scrape="python3 ~/scripts/4chan-downloader/inb4404.py"
 alias sentra="cp *.mp3 /run/media/swindles/SENTRA/"
 alias sitedl="wget --recursive --domains swindlesmccoop.xyz --page-requisites swindlesmccoop.xyz"
 alias syyu="pacman -Syyu"
