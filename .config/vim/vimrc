@@ -99,7 +99,7 @@ map J <S-Down>
 map K <S-Up>
 
 "syntax highlighting for various file formats
-autocmd BufNewFile,BufRead *.bashrc,*.zsh*,zshrc,*.khotkeys,*.kksrc,pacman.conf set syntax=bash
+autocmd BufNewFile,BufRead *.bashrc,*.zsh*,.zshrc,*.khotkeys,*.kksrc,pacman.conf set syntax=bash
 autocmd BufNewFile,BufRead rc.conf,zathurarc set syntax=vim
 autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 autocmd BufRead,BufNewFile *.tex set filetype=tex
