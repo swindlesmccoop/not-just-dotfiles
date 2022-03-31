@@ -3,7 +3,6 @@ setopt autocd
 setopt interactive_comments
 EDITOR=vim
 BROWSER=chromium
-FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 
 #make programs respect xdg
 export ZDOTDIR=$HOME/.config/zsh
