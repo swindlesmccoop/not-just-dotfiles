@@ -1,8 +1,9 @@
 #one-liners
 vimcurl () {curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.109 Safari/537.36" -sL "$1" | vim -}
-search () {filehandler "$(du -a "$PWD/" --exclude="*/.cache/*" --exclude="*/.git/*"| awk '{print $2}' | fzf --layout=reverse --height 40%)"}
-scripts () {filehandler "$(du -a $HOME/.local/bin/ | awk '{print $2}' | fzf --layout=reverse --height 40%)"}
-downloads () {filehandler "$(du -a $HOME/downloads/ | awk '{print $2}' | fzf --layout=reverse --height 40%)"}
+search () {filehandler "$(du -a "$PWD/" --exclude="*/.cache/*" --exclude="*/.git/*" | awk '{$1=""}1' | fzf --layout=reverse --height 40%)"}
+scripts () {filehandler "$(du -a $HOME/.local/bin/ | awk '{$1=""}1' | fzf --layout=reverse --height 40%)"}
+downloads () {filehandler "$(du -a $HOME/downloads/ | awk '{$1=""}1' | fzf --layout=reverse --height 40%)"}
+edscript () {vim "$(where "$1" | head -n 1)"}
 
 #general aliases
 alias enc="gpg -c --cipher-algo AES256"
@@ -17,6 +18,7 @@ alias timeset="sudo date -s '[DAY] [MONTH] [YEAR] [HOURS]:[MINUTES]:[SECONDS]'"
 alias vi="vim"
 alias nvim="vim"
 alias yay=paru
+alias yt="yt-dlp"
 
 #petscii type aliases
 alias cL="clear"
@@ -31,6 +33,7 @@ alias sddm.conf="sudo vim /etc/sddm.conf"
 alias sudoers="visudo"
 alias vimrc="vim ~/.config/vim/vimrc"
 alias zshrc="vim ~/.config/zsh/.zshrc"
+alias aliases="vim ~/.config/zsh/aliases.zsh"
 
 #git aliases
 alias gacap="git add . && git commit -a && git push"
@@ -46,9 +49,10 @@ alias clera="clear"
 alias ="clear"
 
 #youtube-dl
-alias mp3="youtube-dl --audio-format mp3 -k"
+alias mp3="yt --audio-format mp3 -k"
+alias ytdlp="yt"
 alias yta="yt -x -f bestaudio/best"
-alias ytdl="youtube-dl"
+alias ytdl="yt"
 
 #replace root-only commands with sudo [command]
 if [ -f /bin/sudo ]; then

@@ -1,11 +1,28 @@
 #!/bin/sh
+
+ziphandler () {
+	DIR="$(echo $1 | sed "s/.zip//")"
+	mkdir "$DIR"
+	mv "$1" "$DIR"
+	cd "$DIR"
+	unzip "$1"
+	rm "$1"
+	cd ..
+}
+
 [ $# -eq 0 ] && echo 'Usage: filehandler (file)' && exit
-[ -z $1 ] && echo 'Usage: filehandler (file)' && exit
+[ -z "$1" ] && echo 'Usage: filehandler (file)' && exit
 case "$1" in
 	*.png) sxiv "$1" ;;
 	*.jpg) sxiv "$1" ;;
 	*.gif) sxiv "$1" ;;
 	*.psd) gimp "$1" ;;
 	*.xcf) gimp "$1" ;;
+	*.mp4) mpv "$1" ;;
+	*.ogv) mpv "$1" ;;
+	*.m4v) mpv "$1" ;;
+	*.mkv) mpv "$1" ;;
+	*.mov) mpv "$1" ;;
+	*.zip) ziphandler "$@" ;;
 	*) vim "$1" ;;
 esac
