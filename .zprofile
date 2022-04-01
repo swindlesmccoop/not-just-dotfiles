@@ -1,0 +1,1 @@
+/home/nt-user/workspace/not-just-dotfiles/.config/zsh/zprofile
