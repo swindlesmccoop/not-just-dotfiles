@@ -1,5 +1,0 @@
-zsh
-zathura
-ranger
-vim
-newsboat
