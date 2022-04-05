@@ -15,7 +15,6 @@ ziphandler () {
 case "$1" in
 	*.png) sxiv "$1" ;;
 	*.jpg) sxiv "$1" ;;
-	*.gif) sxiv "$1" ;;
 	*.psd) gimp "$1" ;;
 	*.xcf) gimp "$1" ;;
 	*.mp4) mpv "$1" ;;
@@ -23,6 +22,7 @@ case "$1" in
 	*.m4v) mpv "$1" ;;
 	*.mkv) mpv "$1" ;;
 	*.mov) mpv "$1" ;;
+	*.gif) mpv --loop-file=inf "$1" ;;
 	*.zip) ziphandler "$@" ;;
 	*) vim "$1" ;;
 esac
