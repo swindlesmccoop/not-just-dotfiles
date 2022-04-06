@@ -3,6 +3,7 @@ setopt autocd
 setopt interactive_comments
 EDITOR=vim
 BROWSER=chromium
+[ -d ~/.local/bin/terminal-flirt ] && FLIRTSCRIPT="$(command ls ~/.local/bin/terminal-flirt/*.sh | shuf -n 1)" && preexec () { "$FLIRTSCRIPT" }
 
 #make programs respect xdg
 export ZDOTDIR=$HOME/.config/zsh
@@ -84,7 +85,7 @@ zle-line-init() {
 }
 zle -N zle-line-init
 echo -ne '\e[6 q' #use steady beam on startup
-preexec() { echo -ne '\e[2 q' ;} #use steady block in vim
+#preexec() { echo -ne '\e[2 q' ;} #use steady block in vim
 
 #ctrl+e edits current line in vim
 autoload edit-command-line; zle -N edit-command-line
