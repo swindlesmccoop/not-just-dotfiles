@@ -17,6 +17,10 @@ set noerrorbells visualbell t_vb=
 set t_u7=
 set ambw=double
 
+"block for norm, beam for insert
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
 "4 space wide tab characters
 set shiftwidth=0
 set tabstop=4
