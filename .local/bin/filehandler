@@ -1,28 +1,29 @@
 #!/bin/sh
+#Handle files from stdin or argument. Used to select a file to handle from something like fzf.
 
 ziphandler () {
-	DIR="$(echo $1 | sed "s/.zip//")"
+	DIR="$(echo $INPUT | sed "s/.zip//")"
 	mkdir "$DIR"
-	mv "$1" "$DIR"
+	mv "$INPUT" "$DIR"
 	cd "$DIR"
-	unzip "$1"
-	rm "$1"
+	unzip "$INPUT"
+	rm "$INPUT"
 	cd ..
 }
 
-[ $# -eq 0 ] && echo 'Usage: filehandler (file)' && exit
-[ -z "$1" ] && echo 'Usage: filehandler (file)' && exit
-case "$1" in
-	*.png) sxiv "$1" ;;
-	*.jpg) sxiv "$1" ;;
-	*.psd) gimp "$1" ;;
-	*.xcf) gimp "$1" ;;
-	*.mp4) mpv "$1" ;;
-	*.ogv) mpv "$1" ;;
-	*.m4v) mpv "$1" ;;
-	*.mkv) mpv "$1" ;;
-	*.mov) mpv "$1" ;;
-	*.gif) mpv --loop-file=inf "$1" ;;
+[ -t 0 ] && INPUT="$1" || INPUT="$(cat)"
+[ -z "$INPUT" ] && echo 'Usage: filehandler (file)' && exit
+case "$INPUT" in
+	*.png) sxiv "$INPUT" ;;
+	*.jpg) sxiv "$INPUT" ;;
+	*.psd) gimp "$INPUT" ;;
+	*.xcf) gimp "$INPUT" ;;
+	*.mp4) mpv "$INPUT" ;;
+	*.ogv) mpv "$INPUT" ;;
+	*.m4v) mpv "$INPUT" ;;
+	*.mkv) mpv "$INPUT" ;;
+	*.mov) mpv "$INPUT" ;;
+	*.gif) mpv --loop-file=inf "$INPUT" ;;
 	*.zip) ziphandler "$@" ;;
-	*) vim "$1" ;;
+	*) vim "$INPUT" ;;
 esac
