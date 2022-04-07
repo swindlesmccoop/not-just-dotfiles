@@ -12,13 +12,7 @@ ziphandler () {
 }
 
 [ -t 0 ] && TYPE="ARG" || TYPE="STDIN"
-if [ "$TYPE" = "ARG" ]; then
-	INPUT="$1"
-	EDITCMD="vim"
-else
-	INPUT="$(cat)"
-	EDITCMD="vim -"
-fi
+[ "$TYPE" = "ARG" ] && INPUT="$1" || INPUT="$(cat)"
 
 [ -z "$INPUT" ] && echo 'Usage: filehandler (file)' && exit
 case "$INPUT" in
@@ -32,6 +26,8 @@ case "$INPUT" in
 	*.mkv) mpv "$INPUT" ;;
 	*.mov) mpv "$INPUT" ;;
 	*.gif) mpv --loop-file=inf "$INPUT" ;;
+	*.sh) sh "$INPUT" ;;
+	*.bash) bash "$INPUT" ;;
 	*.zip) ziphandler "$@" ;;
-	*) "$EDITCMD" "$INPUT" ;;
+	*) vim "$INPUT" --not-a-term ;;
 esac
