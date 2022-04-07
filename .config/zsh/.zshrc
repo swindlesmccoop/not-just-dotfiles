@@ -15,11 +15,9 @@ HISTSIZE=HISTSIZE
 SAVEHIST=10000000
 setopt appendhistory
 
-#vitasdk
-VITASDK=/usr/local/vitasdk
-
 #path
-PATH="$PATH:VITASDK/bin:/$HOME/.local/bin"
+VITASDK=/usr/local/vitasdk
+PATH="$PATH:$VITASDK/bin:/$HOME/.local/bin"
 for d in "$HOME/git/*"; do PATH="$PATH:$d"; done
 [ -d "$HOME/workspace/" ] && $(for d in "$HOME/workspace/git/*"; do PATH="$PATH:$d"; done)
 
@@ -121,3 +119,4 @@ zshplugins_android () {
     source /data/data/com.termux/files/usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh 2>/dev/null
 }
 uname -a | grep "Android" > /dev/null && zshplugins_android || zshplugins_pc
+stty sane
