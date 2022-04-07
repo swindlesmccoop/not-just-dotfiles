@@ -109,7 +109,8 @@ autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 autocmd BufRead,BufNewFile *.tex set filetype=tex
 
 "file specific shortcuts and macros
-autocmd BufNewFile *.html norm i<!DOCTYPE html>
+autocmd BufNewFile *.html norm i<!DOCTYPE html>
+autocmd BufNewFile *.sh norm i#!/bin/sh
 
 if &filetype ==# 'html'
 	nnoremap css i<link rel="stylesheet" href="/css/sitewide.css"><Esc>
