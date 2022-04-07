@@ -1,5 +1,5 @@
 #!/bin/sh
-
+#This starts to populate the screen with n number of anime girls
 disp () {
 	sxiv -q "$(find "$HOME/images/girls" -type f | shuf -n 1)" &
 }

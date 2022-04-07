@@ -1,4 +1,5 @@
 #!/bin/sh
+#Create a simple HTML template for me to easily type a blog post into, without having to worry about formatting or anything.
 set -e
 
 read -r -p "Title: " TITLE
