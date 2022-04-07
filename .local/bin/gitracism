@@ -1,4 +1,5 @@
 #!/bin/sh
+#Set branch to master and make sure all future branches are master
 
 if [ "$(git status | head -n 1)" = "On branch master" ]; then
 	echo "You are already racist!!1!!!11!!"
