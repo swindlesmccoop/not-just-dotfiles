@@ -11,7 +11,15 @@ ziphandler () {
 	cd ..
 }
 
-[ -t 0 ] && INPUT="$1" || INPUT="$(cat)"
+[ -t 0 ] && TYPE="ARG" || TYPE="STDIN"
+if [ "$TYPE" = "ARG" ]; then
+	INPUT="$1"
+	EDITCMD="vim"
+else
+	INPUT="$(cat)"
+	EDITCMD="vim -"
+fi
+
 [ -z "$INPUT" ] && echo 'Usage: filehandler (file)' && exit
 case "$INPUT" in
 	*.png) sxiv "$INPUT" ;;
@@ -25,5 +33,5 @@ case "$INPUT" in
 	*.mov) mpv "$INPUT" ;;
 	*.gif) mpv --loop-file=inf "$INPUT" ;;
 	*.zip) ziphandler "$@" ;;
-	*) vim "$INPUT" ;;
+	*) "$EDITCMD" "$INPUT" ;;
 esac
