@@ -19,7 +19,10 @@ setopt appendhistory
 VITASDK=/usr/local/vitasdk
 
 #path
-PATH=$VITASDK/bin:$PATH:/$HOME/.local/bin:$HOME/scripts:$HOME/scripts/bin:$HOME/scripts/swindlesmccoop:$HOME/not-just-dotfiles/.local/bin
+PATH="$PATH:VITASDK/bin:/$HOME/.local/bin"
+for d in "$HOME/git/*"; do
+    PATH="$PATH:$d"
+done
 
 #colors and stuff
 autoload -U colors && colors
