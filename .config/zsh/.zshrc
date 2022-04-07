@@ -20,9 +20,8 @@ VITASDK=/usr/local/vitasdk
 
 #path
 PATH="$PATH:VITASDK/bin:/$HOME/.local/bin"
-for d in "$HOME/git/*"; do
-    PATH="$PATH:$d"
-done
+for d in "$HOME/git/*"; do PATH="$PATH:$d"; done
+[ -d "$HOME/workspace/" ] && $(for d in "$HOME/workspace/git/*"; do PATH="$PATH:$d"; done)
 
 #colors and stuff
 autoload -U colors && colors
@@ -31,6 +30,7 @@ export LS_COLORS
 alias ls="ls -a --color"
 WALLPAPER=$HOME/.config/wall.jpg
 #wal -i $WALLPAPER > /dev/null 2>&1
+PS1="$fg[blue]%}(%D{%L:%M})%B[%{$fg[cyan]%}%n%  %{$fg[magenta]%}%~%{$fg[blue]%}]%{$reset_color%}%% "
 
 source $HOME/.config/zsh/aliases.zsh 2>&1 /dev/null
 
@@ -107,16 +107,14 @@ function expand-alias() {
 zle -N expand-alias
 bindkey -M main ' ' expand-alias
 
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-
 #determine platform and source syntax highlighting based on it
-function zshplugins_pc {
+zshplugins_pc () {
     source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
     source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
     source /usr/share/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh 2>/dev/null
     source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh 2>/dev/null
 }
-function zshplugins_android {
+zshplugins_android () {
     source /data/data/com.termux/files/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
     source /data/data/com.termux/files/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
     source /data/data/com.termux/files/usr/share/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh 2>/dev/null
