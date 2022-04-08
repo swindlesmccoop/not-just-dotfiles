@@ -1,8 +1,9 @@
 #one-liners
+alias fzfse="fzf --layout=reverse --height 40%"
 vimcurl () {curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.109 Safari/537.36" -sL "$1" | vim -}
-search () {filehandler "$(du -a "$PWD/" --exclude="*/.cache/*" --exclude="*/.git/*" | awk '{$1=""}1' | fzf --layout=reverse --height 40%)"}
-scripts () {filehandler "$(du -a $HOME/.local/bin/ | awk '{$1=""}1' | fzf --layout=reverse --height 40%)"}
-downloads () {filehandler "$(du -a $HOME/downloads/ | awk '{$1=""}1' | fzf --layout=reverse --height 40%)"}
+search () {filehandler "$(du -a "$PWD/" --exclude="*/.cache/*" --exclude="*/.git/*" | awk '{$1=""}1' | fzfse)"}
+scripts () {filehandler "$(command ls -1 "$HOME/.local/bin/" | fzfse)"}
+downloads () {filehandler "$(du -a "$HOME/downloads/" --exclude="*/.git/*" | awk '{$1=""}1' | fzfse)"}
 edscript () {vim "$(where "$1" | head -n 1)"}
 
 #general aliases
