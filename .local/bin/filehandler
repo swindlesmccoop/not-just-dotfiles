@@ -2,7 +2,7 @@
 #Handle files from stdin or argument. Used to select a file to handle from something like fzf.
 
 ziphandler () {
-	DIR="$(echo $INPUT | sed "s/.zip//")"
+	DIR="$(echo "$INPUT" | sed "s/.zip//")"
 	mkdir "$DIR"
 	mv "$INPUT" "$DIR"
 	cd "$DIR"
@@ -13,6 +13,8 @@ ziphandler () {
 
 [ -t 0 ] && TYPE="ARG" || TYPE="STDIN"
 [ "$TYPE" = "ARG" ] && INPUT="$1" || INPUT="$(cat)"
+
+INPUT="$(echo "$INPUT" | sed 's/ //')"
 
 [ -z "$INPUT" ] && echo 'Usage: filehandler (file)' && exit
 case "$INPUT" in
@@ -29,5 +31,5 @@ case "$INPUT" in
 	*.sh) sh "$INPUT" ;;
 	*.bash) bash "$INPUT" ;;
 	*.zip) ziphandler "$@" ;;
-	*) vim "$INPUT" --not-a-term ;;
+	*) vim "$INPUT" ;;
 esac
