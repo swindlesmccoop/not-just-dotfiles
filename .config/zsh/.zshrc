@@ -27,27 +27,9 @@ LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:c
 export LS_COLORS
 alias ls="ls -A --color"
 WALLPAPER=$HOME/.config/wall.jpg
-#wal -i $WALLPAPER > /dev/null 2>&1
-PS1="$fg[blue]%}(%D{%L:%M})%B[%{$fg[cyan]%}%n%  %{$fg[magenta]%}%~%{$fg[blue]%}]%{$reset_color%}%% "
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}%% "
 
 source $HOME/.config/zsh/aliases.zsh 2>&1 /dev/null
-
-#expands aliases
-function expand-alias() {
-        zle _expand_alias
-        zle self-insert
-}
-
-#expands aliases when pressing enter
-expand-alias-and-accept-line() {
-    expand-alias
-    zle .backward-delete-char
-    zle .accept-line
-}
-
-zle -N accept-line expand-alias-and-accept-line
-zle -N expand-alias
-bindkey -M main ' ' expand-alias
 
 #tab completion
 autoload -U compinit
@@ -97,14 +79,6 @@ zstyle ':completion:*:manuals'    separate-sections true
 zstyle ':completion:*:manuals.*'  insert-sections   true
 zstyle ':completion:*:man:*'      menu yes select
 
-#have to have this function twice so aliases expand when pressing enter AND space
-function expand-alias() {
-    zle _expand_alias
-	zle self-insert
-}
-zle -N expand-alias
-bindkey -M main ' ' expand-alias
-
 #determine platform and source syntax highlighting based on it
 zshplugins_pc () {
     source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
@@ -119,4 +93,3 @@ zshplugins_android () {
     source /data/data/com.termux/files/usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh 2>/dev/null
 }
 uname -a | grep "Android" > /dev/null && zshplugins_android || zshplugins_pc
-stty sane
