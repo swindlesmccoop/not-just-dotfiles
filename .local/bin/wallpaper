@@ -1,7 +1,0 @@
-#!/bin/sh
-
-WALL=$HOME/.config/wall.jpg
-
-unlink $WALL
-link $(find $HOME/images/wallpapers -type f | shuf -n 1) $WALL
-wal -i $WALL > /dev/null
