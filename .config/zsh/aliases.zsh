@@ -5,6 +5,7 @@ search () {filehandler "$(du -a "$PWD/" --exclude="*/.cache/*" --exclude="*/.git
 scripts () {filehandler "$(command ls -1 "$HOME/.local/bin/" | fzfse)"}
 downloads () {filehandler "$(du -a "$HOME/downloads/" --exclude="*/.git/*" | awk '{$1=""}1' | fzfse)"}
 edscript () {vim "$(where "$1" | head -n 1)"}
+mem() { ps -C "$1" -O rss | awk '{ count ++; sum += $2 }; END {count --; print "Number of processes:\t",count; print "Mem. usage per process:\t",sum/1024/count, "MB"; print "Total memory usage:\t", sum/1024, "MB" ;};'; }
 
 #general aliases
 alias enc="gpg -c --cipher-algo AES256"
@@ -20,6 +21,8 @@ alias vi="vim"
 alias nvim="vim"
 alias yay=paru
 alias yt="yt-dlp"
+alias showme="mpv /dev/video0 2&> /dev/null &"
+alias asciime="mplayer tv:// -vo caca"
 
 #petscii type aliases
 alias cL="clear"
