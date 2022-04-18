@@ -3,6 +3,7 @@ setopt autocd
 setopt interactive_comments
 EDITOR=vim
 BROWSER=chromium
+TERMINAL=konsole
 [ -d ~/.local/bin/terminal-flirt ] && FLIRTSCRIPT="$(command ls ~/.local/bin/terminal-flirt/*.sh | shuf -n 1)"
 [ -d ~/.local/lbin/terminal-flirt ] && FLIRTSCRIPT="$(command ls ~/.local/lbin/terminal-flirt/*.sh | shuf -n 1)"
 
