@@ -1,34 +1,16 @@
-#one-liners
-alias fzfse="fzf --layout=reverse --height 40%"
-vimcurl () {curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.109 Safari/537.36" -sL "$1" | vim -}
-search () {filehandler "$(du -a "$PWD/" --exclude="*/.cache/*" --exclude="*/.git/*" | awk '{$1=""}1' | fzfse)"}
-scripts () {filehandler "$(command ls -1 "$HOME/.local/bin/" | fzfse)"}
-downloads () {filehandler "$(du -a "$HOME/downloads/" --exclude="*/.git/*" | awk '{$1=""}1' | fzfse)"}
-edscript () {vim "$(where "$1" | head -n 1)"}
-mem() { ps -C "$1" -O rss | awk '{ count ++; sum += $2 }; END {count --; print "Number of processes:\t",count; print "Mem. usage per process:\t",sum/1024/count, "MB"; print "Total memory usage:\t", sum/1024, "MB" ;};'; }
-
 #general aliases
+alias fzfse="fzf --layout=reverse --height 40%"
 alias enc="gpg -c --cipher-algo AES256"
 alias ":q"="exit"
 alias c="clear"
 alias flac-mp3="flac2mp3 -b 320 *.flac"
 alias pms="paru -S"
-alias sentra="cp *.mp3 /run/media/swindles/SENTRA/"
-alias sitedl="wget --recursive --domains swindlesmccoop.xyz --page-requisites swindlesmccoop.xyz"
 alias syyu="pacman -Syyu"
-alias timeset="sudo date -s '[DAY] [MONTH] [YEAR] [HOURS]:[MINUTES]:[SECONDS]'"
 alias vi="vim"
 alias nvim="vim"
-alias yay=paru
 alias yt="yt-dlp"
 alias showme="mpv /dev/video0 2&> /dev/null &"
 alias asciime="mplayer tv:// -vo caca"
-
-#petscii type aliases
-alias cL="clear"
-alias eC="echo"
-alias mK="mkdir"
-alias pM="pacman"
 
 #edit configurations
 alias pacman.conf="sudo vim /etc/pacman.conf"
@@ -41,7 +23,6 @@ alias aliases="vim ~/.config/zsh/aliases.zsh"
 
 #git aliases
 alias gacap="git add . && git commit -a && git push"
-alias gc="git clone"
 
 #spellign mistaeks
 alias cd..="cd .."
@@ -50,9 +31,9 @@ alias claer="clear"
 alias clare="clear"
 alias cleae="clear"
 alias clera="clear"
-alias ="clear"
 
 #youtube-dl
+alias yt="yt-dlp"
 alias mp3="yt --audio-format mp3 -k"
 alias ytdlp="yt"
 alias yta="yt -x -f bestaudio/best"

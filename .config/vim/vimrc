@@ -96,11 +96,11 @@ map <Down> g<Down>
 vnoremap j gj
 vnoremap k gk
 
-"arrow key shift movement is nice
+"far movement with shift
 map H <S-Left>
 map L <S-Right>
-map J <S-Down>
-map K <S-Up>
+map J 10j
+map K 10k
 
 "syntax highlighting for various file formats
 autocmd BufNewFile,BufRead *.bashrc,*.zsh*,.zshrc,*.khotkeys,*.kksrc,pacman.conf set syntax=bash

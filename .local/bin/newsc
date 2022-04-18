@@ -1,0 +1,7 @@
+#!/bin/sh
+
+[ "$1" = "" ] && read -r -p "Name of script: " SCRIPTNAME || SCRIPTNAME="$1"
+SCRPATH="$HOME/.local/bin/$SCRIPTNAME"
+echo '#!/bin/sh' > "$SCRPATH"
+chmod +x "$SCRPATH"
+vim "$SCRPATH"

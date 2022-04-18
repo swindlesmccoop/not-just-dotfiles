@@ -13,10 +13,9 @@ ziphandler () {
 
 [ -t 0 ] && TYPE="ARG" || TYPE="STDIN"
 [ "$TYPE" = "ARG" ] && INPUT="$1" || INPUT="$(cat)"
-
 INPUT="$(echo "$INPUT" | sed 's/ //')"
-
 [ -z "$INPUT" ] && echo 'Usage: filehandler (file)' && exit
+
 case "$INPUT" in
 	*.png) sxiv "$INPUT" ;;
 	*.jpg) sxiv "$INPUT" ;;
@@ -31,5 +30,5 @@ case "$INPUT" in
 	*.sh) sh "$INPUT" ;;
 	*.bash) bash "$INPUT" ;;
 	*.zip) ziphandler "$@" ;;
-	*) vim "$INPUT" ;;
+	*) vim --not-a-term "$INPUT" ;;
 esac
