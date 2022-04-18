@@ -1,0 +1,14 @@
+#!/bin/sh
+#Set branch to master and make sure all future branches are master
+
+if [ "$(git status | head -n 1)" = "On branch master" ]; then
+	echo "Already on master branch."
+	exit 1
+fi
+
+#do the actual thing
+git config --global init.defaultBranch master
+git branch -m main master
+git push -u origin master
+git push origin --delete main
+echo "Repo has been set to master branch. Additionally, all future repos will automatically be set to master."
