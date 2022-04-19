@@ -1,9 +1,9 @@
 #options
 setopt autocd
 setopt interactive_comments
-EDITOR=vim
-BROWSER=chromium
-TERMINAL=konsole
+export EDITOR=vim
+export BROWSER=chromium
+export TERMINAL=konsole
 [ -d ~/.local/bin/terminal-flirt ] && FLIRTSCRIPT="$(command ls ~/.local/bin/terminal-flirt/*.sh | shuf -n 1)"
 [ -d ~/.local/lbin/terminal-flirt ] && FLIRTSCRIPT="$(command ls ~/.local/lbin/terminal-flirt/*.sh | shuf -n 1)"
 
@@ -37,7 +37,7 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 [ "$(id -u)" = 0 ] && PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}%# " || PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}%% "
-[ -f /usr/bin/wal ] && [ "$WALL" != "" ] && wal -q -i "$WALL"
+#[ -f /usr/bin/wal ] && [ "$WALL" != "" ] && wal -q -i "$WALL"
 
 source $HOME/.config/zsh/aliases.zsh 2>&1 /dev/null
 
