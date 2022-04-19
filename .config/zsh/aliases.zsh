@@ -20,7 +20,6 @@ alias sudoers="visudo"
 alias vimrc="vim ~/.config/vim/vimrc"
 alias zshrc="vim ~/.config/zsh/.zshrc"
 alias aliases="vim ~/.config/zsh/aliases.zsh"
-alias liisten="vgmstream123 -l 2 -f 5 -m"
 
 #git  aliases
 alias gacap="git add . && git commit -a && git push"
