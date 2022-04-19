@@ -9,3 +9,6 @@
 	helper = store
 [pull]
 	rebase = false
+[safe]
+	directory = /home/swindles/git/st
+	directory = /home/swindles/git/dwm
