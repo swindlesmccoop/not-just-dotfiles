@@ -1,10 +1,10 @@
 #!/bin/sh
 #Search for files in any given directory and send them to filehandler
-set -x
+
 curdir () {
-	du -a "$PWD/" --exclude="*/.cache/*" --exclude="*/.git/*" | awk '{$1=""}1' | fzfse | sed 's/ //' | filehandler
+	filehandler "$(du -a "$PWD/" --exclude="*/.cache/*" --exclude="*/.git/*" | awk '{$1=""}1' | fzfse | sed 's/ //')"
 }
 argdir () {
-	du -a $1 --exclude="*/.cache/*" --exclude="*/.git/*" | awk '{$1=""}1' | fzfse | sed 's/ //' | filehandler
+	filehandler "$(du -a $1 --exclude="*/.cache/*" --exclude="*/.git/*" | awk '{$1=""}1' | fzfse | sed 's/ //')"
 }
 [ "$1" = "" ] && curdir || argdir "$@"
