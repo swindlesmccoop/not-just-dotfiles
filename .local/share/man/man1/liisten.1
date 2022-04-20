@@ -1,0 +1,23 @@
+.TH LIISTEN 1 "20 April 2022" "https://swindlesmccoop.xyz"
+.SH NAME
+liisten \- listen to BRSTM (and other file formats supported by \fImpv\fP and \fIvgmstream\fP) comfortably, solely through the terminal.
+.SH SYNOPSIS
+.B liisten
+[ -f, -h, -io, -r, -s ]
+.SH DESCRIPTION
+.B liisten
+will read the argument given and adjust its bahvior accordingly. It is essentially a wrapper script for the tools \fIvgmstream-cli\fP, \fIvgmstream123\fP, and \fImpv\fP.
+.SH ARGUMENTS
+.TP
+.IP \fI-f\fP
+A user selectd song will play until the user terminates it. The song is selected through \fIfzf\fP, which is searching through a user's given music directory. The default is \fI$HOME/music/brstm/\fP, however, the directory can easily be changed by editing the script itself.
+.IP \fI-h\fP
+Print a help message with a quick synopsis on what each option does.
+.IP \fI-io\fP
+Play each song in the music folder (by default \fI$HOME/music/brstm\fP) in alphabetical order.
+.IP \fI-r\fp
+Play each song in the music folder in a random order. This mode continues playing until suspended by the user.
+.IP \fI-s\fP
+Select each song to play through \fIfzf\fP.
+.SH AUTHORS
+\fIliisten\fP was written by Swindles McCoop.\fP
