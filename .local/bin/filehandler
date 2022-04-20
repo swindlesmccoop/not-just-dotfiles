@@ -11,6 +11,36 @@ ziphandler () {
 	cd ..
 }
 
+tarhandler () {
+	DIR="$(echo "$INPUT" | sed "s/.tar//")"
+	mkdir "$DIR"
+	mv "$INPUT" "$DIR"
+	cd "$DIR"
+	tar xpf "$INPUT"
+	rm "$INPUT"
+	cd ..
+}
+
+targzhandler () {
+	gzip -d "$INPUT"
+	DIR="$(echo "$INPUT" | sed "s/.tar.gz//")"
+	mkdir "$DIR"
+	mv "$INPUT" "$DIR"
+	cd "$DIR"
+	INPUT=""$DIR".tar"
+	tarhandler
+}
+
+tarxzhandler () {
+	gzip -d "$INPUT"
+	DIR="$(echo "$INPUT" | sed "s/.tar.xz//")"
+	mkdir "$DIR"
+	mv "$INPUT" "$DIR"
+	cd "$DIR"
+	INPUT=""$DIR".tar"
+	tarhandler
+}
+
 [ -t 0 ] && TYPE="ARG" || TYPE="STDIN"
 [ "$TYPE" = "ARG" ] && INPUT="$1" || INPUT="$(cat)"
 INPUT="$(echo "$INPUT" | sed 's/ //')"
@@ -29,10 +59,13 @@ case "$INPUT" in
 	*.gif) mpv --loop-file=inf "$INPUT" ;;
 	*.bash) bash "$INPUT" ;;
 	*.zip) ziphandler "$@" ;;
-	*.brstm) vlc "$INPUT" ;;
-	*.ogg) vlc "$INPUT" ;;
-	*.mp3) vlc "$INPUT" ;;
-	*.flac) vlc "$INPUT" ;;
-	*.wav) vlc "$INPUT" ;;
+	*.tar) tarhandler "$@" ;;
+	*.tar.gz) targzhandler "$@"
+	*.tar.xz) tarxzhandler "$@"
+	*.brstm) mpv "$INPUT" ;;
+	*.ogg) mpv "$INPUT" ;;
+	*.mp3) mpv "$INPUT" ;;
+	*.flac) mpv "$INPUT" ;;
+	*.wav) mpv "$INPUT" ;;
 	*) vim --not-a-term "$INPUT" ;;
 esac
