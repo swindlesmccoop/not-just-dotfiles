@@ -1,6 +1,8 @@
 #options
-set shellopts '-eu'
+set shell zsh
+set shellopts '-euy'
 set ifs "\n"
+set filesep "\n"
 set scrolloff 10
 set icons
 set period 1
