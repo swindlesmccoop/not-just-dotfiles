@@ -58,15 +58,15 @@ playsong () {
 }
 
 liisten_help () {
-	printf 'Liisten by swindlesmccoop\n\nusage: liisten -[h, f, io, r, s]\n-h: Print this help message\n-f: Play selected song until user termination\n-io: Play all songs in library in alphabetical order\n-r: Play all songs in library in random order\n-s: Select each song to play\n'
+	printf 'Liisten by swindlesmccoop\n\nusage: liisten -[f, h, io, r, s]\n -f: Play selected song until user termination\n -h: Print this help message\n-io: Play all songs in library in alphabetical order\n -r: Play all songs in library in random order\n -s: Select each song to play\n'
 }
 
 [ vgmstream-cli > /dev/null ] || dependency vgmstream
 [ mpv > /dev/null ] || dependency mpv
 [ "$1" = "" ] && liisten_help
 case "$1" in
-	-h) liisten_help ;;
 	-f) forever ;;
+	-h) liisten_help ;;
 	-io) inorder ;;
 	-r) random ;;
 	-s) select ;;
