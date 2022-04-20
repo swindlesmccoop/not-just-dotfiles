@@ -1,0 +1,4 @@
+#!/bin/sh
+
+[ "$1" = "" ] && read -r -p "Script to edit: " SCRIPT || SCRIPT="$1"
+vim "$(command -v "$SCRIPT" | head -n 1)"
