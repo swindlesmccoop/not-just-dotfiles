@@ -26,7 +26,8 @@ for d in "$HOME/git/*"; do PATH="$PATH:$d"; done
 
 #colors and icons
 autoload -U colors && colors
-alias ls="ls -A --color=auto"
+get_pwd_ls () { [ "$PWD" = "$HOME" ] && ls --color=auto || ls -A --color=auto }
+alias ls=get_pwd_ls
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
 export LESS_TERMCAP_me=$'\e[0m'

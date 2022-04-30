@@ -4,7 +4,7 @@ set shellopts '-euy'
 set ifs "\n"
 set filesep "\n"
 set scrolloff 10
-set icons
+#set icons
 set period 1
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 set cleaner '~/.config/lf/cleaner'
@@ -15,21 +15,16 @@ cmd open ${{
     case $(file --mime-type "$(readlink -f $f)" -b) in
 	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
 	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
-        text/*|application/json|inode/x-empty) filehandler $fx;;
+        text/*|application/json|inode/x-empty) filehandler "$f" ;;
 	image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
 	image/svg+xml) display -- $f ;;
-	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" |
-		setsid -f sxiv -aio 2>/dev/null | while read -r file; do
-			[ -z "$file" ] && continue
-			lf -remote "send select \"$file\""
-			lf -remote "send toggle"
-		done &
-		;;
+	image/*) filehandler "$f" ;;
 	audio/*) mpv --audio-display=no $f ;;
 	video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
 	application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
-	application/pgp-encrypted) filehandler $fx ;;
-        *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
+	application/pgp-encrypted) filehandler "$f" ;;
+	application/zip) filehandler "$f" ;;
+        *) filehandler "$f" ;;
     esac
 }}
 
@@ -75,6 +70,20 @@ cmd copyto ${{
 	notify-send "📋 File(s) copied." "File(s) copies to $dest."
 }}
 
+cmd utftp ${{
+	set -x
+	clear
+	FTP_USER="$(head -n 1 $HOME/.local/share/lftp/credentials)"
+	FTP_PASS="$(tail -n 1 $HOME/.local/share/lftp/credentials)"
+	ENDPOINT="$(cat $HOME/.local/share/lftp/default_endpoint)"
+	lftp $ENDPOINT <<EOF
+	user "$FTP_USER" "$FTP_PASS"
+	put "$f"
+	exit
+EOF
+	notify-send "🖥️ File uploaded to $ENDPOINT"
+}}
+
 cmd setbg "$1"
 cmd bulkrename $vidir
 
@@ -90,6 +99,7 @@ map <c-n> push :mkdir<space>
 map <c-r> reload
 map <c-s> set hidden!
 map <enter> shell -c filehandler
+map F utftp
 map x $$f
 map X !$f
 map o &mimeopen $f

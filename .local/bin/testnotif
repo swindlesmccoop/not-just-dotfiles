@@ -1,0 +1,7 @@
+#!/bin/sh
+
+killall dunst
+dunst &
+notify-send -u low "Standard low urgency notification" &
+notify-send -u normal "Standard normal urgency notification" &
+notify-send -u critical "High urgency notification!!!!!!!" &

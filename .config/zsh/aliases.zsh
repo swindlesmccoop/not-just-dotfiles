@@ -11,6 +11,7 @@ alias yt="yt-dlp"
 alias showme="mpv /dev/video0 2&> /dev/null &"
 alias asciime="mplayer tv:// -vo caca"
 alias lf="lfub"
+alias scrk="screenkey --no-whitespace -s small --bak-mode full -t 1 &"
 
 #edit configurations
 alias pacman.conf="sudo vim /etc/pacman.conf"
@@ -20,6 +21,8 @@ alias sudoers="visudo"
 alias vimrc="vim ~/.config/vim/vimrc"
 alias zshrc="vim ~/.config/zsh/.zshrc"
 alias aliases="vim ~/.config/zsh/aliases.zsh"
+alias xprofile="vim ~/.xprofile"
+alias lfrc="vim ~/.config/lf/lfrc"
 
 #git  aliases
 alias gacap="git add . && git commit -a && git push"

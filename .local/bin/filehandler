@@ -43,29 +43,20 @@ tarxzhandler () {
 
 [ -t 0 ] && TYPE="ARG" || TYPE="STDIN"
 [ "$TYPE" = "ARG" ] && INPUT="$1" || INPUT="$(cat)"
-INPUT="$(echo "$INPUT" | sed 's/ //')"
-[ -z "$INPUT" ] && echo 'Usage: filehandler (file)' && exit
+INPUT="$(echo "$INPUT" | sed 's/^ //')"
+[ -z "$INPUT" ] && echo 'Usage: filehandler [file]' && exit
 
 case "$INPUT" in
-	*.png) sxiv "$INPUT" ;;
-	*.jpg) sxiv "$INPUT" ;;
-	*.psd) gimp "$INPUT" ;;
-	*.xcf) gimp "$INPUT" ;;
-	*.mp4) mpv "$INPUT" ;;
-	*.ogv) mpv "$INPUT" ;;
-	*.m4v) mpv "$INPUT" ;;
-	*.mkv) mpv "$INPUT" ;;
-	*.mov) mpv "$INPUT" ;;
-	*.gif) mpv --loop-file=inf "$INPUT" ;;
 	*.bash) bash "$INPUT" ;;
-	*.zip) ziphandler "$@" ;;
+	*.crx) ziphandler "$INPUT" ;;
+	*.gif) mpv --loop-file=inf "$INPUT" ;;
+	*.jpeg|*.jpg|*.png) sxiv "$INPUT" * ;;
+	*.m4v|*.wav|*.mkv|*.mov|*.mp3|*.mp4|*.ogg|*.ogv|*.3gp|*.flac|*.brstm) mpv "$INPUT" ;;
+	*.psd|*.xcf) gimp "$INPUT" ;;
 	*.tar) tarhandler "$@" ;;
 	*.tar.gz) targzhandler "$@" ;;
-	*.tar.xz) tarxzhandler "$@" ;;
-	*.brstm) mpv "$INPUT" ;;
-	*.ogg) mpv "$INPUT" ;;
-	*.mp3) mpv "$INPUT" ;;
-	*.flac) mpv "$INPUT" ;;
-	*.wav) mpv "$INPUT" ;;
+	*.zip) ziphandler "$@" ;;
+	*.rar) unrar e "$INPUT" ;;
+	*.cbz|*.cbr) sxcv "$INPUT" ;;
 	*) vim --not-a-term "$INPUT" ;;
 esac

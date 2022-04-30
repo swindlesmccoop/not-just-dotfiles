@@ -1,0 +1,42 @@
+do_stuff () {
+	#wallpaper automation
+	WALLDIR="$HOME/.local/share/wallpapers"
+	export WALL="$WALLDIR/$(command ls -1 $WALLDIR | shuf -n 1)"
+	xwallpaper --zoom "$WALL"
+	wal -q -i "$WALL"
+
+	export LOGINIMG="$(command ls -1 $WALLDIR/*.jpg | shuf -n 1)"
+	sudo cp "$LOGINIMG" /usr/share/sddm/themes/simplicity/images/background.jpg
+
+	#vpn, dwm status bar, compositor, mount external hdd, notification daemon
+	sudo mount /dev/$(lsblk | grep '4.5T  0 part' | grep -o sd..) /mnt/black5
+	picom &
+	dwmblocks &
+	dunst &
+
+	#notification color automation
+	#LOWURGENCY="background = \"$(sed -n '8p' $HOME/.cache/wal/colors)\""
+	#NORMURGENCY="background = \"$(sed -n '2p' $HOME/.cache/wal/colors)\""
+	#CRITURGENCY="background = \"$(sed -n '5p' $HOME/.cache/wal/colors)\""
+	#sed -i "s/background.*/$LOWURGENCY/1" $HOME/.config/dunst/dunstrc
+	#sed -i "s/background.*/$NORMURGENCY/2" $HOME/.config/dunst/dunstrc
+	#sed -i "s/background.*/$CRITURGENCY/3" $HOME/.config/dunst/dunstrc
+}
+
+kill_stuff () {
+	sudo umount /dev/black5
+	sudo killall picom
+	sudo killall dwmblocks
+	sudo killall dunst
+}
+
+restart_stuff () {
+	kill_stuff
+	do_stuff
+}
+
+case "$1" in
+	-r) restart_stuff ;;
+	-k) kill_stuff ;;
+	*) do_stuff ;;
+esac
