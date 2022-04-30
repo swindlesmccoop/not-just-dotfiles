@@ -9,9 +9,10 @@ do_stuff () {
 	sudo cp "$LOGINIMG" /usr/share/sddm/themes/simplicity/images/background.jpg
 
 	#vpn, dwm status bar, compositor, mount external hdd, notification daemon
+	#sudo wg-quick up pia
 	sudo mount /dev/$(lsblk | grep '4.5T  0 part' | grep -o sd..) /mnt/black5
-	picom &
-	dwmblocks &
+	xcompmgr &
+	#dwmblocks &
 	dunst &
 
 	#notification color automation
@@ -24,9 +25,10 @@ do_stuff () {
 }
 
 kill_stuff () {
+	#sudo wg-quick down pia
 	sudo umount /dev/black5
-	sudo killall picom
-	sudo killall dwmblocks
+	sudo killall xcompmgr
+	#sudo killall dwmblocks
 	sudo killall dunst
 }
 
