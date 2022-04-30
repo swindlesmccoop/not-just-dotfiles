@@ -1,0 +1,14 @@
+[emojis]
+full_text=😀
+command=dmenuunicode
+interval=0
+
+[audio]
+full_text=🔊
+command=pulsemixer
+interval=0
+
+[restart]
+full_text=🔄
+command=i3-msg -q restart
+interval=0
