@@ -1,4 +1,4 @@
-#general  aliases
+#general aliases
 alias enc="gpg -c --cipher-algo AES256"
 alias ":q"="exit"
 alias c="clear"
@@ -24,7 +24,7 @@ alias aliases="vim ~/.config/zsh/aliases.zsh"
 alias xprofile="vim ~/.xprofile"
 alias lfrc="vim ~/.config/lf/lfrc"
 
-#git  aliases
+#git aliases
 alias gacap="git add . && git commit -a && git push"
 
 #spellign mistaeks
