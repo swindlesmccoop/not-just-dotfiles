@@ -4,7 +4,7 @@ set -e
 
 read -r -p "Title: " TITLE
 read -r -p "File name: " FILENAME
-
+read -r -p "Description: " DESCRIPTION
 touch "$FILENAME"
-printf "<!DOCTYPE html>\n\n<title>$TITLE</title>\n<link rel="stylesheet" href="/css/blog.css">\n\n<h1>$TITLE</h1>\n<br>\n\n<p>\n\n</p>" > "$FILENAME"
-vim -c ":norm Gki" "$FILENAME"
+printf "<!DOCTYPE html>\n\n<title>$TITLE</title>\n<meta name=\"description\" content=\"$DESCRIPTION\">\n<link rel=\"stylesheet\" href=\"/css/blog.css\">\n\n<h1>$TITLE</h1>\n<i>$DESCRIPTION</i>\n<br><br>\n\n<p>\n\n</p>" > "$FILENAME"
+vim -c ":norm Gk" "$FILENAME"
