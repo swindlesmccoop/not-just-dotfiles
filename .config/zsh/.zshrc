@@ -8,7 +8,6 @@ export TERMINAL=st
 #make programs respect xdg
 export ZDOTDIR=$HOME/.config/zsh
 export VIMINIT="set nocp | source ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc"
-export MOST_INITFILE="$HOME/.config/most/most.rc"
 
 #history stuff
 HISTFILE=$HOME/.config/zsh/.zsh_history
@@ -24,7 +23,10 @@ for d in "$HOME/git/*"; do PATH="$PATH:$d"; done
 
 #colors and icons
 autoload -U colors && colors
-alias ls="ls --color=auto -A"
+alias ls="ls --color=auto -A --group-directories-first"
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
+source "$HOME/.config/zsh/aliases.zsh"
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
 export LESS_TERMCAP_me=$'\e[0m'
@@ -32,13 +34,11 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
-[ "$(id -u)" = 0 ] && PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}%# " || PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}%% "
-#[ -f /usr/bin/wal ] && [ "$WALL" != "" ] && wal -q -i "$WALL"
 export LC=en_US.UTF-8
 export LC_ALL=$LC
 export LF_ICONS="$(cat "$HOME/.config/lf/icons")"
-
-source $HOME/.config/zsh/aliases.zsh 2>&1 /dev/null
+[ "$(id -u)" = 0 ] && PS1ICON="#" || PS1ICON="%"
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}%$PS1ICON "
 
 #tab completion
 autoload -U compinit
