@@ -4,8 +4,6 @@ setopt interactive_comments
 export EDITOR=vim
 export BROWSER=chromium
 export TERMINAL=st
-[ -d ~/.local/bin/terminal-flirt ] && FLIRTSCRIPT="$(command ls ~/.local/bin/terminal-flirt/*.sh | shuf -n 1)"
-[ -d ~/.local/lbin/terminal-flirt ] && FLIRTSCRIPT="$(command ls ~/.local/lbin/terminal-flirt/*.sh | shuf -n 1)"
 
 #make programs respect xdg
 export ZDOTDIR=$HOME/.config/zsh
@@ -26,8 +24,7 @@ for d in "$HOME/git/*"; do PATH="$PATH:$d"; done
 
 #colors and icons
 autoload -U colors && colors
-get_pwd_ls () { [ "$PWD" = "$HOME" ] && ls --color=auto || ls -A --color=auto }
-alias ls=get_pwd_ls
+alias ls="ls --color=auto -A"
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
 export LESS_TERMCAP_me=$'\e[0m'
