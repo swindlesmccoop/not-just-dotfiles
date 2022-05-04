@@ -1,7 +1,7 @@
 #!/bin/sh
 #Create a simple HTML template for me to easily type a blog post into, without having to worry about formatting or anything.
 set -e
-URL="https://swindlesmccoop/blog"
+URL="https://swindlesmccoop.xyz/blog"
 
 read -r -p "Title: " TITLE
 read -r -p "File name: " FILENAME
