@@ -1,4 +1,4 @@
 #!/bin/sh
-[ "$1" = "" ] && SCRIPT="$(fzfse $HOME/.local/bin/)" || SCRIPT="$1"
+[ "$1" = "" ] && SCRIPT="$(find $HOME/.local/bin/ | sed 's/.*\.local\/bin\///g' | sed '/./!d' | fzfse)" || SCRIPT="$1"
 [ "$SCRIPT" = "" ] && echo 'Usage: edsc [file]' && exit
 vim "$(command -v "$SCRIPT" | head -n 1)"
