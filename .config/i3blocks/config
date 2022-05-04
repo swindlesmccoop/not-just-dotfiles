@@ -1,3 +1,8 @@
+[doppler]
+full_text=🗺️
+command=doppler
+interval=0
+
 [emojis]
 full_text=😀
 command=dmenuunicode
