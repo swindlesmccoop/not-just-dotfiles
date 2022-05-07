@@ -19,7 +19,7 @@ interval=persist
 
 [record]
 full_text=⏺️
-command=$HOME/.local/bin/dmenurecord
+command=$HOME/.local/bin/sb-dmenurecord
 interval=0
 
 [doppler]
