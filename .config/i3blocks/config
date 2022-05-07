@@ -32,10 +32,13 @@ full_text=😀
 command=dmenuunicode
 interval=0
 
-[audio]
-full_text=🔊
-command=st -e pulsemixer
-interval=0
+[liisten]
+full_text=▶️
+command=st -e $HOME/.local/bin/sb-liisten
+
+#[audio]
+#command=$HOME/.local/bin/sb-volume
+#interval=0
 
 [separator]
 

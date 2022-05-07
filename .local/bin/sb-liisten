@@ -1,0 +1,38 @@
+#!/bin/sh
+#Liisten for the status bar
+
+#options
+LOOPCOUNT=1 #however many times you want the song to play minus one (for technical reasons)
+SONGDIR="$HOME/music/brstm"
+cd "$SONGDIR"
+
+MODE=$(printf "Random\nForever" | dmenu -i)
+
+playsong () {
+	vgmstream-cli -m "$SONG" > /tmp/brstminfo.txt
+	STARTLOOP="$(grep "seconds" /tmp/brstminfo.txt | head -n 1 | sed 's/.*(//' | sed 's/ seconds)//')"
+	ENDLOOP="$(grep "seconds" /tmp/brstminfo.txt | tail -n 1 | sed 's/.*(//' | sed 's/ seconds)//')"
+	echo "Now playing: \"$(echo $SONG | sed 's/\.brstm//')\""
+	mpv --ab-loop-a="$STARTLOOP" --ab-loop-b="$ENDLOOP" --ab-loop-count="$LOOPCOUNT" "$SONG"
+}
+
+forever () {
+	SONG="$(command ls -1 | dmenu -i)"
+	vgmstream-cli -m "$SONG" > /tmp/brstminfo.txt
+	STARTLOOP="$(grep "seconds" /tmp/brstminfo.txt | head -n 1 | sed 's/.*(//' | sed 's/ seconds)//')"
+	ENDLOOP="$(grep "seconds" /tmp/brstminfo.txt | tail -n 1 | sed 's/.*(//' | sed 's/ seconds)//')"
+	mpv --ab-loop-a="$STARTLOOP" --ab-loop-b="$ENDLOOP" --loop-file=inf "$SONG"
+}
+
+random () {
+	while true; do
+		RANDNUM=$(shuf -i 1-$(ls -1 | wc -l) -n 1)
+		SONG="$(command ls | head -n $RANDNUM | tail -n 1)"
+		playsong
+	done
+}
+
+case "$MODE" in
+	forever) forever ;;
+	random) random ;;
+esac
