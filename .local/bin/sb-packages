@@ -1,0 +1,11 @@
+#!/bin/sh
+
+LIST=`pacman -Sup 2> /dev/null`
+[ "$LIST" = "" ] && COUNT=0 || COUNT=`echo "$LIST" | wc -l`
+
+for PKG in $LIST; do
+    echo -n "  "
+    echo $PKG | sed -e 's#.*/##g' -e 's%(.*).pkg.*$%1%'
+done
+
+echo "$COUNT"
