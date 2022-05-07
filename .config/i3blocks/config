@@ -1,6 +1,30 @@
+full_text=||
+align=center
+separator=false
+separator_block_width=10
+
+[title]
+command=xtitle -s -f | cat
+interval=persist
+background=#FFFFFF
+color=#000000
+format=ini
+
+[separator]
+
+[autotiling]
+full_text=🟩
+command=$HOME/.local/bin/sb-autotiling
+interval=persist
+
+[record]
+full_text=⏺️
+command=$HOME/.local/bin/dmenurecord
+interval=0
+
 [doppler]
 full_text=🗺️
-command=doppler
+command=$HOME/.local/bin/sb-doppler
 interval=0
 
 [emojis]
@@ -10,10 +34,32 @@ interval=0
 
 [audio]
 full_text=🔊
-command=pulsemixer
+command=st -e pulsemixer
 interval=0
 
-[restart]
-full_text=🔄
-command=i3-msg -q restart
-interval=0
+[separator]
+
+[packages]
+full_text=📦
+command=echo "📦$($HOME/.local/bin/sb-packages)"
+interval=1200
+
+[forecast]
+full_text=🌤️Cannot get forecast
+command=$HOME/.local/bin/sb-forecast
+interval=60
+
+[ip]
+full_text=📶Disconnected
+command=echo "📶$(ip route get 1.2.3.4 | awk '{print $7}' | head -n 1)"
+interval=1
+
+[separator]
+
+[battery]
+command=echo "🔋$(acpi | sed 's/Battery [0-9]: //' | sed 's/%, .*//')%"
+interval=1
+
+[time]
+command=date "+%a %b %d, %T"
+interval=1
