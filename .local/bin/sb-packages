@@ -1,11 +1,32 @@
 #!/bin/sh
 
-LIST=`pacman -Sup 2> /dev/null`
-[ "$LIST" = "" ] && COUNT=0 || COUNT=`echo "$LIST" | wc -l`
+pacman_count () {
+	LIST="$(pacman -Sup 2> /dev/null)"
+	[ "$LIST" = "" ] && COUNT=0 || COUNT="$(echo "$LIST" | wc -l)"
+	for PKG in $LIST; do
+	    echo -n "  "
+	    echo $PKG | sed -e 's#.*/##g' -e 's%(.*).pkg.*$%1%'
+	done
+	echo "$COUNT"
+}
 
-for PKG in $LIST; do
-    echo -n "  "
-    echo $PKG | sed -e 's#.*/##g' -e 's%(.*).pkg.*$%1%'
-done
+apt_count () {
+	apt list --upgradable 2> /dev/null | wc -l
+}
 
-echo "$COUNT"
+upgrade () {
+	[ "$PM" = "apt" ] && $(sudo apt update && sudo apt upgrade)
+	[ "$PM" = "pacman" ] && sudo pacman -Su
+}
+
+[ -f /usr/bin/pacman ] && PM=pacman
+[ -f /usr/bin/apt ] && PM=apt
+
+case $PM in
+	pacman) pacman_count ;;
+	apt) apt_count ;;
+esac
+
+case $BLOCK_BUTTON in
+	1) upgrade ;;
+esac
