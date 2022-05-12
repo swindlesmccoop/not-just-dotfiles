@@ -9,4 +9,9 @@ read -r -p "Description: " DESCRIPTION
 touch "$FILENAME"
 printf "<!DOCTYPE html>\n\n<title>$TITLE</title>\n<meta name=\"description\" content=\"$DESCRIPTION\">\n<link rel=\"stylesheet\" href=\"/css/blog.css\">\n\n<h1>$TITLE</h1>\n<i>$DESCRIPTION</i>\n<br><br>\n\n<p>\n\n</p>" > "$FILENAME"
 vim -c ":norm Gk" "$FILENAME"
-printf "\nAppend to RSS Feed:\n\n<item>\n<title>$TITLE</title>\n<guid>$URL/$FILENAME</guid>\n<pubDate>$(date | sed 's/./&,/3' | sed 's/.M EDT/+0000/')</pubDate>\n<description><![CDATA[\n<p>$DESCRIPTION</p>\n]]></description>\n</item>\n"
+
+POST="<item>\n<title>$TITLE</title>\n<guid>$URL/$FILENAME</guid>\n<pubDate>$(date | sed 's/./&,/3' | sed 's/.M EDT/+0000/')</pubDate>\n<description><![CDATA[\n<p>$DESCRIPTION</p>\n]]></description>\n</item>\n"
+
+sed "/Content/a $POST" rss.xml
+
+#printf "\nAppend to RSS Feed:\n\n<item>\n<title>$TITLE</title>\n<guid>$URL/$FILENAME</guid>\n<pubDate>$(date | sed 's/./&,/3' | sed 's/.M EDT/+0000/')</pubDate>\n<description><![CDATA[\n<p>$DESCRIPTION</p>\n]]></description>\n</item>\n"
