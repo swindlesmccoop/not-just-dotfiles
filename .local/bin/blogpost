@@ -12,6 +12,7 @@ vim -c ":norm Gk" "$FILENAME"
 
 POST="<item>\n<title>$TITLE</title>\n<guid>$URL/$FILENAME</guid>\n<pubDate>$(date | sed 's/./&,/3' | sed 's/.M EDT/+0000/')</pubDate>\n<description><![CDATA[\n<p>$DESCRIPTION</p>\n]]></description>\n</item>\n"
 
-sed "/Content/a $POST" rss.xml
+sed "/Content/a $POST" rss.xml > rss.new
+mv rss.new rss.xml
 
 #printf "\nAppend to RSS Feed:\n\n<item>\n<title>$TITLE</title>\n<guid>$URL/$FILENAME</guid>\n<pubDate>$(date | sed 's/./&,/3' | sed 's/.M EDT/+0000/')</pubDate>\n<description><![CDATA[\n<p>$DESCRIPTION</p>\n]]></description>\n</item>\n"
