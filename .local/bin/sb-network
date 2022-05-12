@@ -1,0 +1,10 @@
+#!/bin/sh
+# Show local IP if connected to the internet. Opens $NETWORKMANAGER on click
+NETWORKMANAGER=connman-gtk
+
+printf "📶"
+ping -c 1 archlinux.org > /dev/null && ip route get 1.2.3.4 | awk '{print $7}' | head -n 1 || printf "Disconnected"
+
+case $BLOCK_BUTTON in
+	1) $NETWORKMANAGER ;;
+esac
