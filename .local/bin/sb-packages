@@ -7,11 +7,11 @@ pacman_count () {
 	    echo -n "  "
 	    echo $PKG | sed -e 's#.*/##g' -e 's%(.*).pkg.*$%1%'
 	done
-	echo "$COUNT"
+	echo "📦$COUNT"
 }
 
 apt_count () {
-	apt list --upgradable 2> /dev/null | wc -l
+	printf "📦$(apt list --upgradable 2> /dev/null | wc -l)"
 }
 
 upgrade () {
