@@ -130,6 +130,18 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+#move focused container to workspace and switch to it
+bindsym Mod1+Shift+1 move container to workspace number $ws1,workspace number $ws1,focus
+bindsym Mod1+Shift+2 move container to workspace number $ws2,workspace number $ws2,focus
+bindsym Mod1+Shift+3 move container to workspace number $ws3,workspace number $ws3,focus
+bindsym Mod1+Shift+4 move container to workspace number $ws4,workspace number $ws4,focus
+bindsym Mod1+Shift+5 move container to workspace number $ws5,workspace number $ws5,focus
+bindsym Mod1+Shift+6 move container to workspace number $ws6,workspace number $ws6,focus
+bindsym Mod1+Shift+7 move container to workspace number $ws7,workspace number $ws7,focus
+bindsym Mod1+Shift+8 move container to workspace number $ws8,workspace number $ws8,focus
+bindsym Mod1+Shift+9 move container to workspace number $ws9,workspace number $ws9,focus
+bindsym Mod1+Shift+10 move container to workspace number $ws10,workspace number $ws10,focus
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
