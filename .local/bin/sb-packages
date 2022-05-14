@@ -1,30 +1,20 @@
 #!/bin/sh
 
-pacman_count () {
-	LIST="$(pacman -Sup 2> /dev/null)"
-	[ "$LIST" = "" ] && COUNT=0 || COUNT="$(echo "$LIST" | wc -l)"
-	for PKG in $LIST; do
-	    echo -n "  "
-	    echo $PKG | sed -e 's#.*/##g' -e 's%(.*).pkg.*$%1%'
-	done
-	echo "📦$COUNT"
-}
-
-apt_count () {
-	printf "📦$(apt list --upgradable 2> /dev/null | wc -l)"
-}
-
 upgrade () {
 	[ "$PM" = "apt" ] && $(sudo apt update && sudo apt upgrade)
-	[ "$PM" = "pacman" ] && sudo pacman -Su
+	[ "$PM" = "pacman" ] && st -e $ARCHPM -Su
 }
 
 [ -f /usr/bin/pacman ] && PM=pacman
 [ -f /usr/bin/apt ] && PM=apt
 
+[ -f /usr/bin/paru ] && ARCHPM=paru
+[ -f /usr/bin/yay ] && ARCHPM=yay
+[ -z $ARCHPM ] && ARCHPM=pacman
+
 case $PM in
-	pacman) pacman_count ;;
-	apt) apt_count ;;
+	pacman) echo "📦$($ARCHPM -Syup | sed 's/.*Synchr.*//' | sed 's/.*downloading.*//g' | sed '/^$/d' | wc -l)" ;;
+	apt) printf "📦$(apt list --upgradable 2> /dev/null | wc -l)" ;;
 esac
 
 case $BLOCK_BUTTON in
