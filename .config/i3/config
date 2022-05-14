@@ -53,10 +53,11 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+s move left,move left
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -140,7 +141,7 @@ bindsym Mod1+Shift+6 move container to workspace number $ws6,workspace number $w
 bindsym Mod1+Shift+7 move container to workspace number $ws7,workspace number $ws7,focus
 bindsym Mod1+Shift+8 move container to workspace number $ws8,workspace number $ws8,focus
 bindsym Mod1+Shift+9 move container to workspace number $ws9,workspace number $ws9,focus
-bindsym Mod1+Shift+10 move container to workspace number $ws10,workspace number $ws10,focus
+bindsym Mod1+Shift+0 move container to workspace number $ws10,workspace number $ws10,focus
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -151,30 +152,32 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-	# These bindings trigger as soon as you enter the resize mode
+	#resize with vim binds
+	bindsym h resize shrink width 10 px or 10 ppt
+	bindsym l resize grow width 10 px or 10 ppt
+	#bindsym l resize shrink height 10 px or 10 ppt
+	#bindsym semicolon resize grow width 10 px or 10 ppt
 
-	# Pressing left will shrink the window’s width.
-	# Pressing right will grow the window’s width.
-	# Pressing up will shrink the window’s height.
-	# Pressing down will grow the window’s height.
-	bindsym j resize shrink width 10 px or 10 ppt
-	bindsym k resize grow height 10 px or 10 ppt
-	bindsym l resize shrink height 10 px or 10 ppt
-	bindsym semicolon resize grow width 10 px or 10 ppt
-
-	# same bindings, but for the arrow keys
+	#resize with arrows
 	bindsym Left resize shrink width 10 px or 10 ppt
 	bindsym Down resize grow height 10 px or 10 ppt
 	bindsym Up resize shrink height 10 px or 10 ppt
 	bindsym Right resize grow width 10 px or 10 ppt
 
-	# back to normal: Enter or Escape or $mod+r
+	#escape to go to normal
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 	bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
+
+#scratchpad terminal
+bindsym $mod+Shift+F12 move scratchpad
+bindsym F12 scratchpad show; [instance="scratchterminal"] move position center
+bindsym $mod+Shift+Return scratchpad show; [instance="scratchterminal"] move position center
+exec --no-startup-id $term -name scratchterminal
+for_window [instance="scratchterminal"] move scratchpad
 
 #gaps
 gaps inner 6
