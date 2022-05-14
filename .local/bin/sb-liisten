@@ -33,6 +33,6 @@ random () {
 }
 
 case "$MODE" in
-	forever) forever ;;
-	random) random ;;
+	Forever) forever ;;
+	Random) random ;;
 esac
