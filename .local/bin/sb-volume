@@ -1,0 +1,16 @@
+#!/bin/sh
+
+while true; do
+	VOL=$(pamixer --get-volume)
+	if [ "$VOL" -gt "69" ]; then
+		ICON="🔊"
+	elif [ "$VOL" -gt "29" ]; then
+		ICON="🔉"
+	elif [ "$VOL" -gt "0" ]; then
+		ICON="🔈"
+	else
+		ICON="🔇"
+	fi
+	echo "$VOL%$ICON"
+	sleep 0.1
+done
