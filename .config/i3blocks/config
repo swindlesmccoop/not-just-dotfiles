@@ -36,31 +36,30 @@ interval=0
 full_text=▶️
 command=st -e $HOME/.local/bin/sb-liisten
 
-#[audio]
-#command=$HOME/.local/bin/sb-volume
-#interval=0
+[audio]
+full_text=audio
+command=$HOME/.local/bin/sb-volume
+interval=persist
 
 [separator]
 
 [packages]
-full_text=📦
-command=echo "📦$($HOME/.local/bin/sb-packages)"
+command=$HOME/.local/bin/sb-packages
 interval=1200
 
 [forecast]
 full_text=🌤️Cannot get forecast
 command=$HOME/.local/bin/sb-forecast
-interval=60
+interval=1200
 
 [ip]
-full_text=📶Disconnected
-command=echo "📶$(ip route get 1.2.3.4 | awk '{print $7}' | head -n 1)"
-interval=1
+command=$HOME/.local/bin/sb-network
+interval=persist
 
 [separator]
 
 [battery]
-command=echo "🔋$(acpi | sed 's/Battery [0-9]: //' | sed 's/%, .*//')%"
+command=$HOME/.local/bin/sb-battery
 interval=1
 
 [time]
