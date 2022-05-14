@@ -12,6 +12,9 @@ alias showme="mpv /dev/video0 2&> /dev/null &"
 alias asciime="mplayer tv:// -vo caca"
 alias lf="lfub"
 alias scrk="screenkey --no-whitespace -s small --bak-mode full -t 1 &"
+alias svim="sudo vim"
+alias sivm="sudo vim"
+alias suvim="sudo vim"
 
 #edit configurations
 alias pacman.conf="sudo vim /etc/pacman.conf"
