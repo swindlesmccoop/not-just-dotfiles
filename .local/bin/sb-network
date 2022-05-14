@@ -2,8 +2,10 @@
 # Show local IP if connected to the internet. Opens $NETWORKMANAGER on click
 NETWORKMANAGER=connman-gtk
 
-printf "📶"
-ping -c 1 archlinux.org > /dev/null && ip route get 1.2.3.4 | awk '{print $7}' | head -n 1 || printf "Disconnected"
+while true; do
+	printf "📶$(ip route | grep -o 'src.*' | tail -n 1 | sed 's/src //' || printf "Disconnected")\n"
+	sleep 1
+done
 
 case $BLOCK_BUTTON in
 	1) $NETWORKMANAGER ;;
