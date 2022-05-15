@@ -2,7 +2,7 @@
 setopt autocd
 setopt interactive_comments
 export EDITOR=vim
-export BROWSER=chromium
+export BROWSER=firefox
 export TERMINAL=st
 
 #make programs respect xdg
