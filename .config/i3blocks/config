@@ -4,7 +4,7 @@ separator=false
 separator_block_width=10
 
 [title]
-command=xtitle -s -f | cat
+command=while true; do xdotool getactivewindow getwindowname 2>/dev/null || echo ""; sleep 0.1; done
 interval=persist
 background=#FFFFFF
 color=#000000
@@ -29,7 +29,7 @@ interval=0
 
 [emojis]
 full_text=😀
-command=dmenuunicode
+command=$HOME/.local/bin/dmenuunicode
 interval=0
 
 [liisten]
