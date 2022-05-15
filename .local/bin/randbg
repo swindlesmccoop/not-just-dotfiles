@@ -1,0 +1,5 @@
+#!/bin/sh
+WALLDIR="$HOME/.local/share/wallpapers"
+WALL="$WALLDIR/$(command ls -1 $WALLDIR | shuf -n 1)"
+xwallpaper --zoom "$WALL"
+wal -q -i "$WALL"
