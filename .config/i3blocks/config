@@ -12,10 +12,10 @@ format=ini
 
 [separator]
 
-[autotiling]
+[master_stacking]
 full_text=🟩
-command=$HOME/.local/bin/sb-autotiling
-interval=persist
+command=$HOME/.config/i3/i3-master-stack/i3_master
+interval=once
 
 [record]
 full_text=⏺️

@@ -41,10 +41,10 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-#bindsym $mod+k focus down
-#bindsym $mod+l focus up
-bindsym $mod+k focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -57,7 +57,7 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-bindsym $mod+Shift+s move left,move left
+#bindsym $mod+Shift+s move left,move left
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -66,7 +66,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+#bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -185,10 +185,17 @@ gaps outer 4
 default_border pixel 2
 default_floating_border pixel 2
 
+#master and slave stacks like DWM
+exec_always --no-startup-id $HOME/.config/i3/i3-master-stack/i3_master
+# swap to master node
+bindsym $mod+m nop swap master
+# go to master node
+bindsym $mod+shift+m nop go master
+# enable/disable master layout in current workspace
+bindsym $mod+alt+m nop master toggle
+
 #i3blocks
 bar {
 	position top
 	status_command i3blocks
 }
-
-exec_always --no-startup-id autotiling

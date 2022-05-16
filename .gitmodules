@@ -10,3 +10,6 @@
 [submodule ".local/share/zsh/zsh-history-substring-search"]
 	path = .local/share/zsh/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search
+[submodule ".config/i3/i3-master-stack"]
+	path = .config/i3/i3-master-stack
+	url = https://github.com/windwp/i3-master-stack
