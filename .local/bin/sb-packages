@@ -1,7 +1,12 @@
 #!/bin/sh
 
+aptupgrade () {
+	st -e sudo apt update
+	st -e sudo apt upgrade
+}
+
 upgrade () {
-	[ "$PM" = "apt" ] && $(sudo apt update && sudo apt upgrade)
+	[ "$PM" = "apt" ] && aptupgrade
 	[ "$PM" = "pacman" ] && st -e $ARCHPM -Su
 }
 
