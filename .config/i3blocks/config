@@ -12,11 +12,6 @@ format=ini
 
 [separator]
 
-[master_stacking]
-full_text=🟩
-command=$HOME/.config/i3/i3-master-stack/i3_master
-interval=once
-
 [record]
 full_text=⏺️
 command=$HOME/.local/bin/sb-dmenurecord
@@ -48,7 +43,6 @@ command=$HOME/.local/bin/sb-packages
 interval=1200
 
 [forecast]
-full_text=🌤️Cannot get forecast
 command=$HOME/.local/bin/sb-forecast
 interval=1200
 
