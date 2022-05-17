@@ -4,7 +4,7 @@ separator=false
 separator_block_width=10
 
 [title]
-command=while true; do echo "                                                                                                                                                                                                  $(xdotool getactivewindow getwindowname 2>/dev/null)  " || echo ""; sleep 0.1; done
+command=while true; do echo "                                                                                                                                                                                                                                               $(xdotool getactivewindow getwindowname 2>/dev/null)  " || echo ""; sleep 0.1; done
 interval=persist
 background=#FFFFFF
 color=#000000
@@ -48,7 +48,7 @@ interval=1200
 
 [ip]
 command=$HOME/.local/bin/sb-network
-interval=persist
+interval=1
 
 [separator]
 
