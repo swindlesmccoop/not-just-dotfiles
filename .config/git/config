@@ -12,3 +12,5 @@
 [safe]
 	directory = /home/swindles/git/st
 	directory = /home/swindles/git/dwm
+[http]
+	sslVerify = false
