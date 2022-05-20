@@ -153,16 +153,15 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # resize window (you can also use the mouse for that)
 mode "resize" {
 	#resize with vim binds
-	bindsym h resize shrink width 10 px or 10 ppt
-	bindsym l resize grow width 10 px or 10 ppt
-	#bindsym l resize shrink height 10 px or 10 ppt
-	#bindsym semicolon resize grow width 10 px or 10 ppt
+	bindsym h resize grow left 5 px or 5 ppt
+    bindsym j resize grow down 5 px or 5 ppt
+    bindsym k resize grow up 5 px or 5 ppt
+    bindsym l resize grow right 5 px or 5 ppt
 
-	#resize with arrows
-	bindsym Left resize shrink width 10 px or 10 ppt
-	bindsym Down resize grow height 10 px or 10 ppt
-	bindsym Up resize shrink height 10 px or 10 ppt
-	bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Shift+h resize shrink right 5 px or 5 ppt
+    bindsym Shift+j resize shrink up 5 px or 5 ppt
+    bindsym Shift+k resize shrink down 5 px or 5 ppt
+    bindsym Shift+l resize shrink left 5 px or 5 ppt
 
 	#escape to go to normal
 	bindsym Return mode "default"
