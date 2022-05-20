@@ -47,6 +47,7 @@ INPUT="$(echo "$INPUT" | sed 's/^ //')"
 [ -z "$INPUT" ] && echo 'Usage: filehandler [file]' && exit
 
 case "$INPUT" in
+	*.1) man "$PWD/$INPUT" ;;
 	*.bash) bash "$INPUT" ;;
 	*.crx) ziphandler "$INPUT" ;;
 	*.gif) mpv --loop-file=inf "$INPUT" ;;
