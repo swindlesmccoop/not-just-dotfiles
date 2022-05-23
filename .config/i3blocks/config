@@ -15,24 +15,20 @@ format=ini
 [record]
 full_text=⏺️
 command=$HOME/.local/bin/sb-dmenurecord
-interval=0
 
 [doppler]
 full_text=🗺️
 command=$HOME/.local/bin/sb-doppler
-interval=0
 
 [emojis]
 full_text=😀
 command=$HOME/.local/bin/dmenuunicode
-interval=0
 
 [liisten]
 full_text=▶️
 command=st -e $HOME/.local/bin/sb-liisten
 
 [audio]
-full_text=audio
 command=$HOME/.local/bin/sb-volume
 interval=persist
 
