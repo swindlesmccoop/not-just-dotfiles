@@ -12,6 +12,7 @@ set incsearch
 let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 filetype plugin on
 set noerrorbells visualbell t_vb=
+set linebreak
 
 "always start in normal mode
 set t_u7=
