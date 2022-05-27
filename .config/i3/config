@@ -27,7 +27,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+q kill
@@ -185,13 +185,8 @@ default_border pixel 2
 default_floating_border pixel 2
 
 #master and slave stacks like DWM
-exec_always --no-startup-id $HOME/.config/i3/i3-master-stack/i3_master
-# swap to master node
-bindsym $mod+m nop swap master
-# go to master node
-bindsym $mod+shift+m nop go master
-# enable/disable master layout in current workspace
-bindsym $mod+alt+m nop master toggle
+exec_always --no-startup-id $HOME/.config/i3/i3-master-stack/master-stack
+bindsym $mod+m exec --no-startup-id $HOME/.config/i3/i3-master-stack/swapper
 
 #i3blocks
 bar {
