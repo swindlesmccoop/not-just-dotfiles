@@ -22,7 +22,9 @@ command=$HOME/.local/bin/sb-doppler
 
 [emojis]
 full_text=😀
-command=$HOME/.local/bin/dmenuunicode
+command=$HOME/.local/bin/rofiunicode
+#command=$HOME/.local/bin/dmenuunicode
+interval=0
 
 [liisten]
 full_text=▶️
