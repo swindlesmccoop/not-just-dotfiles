@@ -4,17 +4,13 @@ separator=false
 separator_block_width=10
 
 [title]
-command=while true; do echo "                                                                                                                                                                                                                                               $(xdotool getactivewindow getwindowname 2>/dev/null)  " || echo ""; sleep 0.1; done
+command=while true; do echo "                                                                                                                                                                                                                                                                                                                                                                                   $(xdotool getactivewindow getwindowname 2>/dev/null)  " || echo ""; sleep 0.1; done
 interval=persist
 background=#FFFFFF
 color=#000000
 format=ini
 
 [separator]
-
-[record]
-full_text=⏺️
-command=$HOME/.local/bin/sb-dmenurecord
 
 [doppler]
 full_text=🗺️
@@ -25,10 +21,6 @@ full_text=😀
 command=$HOME/.local/bin/rofiunicode
 #command=$HOME/.local/bin/dmenuunicode
 interval=0
-
-[liisten]
-full_text=▶️
-command=st -e $HOME/.local/bin/sb-liisten
 
 [audio]
 command=$HOME/.local/bin/sb-volume
