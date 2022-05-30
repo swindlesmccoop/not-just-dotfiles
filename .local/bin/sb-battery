@@ -13,8 +13,8 @@ esac
 {
 	STATUS="$(upower -i $(upower -e | grep 'BAT') | grep "    state:")"
 	echo "$STATUS" | grep "charging" && ICON="🔌"
-	echo "$STATUS" | grep "full" && ICON="💯"
-	#echo "$STATUS" | grep "full" && ICON="⚡"
+	#echo "$STATUS" | grep "full" && ICON="💯"
+	echo "$STATUS" | grep "full" && ICON="⚡"
 	echo "$STATUS" | grep "discharging" && ICON="🔋"
 	echo "$STATUS" | grep "not charging" && ICON="🛑"
 	echo "$STATUS" | grep "unknown" && ICON="♻️"
