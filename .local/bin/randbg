@@ -1,4 +1,6 @@
 #!/bin/sh
+#Set random wallpaper and adjust terminal colors to it
+
 WALLDIR="$HOME/.local/share/wallpapers"
 export WALL="$WALLDIR/$(command ls -1 $WALLDIR | shuf -n 1)"
 xwallpaper --zoom "$WALL"
