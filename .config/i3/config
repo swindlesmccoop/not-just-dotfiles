@@ -112,6 +112,7 @@ mode "resize" {
     bindsym Shift+l resize shrink left 5 px or 5 ppt
 	#escape to go to normal
 	bindsym Escape mode "default"
+	bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
