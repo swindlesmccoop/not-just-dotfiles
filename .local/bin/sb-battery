@@ -16,7 +16,7 @@ esac
 	#echo "$STATUS" | grep "full" && ICON="💯"
 	echo "$STATUS" | grep "full" && ICON="⚡"
 	echo "$STATUS" | grep "discharging" && ICON="🔋"
-	echo "$STATUS" | grep "not charging" && ICON="🛑"
+	echo "$STATUS" | grep "pending-charge" && ICON="🛑"
 	echo "$STATUS" | grep "unknown" && ICON="♻️"
 	PERCENT="$(upower -i $(upower -e | grep 'BAT') | grep '    percentage:.*' | sed 's/    percentage:          //' | sed 's/\%//')"
 } > /dev/null
