@@ -1,8 +1,8 @@
 #!/bin/sh
-set -e
+
 [ -d /tmp/manga ] && rm -rf /tmp/manga
 mkdir /tmp/manga
 cp "$1" /tmp/manga/ && cd /tmp/manga
-unzip * && rm "$1"
+unzip * && rm *
 [ "$(ls | wc -l)" -gt "5" ] && sxiv -bf $(ls | sort -h)
 [ "$(ls | wc -l)" = "1" ] && cd * && sxiv -bf $(ls | sort -h)
