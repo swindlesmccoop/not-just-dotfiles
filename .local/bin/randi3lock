@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sudo cp "$(ls $HOME/.local/share/wallpapers/*.png | shuf -n 1)" /usr/share/i3lock-multimonitor/img/background.png
+i3lock-multimonitor
