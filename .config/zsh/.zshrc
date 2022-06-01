@@ -39,6 +39,9 @@ export LF_ICONS="$(cat "$HOME/.config/lf/icons")"
 [ "$(id -u)" = 0 ] && PS1ICON="#" || PS1ICON="%"
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}%$PS1ICON "
 
+#nix
+[ -d "$HOME/.nix-profile/" ] && source "$HOME/.nix-profile/etc/profile.d/nix.sh" && export NIXPKGS_ALLOW_UNFREE=1
+
 #tab completion
 autoload -U compinit
 zstyle ':completion:*' menu select
