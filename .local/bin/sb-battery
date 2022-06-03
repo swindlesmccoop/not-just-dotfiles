@@ -22,4 +22,4 @@ esac
 } > /dev/null
 
 [ "$PERCENT" -lt "10" ] && ICON="‼️🔋"
-printf "$ICON$PERCENT%%\n"
+[ "$PERCENT" = "" ] && echo "" || printf "$ICON$PERCENT%%\n"
