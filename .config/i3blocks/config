@@ -1,8 +1,3 @@
-full_text=||
-align=center
-separator=false
-separator_block_width=10
-
 [title]
 command=while true; do echo "                                                                                                                                                                                                                                                                                                                                                                                   $(xdotool getactivewindow getwindowname 2>/dev/null)  " || echo ""; sleep 0.1; done
 interval=persist
@@ -15,18 +10,6 @@ format=ini
 [doppler]
 full_text=🗺️
 command=$HOME/.local/bin/sb-doppler
-
-[emojis]
-full_text=😀
-command=$HOME/.local/bin/rofiunicode
-#command=$HOME/.local/bin/dmenuunicode
-interval=0
-
-[audio]
-command=$HOME/.local/bin/sb-volume
-interval=persist
-
-[separator]
 
 [packages]
 command=$HOME/.local/bin/sb-packages
@@ -41,6 +24,10 @@ command=$HOME/.local/bin/sb-network
 interval=1
 
 [separator]
+
+[audio]
+command=$HOME/.local/bin/sb-volume
+interval=persist
 
 [battery]
 command=$HOME/.local/bin/sb-battery
