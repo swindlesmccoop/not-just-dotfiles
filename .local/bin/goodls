@@ -1,0 +1,3 @@
+#!/bin/sh
+
+[ "$PWD" = "$HOME" ] && ls --color=auto --group-directories-first || ls --color=auto --group-directories-first -A
