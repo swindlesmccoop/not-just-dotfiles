@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#Neofetch with ueberzug support
 # vim: noai:ts=4:sw=4:expandtab
 # shellcheck source=/dev/null
 # shellcheck disable=2009

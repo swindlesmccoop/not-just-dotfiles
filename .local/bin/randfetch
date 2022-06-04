@@ -1,0 +1,5 @@
+#!/bin/sh
+#Ueberzug neofetch with a random image
+
+IMGDIR="$HOME/images/neofetch"
+ubfetch --ueberzug "$IMGDIR/$(ls -1 $IMGDIR | shuf -n 1)"
