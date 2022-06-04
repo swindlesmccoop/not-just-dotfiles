@@ -95,14 +95,15 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-msg exit"
 
 #custom binds
-bindcode 160 exec "$HOME/.local/bin/randi3lock" #fn+F2
-bindcode 107 exec "spectacle" #prtsc
-bindcode 156 exec "$HOME/.local/bin/randbg" #thinkvantage
-
+#fn+F2
+bindcode 160 exec "$HOME/.local/bin/randi3lock"
+#printscreen
+bindcode 107 exec "spectacle"
+#thinkvantage
+bindcode 156 exec "$HOME/.local/bin/randbg"
 bindsym F3 exec notify-send "$(acpi)"
 bindsym F5 exec "st -e pulsemixer"
 bindsym F6 exec "mpv --untimed --no-cache --no-osc --profile=low-latency --title='webcam - mpv' $(ls /dev/video[0,2,4,6,8] | tail -n 1)"
-
 bindsym $mod+Shift+B exec $HOME/.local/bin/rofiunicode
 
 mode "resize" {
