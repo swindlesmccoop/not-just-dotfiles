@@ -1,0 +1,21 @@
+#!/bin/bash
+srcExt=$1
+destExt=$2
+srcDir=$3
+destDir=$4
+opts=$5
+
+[ "$1" = "" ] && printf '$1 = Source Extension
+$2 = Destination Extension
+$3 = Source Directory
+$4 = Destination Directory
+$5 = FFMPEG Options
+' && exit
+
+for filename in "$srcDir"/*.$srcExt; do
+	basePath=${filename%.*}
+	baseName=${basePath##*/}
+	ffmpeg -i "$filename" $opts "$destDir"/"$baseName"."$destExt"
+done
+
+echo "Conversion from ${srcExt} to ${destExt} complete!"
