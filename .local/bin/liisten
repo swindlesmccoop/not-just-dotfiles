@@ -32,7 +32,7 @@ random () {
 }
 
 #pull up fzf and select a song
-select () {
+select_song () {
 	while true; do
 		SONG="$(command ls -1 | fzf --layout=reverse)"
 		playsong
@@ -62,13 +62,13 @@ liisten_help () {
 	printf 'Liisten by swindlesmccoop\n\nusage: liisten -[f, h, io, r, s]\n -f: Play selected song until user termination\n -h: Print this help message\n-io: Play all songs in library in alphabetical order\n -r: Play all songs in library in random order\n -s: Select each song to play\n'
 }
 
-[ vgmstream-cli > /dev/null ] || dependency vgmstream
-[ mpv > /dev/null ] || dependency mpv
+command -v vgmstream-cli > /dev/null || dependency vgmstream
+command -v mpv > /dev/null || dependency mpv
 [ "$1" = "" ] && liisten_help
 case "$1" in
 	-f) forever ;;
 	-h) liisten_help ;;
 	-io) inorder ;;
 	-r) random ;;
-	-s) select ;;
+	-s) select_song ;;
 esac
