@@ -4,3 +4,5 @@
 .local/share/lftp
 .local/share/newsboat/cache.db
 .local/share/newsboat/history.search
+.config/i3/core
+.config/i3blocks/core
