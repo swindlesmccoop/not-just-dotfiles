@@ -99,7 +99,7 @@ bindcode 160 exec "$HOME/.local/bin/randi3lock" #fn+F2
 bindcode 107 exec "spectacle" #prtsc
 bindcode 156 exec "$HOME/.local/bin/randbg" #thinkvantage
 
-bindsym F7 workspace 1
+bindsym F3 exec notify-send "$(acpi)"
 bindsym F5 exec "st -e pulsemixer"
 bindsym F6 exec "mpv --untimed --no-cache --no-osc --profile=low-latency --title='webcam - mpv' $(ls /dev/video[0,2,4,6,8] | tail -n 1)"
 
