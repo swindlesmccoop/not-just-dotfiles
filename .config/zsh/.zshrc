@@ -22,7 +22,7 @@ for d in "$HOME/git/*"; do PATH="$PATH:$d"; done
 
 #colors and icons
 autoload -U colors && colors
-alias ls="goodls"
+alias ls="ls --color=auto -A --group-directories-first"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 source "$HOME/.config/zsh/aliases.zsh"
