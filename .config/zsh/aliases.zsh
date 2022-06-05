@@ -15,6 +15,9 @@ alias scrk="screenkey --no-whitespace -s small --bak-mode full -t 1 &"
 alias svim="sudo vim"
 alias sivm="sudo vim"
 alias suvim="sudo vim"
+alias cls="command ls --color --group-directories-first"
+alias clas=cls
+alias lsc=cls
 
 #edit configurations
 alias pacman.conf="sudo vim /etc/pacman.conf"
