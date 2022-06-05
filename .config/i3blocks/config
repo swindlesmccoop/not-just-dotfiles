@@ -7,13 +7,13 @@ format=ini
 
 [separator]
 
-[doppler]
-full_text=🗺️
-command=$HOME/.local/bin/sb-doppler
-
 [packages]
 command=$HOME/.local/bin/sb-packages
 interval=1200
+
+[doppler]
+full_text=🗺️
+command=$HOME/.local/bin/sb-doppler
 
 [forecast]
 command=$HOME/.local/bin/sb-forecast
