@@ -2,7 +2,8 @@
 # Show local IP if connected to the internet. Opens $NETWORKMANAGER on click
 NETWORKMANAGER=connman-gtk
 
-printf "📶$(ip route | grep -o 'src.*' | tail -n 1 | sed 's/src //' | sed 's/ metric.*//' || printf "Disconnected")\n"
+IP_ADDRESS="$(ip route | grep -o 'src.*' | tail -n 1 | sed 's/src //' | sed 's/ metric.*//')"
+[ "$IP_ADDRESS" != "" ] && printf "📶$IP_ADDRESS\n" || printf "📶Disconnected\n"
 
 case $BLOCK_BUTTON in
 	1) $NETWORKMANAGER ;;
