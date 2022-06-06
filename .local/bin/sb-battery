@@ -21,5 +21,6 @@ esac
 	PERCENT="$(upower -i $(upower -e | grep 'BAT') | grep '    percentage:.*' | sed 's/    percentage:          //' | sed 's/\%//')"
 } > /dev/null
 
+[ "$PERCENT" = "" ] && exit
 [ "$PERCENT" -lt "10" ] && ICON="‼️🔋"
-[ "$PERCENT" = "" ] && echo "" || printf "$ICON$PERCENT%%\n"
+printf "$ICON$PERCENT%%\n"
