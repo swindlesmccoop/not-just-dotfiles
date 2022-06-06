@@ -1,9 +1,25 @@
 #!/bin/sh
-# Show local IP if connected to the internet. Opens $NETWORKMANAGER on click
+# Show local IP and transfer if connected to the internet. Opens $NETWORKMANAGER on click
 NETWORKMANAGER=connman-gtk
 
 IP_ADDRESS="$(ip route | grep -o 'src.*' | tail -n 1 | sed 's/src //' | sed 's/ metric.*//')"
-[ "$IP_ADDRESS" != "" ] && printf "📶$IP_ADDRESS\n" || printf "📶Disconnected\n"
+
+update() {
+    sum=0
+    for arg; do
+        read -r i < "$arg"
+        sum=$(( sum + i ))
+    done
+    cache=/tmp/${1##*/}
+    [ -f "$cache" ] && read -r old < "$cache" || old=0
+    printf %d\\n "$sum" > "$cache"
+    printf %d\\n $(( sum - old ))
+}
+
+rx=$(update /sys/class/net/[ew]*/statistics/rx_bytes)
+tx=$(update /sys/class/net/[ew]*/statistics/tx_bytes)
+
+[ "$IP_ADDRESS" != "" ] && printf "📶$IP_ADDRESS 🔻%4sB 🔺%4sB\\n" $(numfmt --to=iec $rx $tx) || printf "📶Disconnected\n"
 
 case $BLOCK_BUTTON in
 	1) $NETWORKMANAGER ;;
