@@ -19,7 +19,7 @@ update() {
 rx=$(update /sys/class/net/[ew]*/statistics/rx_bytes)
 tx=$(update /sys/class/net/[ew]*/statistics/tx_bytes)
 
-[ "$IP_ADDRESS" != "" ] && printf "📶$IP_ADDRESS 🔻%4sB 🔺%4sB\\n" $(numfmt --to=iec $rx $tx) || printf "📶Disconnected\n"
+[ "$IP_ADDRESS" != "" ] && printf "📶$IP_ADDRESS🔻%4sB 🔺%4sB\\n" $(numfmt --to=iec $rx $tx) || printf "📶Disconnected\n"
 
 case $BLOCK_BUTTON in
 	1) $NETWORKMANAGER ;;
