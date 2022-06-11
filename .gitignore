@@ -1,5 +1,5 @@
 .config/git/credentials
-.config/zsh/.zcompdump
+.config/zsh/.zcompdump*
 .config/zsh/.zsh_history
 .local/share/lftp
 .local/share/newsboat/cache.db
