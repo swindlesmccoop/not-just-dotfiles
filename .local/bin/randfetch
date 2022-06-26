@@ -2,4 +2,4 @@
 #Ueberzug neofetch with a random image
 
 IMGDIR="$HOME/images/neofetch"
-ubfetch --ueberzug "$IMGDIR/$(ls -1 $IMGDIR | shuf -n 1)"
+ubfetch --ueberzug "$IMGDIR/$(ls -1 $IMGDIR | shuf -n 1)" | sed 's/LENOVO 41742BU/ThinkPad T420/'

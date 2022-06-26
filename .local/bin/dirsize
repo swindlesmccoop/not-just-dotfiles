@@ -1,0 +1,3 @@
+#!/bin/sh
+
+du -h "$1" | tail -n 1

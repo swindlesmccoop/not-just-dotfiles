@@ -1,0 +1,25 @@
+#!/bin/sh
+
+echo "Topic:"
+printf "Black people bad
+[Something] is a valid art form!!11!1
+The population of whites in America is not decreasing
+We should take away guns
+Something extremely beta (sigma male inspiration images)
+Gas prices are fine/not Biden\'s fault
+Something about industrialization being great
+Some cringe blackpill
+Anime is for pedophiles
+Something that an incel who gets no pussy would say
+You need a college degree to be successful
+Anything about crime statistics
+Catholic priests
+Cryptocurrency
+Accomplishments of white people
+Accomplishments of black people
+Lizard people running the gov
+OnlyFans models
+European colonialism
+Poland hate
+Military hate
+Sexualization/grooming of children" | fzf --layout=reverse --height 90%

@@ -7,13 +7,13 @@ define_word() {
 	curl -so "$1.html" "https://www.merriam-webster.com/dictionary/$1"
 	#handle 404 words
 	[ "$(cat "$1.html")" = "" ] && echo "Sorry, the word you're looking for can't be found in the dictionary." && exit
-	echo -e "Word: $1\n$(grep -o '                                                <span class="dtText"><strong class="mw_t_bc">: </strong>.*</span>' "$1.html" | sed 's|                                                <span class="dtText"><strong class="mw_t_bc">: </strong>||' | sed "s|<a href = \"/dictionary/.*#h1\" class = 'mw_t_d_link'>||g" | sed "s|<a href = \"/dictionary/extends\" class = 'mw_t_a_link'>||g" | sed 's/<strong class="mw_t_bc">//g' | sed 's/<\/strong>//g' | sed 's/<.*//g' | head -n $NUMBER_OF_DEFS)"
+	printf "Word: $1\n$(grep -o '                                                <span class="dtText"><strong class="mw_t_bc">: </strong>.*</span>' "$1.html" | sed 's|                                                <span class="dtText"><strong class="mw_t_bc">: </strong>||' | sed "s|<a href = \"/dictionary/.*#h1\" class = 'mw_t_d_link'>||g" | sed "s|<a href = \"/dictionary/extends\" class = 'mw_t_a_link'>||g" | sed 's/<strong class="mw_t_bc">//g' | sed 's/<\/strong>//g' | sed 's/<.*//g' | head -n $NUMBER_OF_DEFS)\n"
 	rm "$1.html"
 }
 
-[ "$1" = "" ] && printf "$HELP"
+[ "$1" = "" ] && printf "$HELP\n" && exit
 case "$1" in
-	-h) echo -e "$HELP" ;;
-	--help) echo -e "$HELP" ;;
+	-h) printf "$HELP\n" ;;
+	--help) printf "$HELP\n" ;;
 	*) define_word "$@" ;;
 esac

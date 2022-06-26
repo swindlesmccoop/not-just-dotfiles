@@ -52,12 +52,12 @@ case "$INPUT" in
 	*.crx) ziphandler "$INPUT" ;;
 	*.gif) mpv --loop-file=inf "$INPUT" ;;
 	*.jpeg|*.jpg|*.png) sxiv "$INPUT" * ;;
-	*.m4v|*.wav|*.mkv|*.mov|*.mp3|*.mp4|*.ogg|*.ogv|*.3gp|*.flac|*.brstm) mpv "$INPUT" ;;
+	*.m4v|*.wav|*.mkv|*.mov|*.mp3|*.mp4|*.ogg|*.ogv|*.3gp|*.flac|*.brstm|*.webm) mpv "$INPUT" ;;
 	*.psd|*.xcf) gimp "$INPUT" ;;
 	*.tar) tarhandler "$@" ;;
 	*.tar.gz) targzhandler "$@" ;;
 	*.zip) ziphandler "$@" ;;
 	*.rar) unrar e "$INPUT" ;;
 	*.cbz|*.cbr) sxcv "$INPUT" ;;
-	*) vim --not-a-term "$INPUT" ;;
+	*) xdg-open "$INPUT" ;;
 esac

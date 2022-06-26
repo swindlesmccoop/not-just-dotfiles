@@ -13,6 +13,8 @@ let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 filetype plugin on
 set noerrorbells visualbell t_vb=
 set linebreak
+set noendofline
+set nofixendofline
 
 "always start in normal mode
 set t_u7=
@@ -62,13 +64,6 @@ augroup END
 
 "toggle spell check
 map <leader>sc :setlocal spell! spelllang=en_us<CR>
-
-"fix command mistakes
-cnoremap qw wq
-cnoremap Wq wq
-cnoremap WQ wq
-cnoremap Q q
-cnoremap Q! q!
 
 "delete trailing whitespace and newlines at end of file on save
 autocmd BufWritePre * let currPos = getpos(".")

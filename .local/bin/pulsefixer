@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd "$XDG_CONFIG_HOME"
+sudo chown $USER:$USER pulse
+cd pulse
+sudo chmod 755 daemon.conf

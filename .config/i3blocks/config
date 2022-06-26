@@ -1,5 +1,5 @@
 [title]
-command=while true; do echo "                                                                                                                                                                                                                                                                                                                                                                                   $(xdotool getactivewindow getwindowname 2>/dev/null)  " || echo ""; sleep 0.1; done
+command=while true; do echo "                                                                                                                                                                                                                                                                                                                                                                                   $(xdotool getactivewindow getwindowname 2>/dev/null) " || echo ""; sleep 0.1; done
 interval=persist
 background=#FFFFFF
 color=#000000
