@@ -1,10 +1,11 @@
 set $mod Mod4
+font pango:mono 6
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 #vol
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -50,16 +51,16 @@ bindsym $mod+space floating toggle
 #set $ws9 "9"
 #set $ws10 "10"
 
-set $ws1 "1:一"
-set $ws2 "2:二"
-set $ws3 "3:三"
-set $ws4 "4:四"
-set $ws5 "5:五"
-set $ws6 "6:六"
-set $ws7 "7:七"
-set $ws8 "8:八"
-set $ws9 "9:九"
-set $ws10 "10:十"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -106,13 +107,13 @@ bindsym $mod+Shift+e exec "i3-msg exit"
 
 #custom binds
 #fn+F2
-bindcode 160 exec "$HOME/.local/bin/randi3lock"
+#bindcode 160 exec "$HOME/.local/bin/randi3lock"
 #printscreen
 for_window [title="ksnip"] floating enable, move position center
 bindcode 107 exec "ksnip"
 #thinkvantage
 bindcode 156 exec "$HOME/.local/bin/randbg"
-bindsym F3 exec notify-send "$(acpi)"
+bindsym F3 exec notify-send "$(apm | head -n 1)"
 bindsym F5 exec "st -e pulsemixer"
 bindsym F6 exec "mpv --untimed --no-cache --no-osc --profile=low-latency --title='webcam - mpv' $(ls /dev/video[0,2,4,6,8] | tail -n 1)"
 bindsym $mod+Shift+B exec "$HOME/.local/bin/rofiunicode"
@@ -153,8 +154,13 @@ bindsym $mod+m exec --no-startup-id $HOME/.config/i3/i3-master-stack/swapper
 
 #i3blocks
 bar {
-	font pango:mono 9
+	font pango:mono 6
 	position top
 	strip_workspace_numbers yes
 	status_command i3blocks
+
+	colors {
+		statusline #FFFFFF
+		background #003457
+	}
 }
