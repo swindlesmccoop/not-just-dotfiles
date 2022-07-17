@@ -1,0 +1,12 @@
+#!/bin/sh
+ARGS=$*
+CMD="${ARGS%% -- *}"
+
+main() {
+	WINID=$(xdo id)
+	xdo hide $WINID
+	$CMD
+	xdo show $WINID
+}
+
+[ "$1" = "" ] && printf "Error: You must provide at least one argument.\nExample usage: swallow mpv ~/videos/AmericanPsycho.mkv\n" || main "$@"
