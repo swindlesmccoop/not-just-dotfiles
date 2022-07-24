@@ -12,4 +12,3 @@ map R rotate
 map K zoom in
 map J zoom out
 map gg goto top
-map v version
