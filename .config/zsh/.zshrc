@@ -1,6 +1,4 @@
 #options
-setopt autocd
-setopt interactive_comments
 export EDITOR=vim
 export BROWSER=firefox
 export TERMINAL=st
@@ -16,15 +14,11 @@ SAVEHIST=10000000
 setopt appendhistory
 
 #path
-VITASDK=/usr/local/vitasdk
 PATH="$PATH:$VITASDK/bin:/$HOME/.local/bin"
-for d in "$HOME/git/*"; do PATH="$PATH:$d"; done
 
 #colors and icons
 autoload -U colors && colors
-alias ls="ls --color=auto -A --group-directories-first"
-alias grep="grep --color=auto"
-alias diff="diff --color=auto"
+alias ls="ls -A"
 source "$HOME/.config/zsh/aliases.zsh"
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
@@ -35,12 +29,8 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 export LC=en_US.UTF-8
 export LC_ALL=$LC
-export LF_ICONS="$(cat "$HOME/.config/lf/icons")"
-[ "$(id -u)" = 0 ] && PS1ICON="#" || PS1ICON="%"
+[ "$(id -u)" = 0 ] && PS1ICON="#" || PS1ICON='%'
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}%$PS1ICON "
-
-#nix
-[ -d "$HOME/.nix-profile/" ] && source "$HOME/.nix-profile/etc/profile.d/nix.sh" && export NIXPKGS_ALLOW_UNFREE=1
 
 #tab completion
 autoload -U compinit
@@ -79,7 +69,7 @@ zle-line-init() {
 }
 zle -N zle-line-init
 echo -ne '\e[6 q' #use steady beam on startup
-preexec() { echo -ne '\e[2 q' ; $FLIRTSCRIPT }
+preexec() { echo -ne '\e[2 q' }
 
 #ctrl+e edits current line in vim
 autoload edit-command-line; zle -N edit-command-line
