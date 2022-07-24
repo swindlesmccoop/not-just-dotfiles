@@ -15,19 +15,17 @@ alias scrk="screenkey --no-whitespace -s small --bak-mode full -t 1 &"
 alias svim="doas vim"
 alias sivm="doas vim"
 alias suvim="doas vim"
-alias dmenu_nice="dmenu -fn 'monospace:size=8' -nb '#222222' -nf '#bbbbbb' -sb '#005577' -sf '#eeeeee'"
-alias screenshot="ID=$(xdo id); xdo hide $ID && scrot && xdo kill"
+alias dmenu_nice="dmenu -i -fn 'monospace:size=8' -nb '#222222' -nf '#bbbbbb' -sb '#005577' -sf '#eeeeee'"
+alias screenshot="ID=$(xdo id); xdo hide $ID && scrot && xdo show $ID"
+alias ls="exa -a --group-directories-first"
+alias lsh="exa --group-directories-first"
+alias updateports="cd /usr/ports && cvs -q up -Pd -A"
 
 #edit configurations
-alias pacman.conf="doas vim /etc/pacman.conf"
-alias preview="sddm-greeter --test-mode --theme"
-alias sddm.conf="doas vim /etc/sddm.conf"
-alias doasers="vidoas"
 alias vimrc="vim ~/.config/vim/vimrc"
 alias zshrc="vim ~/.config/zsh/.zshrc"
 alias aliases="vim ~/.config/zsh/aliases.zsh"
 alias xprofile="vim ~/.xprofile"
-alias lfrc="vim ~/.config/lf/lfrc"
 
 #git aliases
 alias gacap="git add . && git commit -a && git push"
@@ -39,13 +37,18 @@ alias claer="clear"
 alias clare="clear"
 alias cleae="clear"
 alias clera="clear"
+alias shl="lsh"
+alias hls="lsh"
+alias slh="lsh"
+alias lhs="lsh"
 
 #youtube-dl
 alias yt="yt-dlp"
-alias mp3="yt --audio-format mp3 -k"
 alias ytdlp="yt"
-alias yta="yt -x -f bestaudio/best"
 alias ytdl="yt"
+alias yt3="yt --audio-format mp3 -k"
+alias yt4="yt --format mp4"
+alias yta="yt -x -f bestaudio/best"
 
 #swallow
 alias mpv="swallow mpv"
@@ -80,4 +83,7 @@ up() {
 }
 
 #FIX STUFF
-alias fixaudio="doas rcctl restart sndiod"
+alias fixsound="doas rcctl restart sndiod"
+alias fixsnd="fixsound"
+alias fixaudio="fixsound"
+alias fixkeys="kill $(pgrep sxhkd) && sxhkd & disown sxhkd"
