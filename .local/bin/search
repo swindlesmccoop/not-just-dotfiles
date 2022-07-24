@@ -2,7 +2,7 @@
 #Search for files in any given directory and send them to filehandler
 
 curdir () {
-	filehandler "$(find "$PWD/" | find 2> /dev/null | sed 's/^.*\.git.*//g' | sed 's/^.*\.cache.*//g' | sed '/./!d' | fzfse)"
+	filehandler "$(find "$PWD/" 2> /dev/null | sed 's/^.*\.git.*//g' | sed 's/^.*\.cache.*//g' | sed '/./!d' | fzfse)"
 }
 
 argdir () {
