@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+#download the packages
+if grep "swindlesmccoop" /etc/installurl > /dev/null; then
+	doas pkg_add -D unsigned "$1"
+else
+	mv /etc/installurl /etc/installurl.bak
+	printf "https://swindlesmccoop.xyz/openbsd-packages" > /etc/installurl
+	doas pkg_add -D unsigned "$1"
+	mv /etc/installurl.bak /etc/installurl
+fi
+
+[ "$1" = "" ] && printf "Usage: swack [package]\n" && exit
