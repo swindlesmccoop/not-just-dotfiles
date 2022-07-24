@@ -1,16 +1,5 @@
 #!/bin/sh
-
-while true; do
-	VOL=$(pamixer --get-volume)
-	if [ "$VOL" -gt "69" ]; then
-		ICON="🔊"
-	elif [ "$VOL" -gt "29" ]; then
-		ICON="🔉"
-	elif [ "$VOL" -gt "0" ]; then
-		ICON="🔈"
-	else
-		ICON="🔇"
-	fi
-	echo "$VOL%$ICON"
-	sleep 0.1
-done
+sndioctl -n output.level | sed 's/0\.//' | sed 's/.$/%/' | sed 's/\.//'
+#VOL="$(sndioctl -n output.level | sed 's/0\.//' | sed 's/.$//')"
+#[ "$VOL" = "1.00" ] && echo "VOL: 100%" || echo "VOL: $VOL%"
+#kill -s SIGUSR1 $(pgrep dwmblocks)

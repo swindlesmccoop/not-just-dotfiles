@@ -257,4 +257,5 @@ After $secs seconds, new clicks will also automatically update the doppler RADAR
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-echo 🗺️
+#echo weather🗺️weather
+echo Weather

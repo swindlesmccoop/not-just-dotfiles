@@ -1,0 +1,4 @@
+#!/bin/sh
+
+USAGE=$(ps aux | awk '{print $3}' | sed '1d' | sort | paste -s -d+ - | bc)
+printf "$USAGE" | grep "^\.[0-9]" > /dev/null && printf "0$USAGE%%" || printf "$USAGE%%"

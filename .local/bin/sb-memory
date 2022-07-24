@@ -1,0 +1,7 @@
+#!/bin/sh
+
+TOTAL="$(free | awk '/^Mem:/ {print $2}')"
+MUSED="$(top -b -n 1 | grep -o 'Real.*' | sed 's/Real: //' | sed 's/\/.*//')"
+
+printf "$MUSED" | egrep "[0-9]{4}" > /dev/null && FUSED="$(printf "$MUSED" | cut -c -2 | sed 's/./.&/2')G" || FUSED=$MUSED
+printf "$FUSED/$TOTAL"

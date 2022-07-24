@@ -1,0 +1,6 @@
+#!/bin/sh
+
+case $1 in
+	-c) sysctl | grep hw.sensors.cpu0.temp0 | sed 's/.*=//' | sed 's/\.00//' | sed 's/ deg/°/' ;;
+	-f) printf "$(expr $(sysctl | grep hw.sensors.cpu0.temp0 | sed 's/\.00.*//' | sed 's/.*=//') \* 9 / 5 + 32)°F" ;;
+esac

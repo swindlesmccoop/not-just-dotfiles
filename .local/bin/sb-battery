@@ -1,26 +1,7 @@
 #!/bin/sh
 #Prints battery percentage and corresponding emoji
 
-case $BLOCK_BUTTON in
-	3) notify-send "🔋 Battery module" "🔋: discharging
-🛑: not charging
-♻: stagnant charge
-🔌: charging
-⚡: charged
-‼️: battery very low!" ;;
-esac
-
-{
-	STATUS="$(upower -i $(upower -e | grep 'BAT') | grep "    state:")"
-	echo "$STATUS" | grep "charging" && ICON="🔌"
-	#echo "$STATUS" | grep "full" && ICON="💯"
-	echo "$STATUS" | grep "full" && ICON="⚡"
-	echo "$STATUS" | grep "discharging" && ICON="🔋"
-	echo "$STATUS" | grep "pending-charge" && ICON="🛑"
-	echo "$STATUS" | grep "unknown" && ICON="♻️"
-	PERCENT="$(upower -i $(upower -e | grep 'BAT') | grep '    percentage:.*' | sed 's/    percentage:          //' | sed 's/\%//')"
-} > /dev/null
-
+#PERCENT="$(apm | sed 's/Battery state:.*, //g' | sed 's/ remaining.*//' | head -n 1)"
+PERCENT="$(apm | grep -o '[0-9].*%')"
 [ "$PERCENT" = "" ] && exit
-[ "$PERCENT" -lt "10" ] && ICON="‼️$ICON"
-printf "$ICON$PERCENT%%\n"
+echo "$PERCENT"
