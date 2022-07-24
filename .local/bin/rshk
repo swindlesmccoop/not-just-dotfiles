@@ -1,5 +1,0 @@
-#!/bin/sh
-#Restart sxhkd
-
-kill $(pgrep sxhkd)
-sxhkd &
