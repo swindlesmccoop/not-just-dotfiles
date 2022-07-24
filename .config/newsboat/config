@@ -1,7 +1,7 @@
 #show-read-feeds no
 #auto-reload yes
 
-external-url-viewer "chromium"
+external-url-viewer "firefox %u"
 
 bind-key j down
 bind-key k up
@@ -29,7 +29,7 @@ color listfocus_unread yellow default bold
 color info red black bold
 color article white default bold
 
-browser linkhandler
+browser firefox
 macro , open-in-browser
 macro t set browser "qndl" ; open-in-browser ; set browser linkhandler
 macro a set browser "tsp youtube-dl --add-metadata -xic -f bestaudio/best" ; open-in-browser ; set browser linkhandler
