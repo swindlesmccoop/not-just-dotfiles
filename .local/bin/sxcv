@@ -1,5 +1,6 @@
 #!/bin/sh
 
+[ "$1" = "" ] echo "You must supply an argument." && exit 1
 [ -d /tmp/manga ] && rm -rf /tmp/manga
 mkdir /tmp/manga
 cp "$1" /tmp/manga/ && cd /tmp/manga
