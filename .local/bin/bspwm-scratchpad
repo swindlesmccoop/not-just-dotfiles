@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ -f /tmp/scratch ]; then
+	xdo show $(cat /tmp/scratch)
+	bspc node -t floating
+	rm /tmp/scratch
+else
+	xdo id > /tmp/scratch
+	WINID=$(cat /tmp/scratch)
+	bspc node -t floating
+	xdo resize -w 700 -h 500 $WINID
+	xdo hide $WINID
+fi
