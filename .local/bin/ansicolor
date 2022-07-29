@@ -1,0 +1,71 @@
+#!/bin/sh
+
+RED='\033[0;31m'
+ORANGE='\033[0;33m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
+WHITE='\033[1;37m'
+NONE='\033[0m'
+L_GREY='\033[0;37m'
+B_GREY='\033[1;30m'
+BLACK='\033[0;30m'
+B_RED='\033[1;31m'
+B_YELLOW='\033[1;33m'
+B_GREEN='\033[1;32m'
+B_BLUE='\033[1;34m'
+B_PURPLE='\033[1;35m'
+B_CYAN='\033[1;36m'
+
+demonstrate () {
+	printf ""$RED"A"$ORANGE"N"$YELLOW"S"$GREEN"I "$BLUE"C"$PURPLE"O"$L_RED"L"$L_GREEN"O"$L_BLUE"R"$NONE" by swindlesmccoop
+Usage: ansicolor [color] [string]
+
+Normal Colors
+"$RED"Red:	r
+"$ORANGE"Orange: o
+"$GREEN"Green:	g
+"$BLUE"Blue:	b
+"$PURPLE"Purple: p
+"$CYAN"Cyan:	c
+"$BLACK"Black:  bl
+"$NONE"White:  w
+
+Bold Colors
+"$B_RED"Bold Red:    br
+"$B_YELLOW"Bold Yellow: by
+"$B_GREEN"Bold Green:  bg
+"$B_BLUE"Bold Blue:   bb
+"$B_PURPLE"Bold Purple: bp
+"$B_CYAN"Bold Cyan:   bc
+"$B_WHITE"Bold White:  bw
+"$B_GREY"Bold Grey:   bgr
+"$NONE""
+}
+
+print_string() {
+	ARG_COLOR="$1"
+	STRING="$2"
+	case "$ARG_COLOR" in
+		r) COL="$RED" ;;
+		o) COL="$ORANGE" ;;
+		g) COL="$GREEN" ;;
+		b) COL="$BLUE" ;;
+		p) COL="$PURPLE" ;;
+		c) COL="$CYAN" ;;
+		w) COL="$NONE" ;;
+		bl) COL="$BLACK" ;;
+		br) COL="$B_RED" ;;
+		by) COL="$B_YELLOW" ;;
+		bg) COL="$B_GREEN" ;;
+		bb) COL="$B_BLUE" ;;
+		bp) COL="$B_PURPLE" ;;
+		bc) COL="$B_CYAN" ;;
+		bw) COL="$B_WHITE" ;;
+		bgr) COL="$B_GREY" ;;
+	esac
+	printf ""$COL"$STRING"
+}
+
+[ "$1" = "" ] && demonstrate || print_string "$@"
