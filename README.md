@@ -1,1 +1,1 @@
-Configs and scripts made for OpenBSD but most of the time will work on Linux too. Package list coming soon TM.
+Configs and scripts made for OpenBSD but most of the time will work on Linux too. Package list at [pkglist.txt](pkglist.txt)
