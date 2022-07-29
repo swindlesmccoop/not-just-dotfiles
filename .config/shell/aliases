@@ -1,0 +1,92 @@
+#general aliases
+alias sudo="doas"
+alias enc="gpg -c --cipher-algo AES256"
+alias ":q"="exit"
+alias c="clear"
+alias flac-mp3="flac2mp3 -b 320 *.flac"
+alias vi="vim"
+alias nvim="vim"
+alias yt="yt-dlp"
+alias showme="mpv /dev/video0 2&> /dev/null &"
+alias asciime="mplayer tv:// -vo caca"
+alias scrk="screenkey --no-whitespace -s small --bak-mode full -t 1 &"
+alias svim="doas vim"
+alias sivm="doas vim"
+alias suvim="doas vim"
+alias dmenu_nice="dmenu -i -fn 'monospace:size=8' -nb '#222222' -nf '#bbbbbb' -sb '#005577' -sf '#eeeeee'"
+alias screenshot="ID=$(xdo id); xdo hide $ID && sleep 1 && scrot && xdo show $ID"
+alias ls="exa -a --group-directories-first"
+alias lsh="exa --group-directories-first"
+alias updateports="cd /usr/ports && cvs -q up -Pd -A"
+alias neofetch="neofetch | sed 's/41742BU/ThinkPad T420s/'"
+
+#edit configurations
+alias vimrc="vim ~/.config/vim/vimrc"
+alias zshrc="vim ~/.config/shell/zshrc"
+alias bashrc="vim ~/.config/bashrc"
+alias aliases="vim ~/.config/shell/aliases"
+alias xprofile="vim ~/.xprofile"
+
+#git aliases
+alias gacap="git add . && git commit -a && git push"
+
+#spellign mistaeks
+alias cd..="cd .."
+alias claer="clear"
+alias claer="clear"
+alias clare="clear"
+alias cleae="clear"
+alias clera="clear"
+alias shl="lsh"
+alias hls="lsh"
+alias slh="lsh"
+alias lhs="lsh"
+
+#youtube-dl
+alias yt="yt-dlp"
+alias ytdlp="yt"
+alias ytdl="yt"
+alias yt3="yt --audio-format mp3 -k"
+alias yt4="yt --format mp4"
+alias yta="yt -x -f bestaudio/best"
+
+#swallow
+alias mpv="swallow mpv"
+alias ffplay="swallow ffplay"
+alias video="swallow video"
+alias zathura="swallow zathura"
+alias sxiv="swallow sxiv"
+alias nsxiv="swallow nsxiv"
+alias caja="swallow caja"
+
+#replace root-only commands with doas [command]
+if [ -f /usr/bin/doas ]; then
+	for command in mount umount lsblk sv vidoas pkg_add pkg_delete updatedb su shutdown poweroff reboot ; do
+		alias $command="doas $command"
+	done; unset command
+fi
+
+#up
+up() {
+	local d=""
+	local limit="$1"
+
+	#default to limit of 1
+	if [ -z "$limit" ] || [ "$limit" -le 0 ]; then
+		limit=1
+	fi
+
+	for ((i=1;i<=limit;i++)); do
+		d="../$d"
+	done
+
+	if ! cd "$d"; then
+		echo "Couldn't go up $limit dirs."
+	fi
+}
+
+#FIX STUFF
+alias fixsound="doas rcctl restart sndiod"
+alias fixsnd="fixsound"
+alias fixaudio="fixsound"
+alias fixkeys="kill $(pgrep sxhkd); sxhkd & disown sxhkd"
