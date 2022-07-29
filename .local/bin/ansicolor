@@ -6,9 +6,9 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
-WHITE='\033[1;37m'
+WHITE='\033[0;37m'
 NONE='\033[0m'
-L_GREY='\033[0;37m'
+B_WHITE='\033[1;37m'
 B_GREY='\033[1;30m'
 BLACK='\033[0;30m'
 B_RED='\033[1;31m'
@@ -22,7 +22,7 @@ demonstrate () {
 	printf ""$RED"A"$ORANGE"N"$YELLOW"S"$GREEN"I "$BLUE"C"$PURPLE"O"$L_RED"L"$L_GREEN"O"$L_BLUE"R"$NONE" by swindlesmccoop
 Usage: ansicolor [color] [string]
 
-Normal Colors
+--Normal Colors--
 "$RED"Red:	r
 "$ORANGE"Orange: o
 "$GREEN"Green:	g
@@ -32,7 +32,7 @@ Normal Colors
 "$BLACK"Black:  bl
 "$NONE"White:  w
 
-Bold Colors
+"$B_WHITE"--Bold Colors--
 "$B_RED"Bold Red:    br
 "$B_YELLOW"Bold Yellow: by
 "$B_GREEN"Bold Green:  bg
@@ -65,7 +65,7 @@ print_string() {
 		bw) COL="$B_WHITE" ;;
 		bgr) COL="$B_GREY" ;;
 	esac
-	printf ""$COL"$STRING"
+	printf ""$COL"$STRING"$NONE""
 }
 
 [ "$1" = "" ] && demonstrate || print_string "$@"
