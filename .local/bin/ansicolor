@@ -64,6 +64,7 @@ print_string() {
 		bc) COL="$B_CYAN" ;;
 		bw) COL="$B_WHITE" ;;
 		bgr) COL="$B_GREY" ;;
+		*) printf ""$B_RED"Error: invalid color selected.\n" && exit 1 ;;
 	esac
 	printf ""$COL"$STRING"$NONE""
 }
