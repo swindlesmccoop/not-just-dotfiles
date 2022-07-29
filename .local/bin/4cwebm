@@ -1,4 +1,4 @@
 #!/bin/sh
 #Convert video formats to webm with audio and a small size
 [ "$1" = "" ] && INPUTFILE="$(fzf)" || INPUTFILE="$1"
-ffmpeg -t 00:01:29 -i "$INPUTFILE" -c:v libvpx -crf 23 -c:a libvorbis "$(date '+%s')".webm
+ffmpeg -i "$INPUTFILE" -c:v vp9 -crf 10 -b:v 1M -an -auto-alt-ref 0 -c:a libvorbis "$(date '+%s')".webm
