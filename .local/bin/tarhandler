@@ -1,0 +1,23 @@
+#!/bin/sh
+
+main_func () {
+	DIR="$(printf "$2" | sed "s/.tar.*//")"
+	mkdir "$DIR"
+	mv "$2" "$DIR"
+	cd "$DIR"
+	$1 "$2"
+	if [ "$(ls | wc -l | sed 's/ //g')" = "2" ]; then
+		if file -i * | grep 'x-not-regular-file' > /dev/null; then
+			mv */* */.* .
+		else if file -i * | grep 'directory' > /dev/null; then
+			mv */* */.* .
+		fi
+	fi
+	fi
+}
+
+[ "$1" = "" ] && printf "Usage: tarhandler -[t,g,x] [file]\n" && exit 1
+case $1 in
+	-x|-g) main_func "tar xpfz" "$2" ;;
+	-t|*) main_func "tar xpf" "$2" ;;
+esac
