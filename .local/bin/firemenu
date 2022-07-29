@@ -15,13 +15,13 @@ CHOICE=$(printf "$CHOICES" | $DMENU_CMD -p "Go where?")
 SWALLOW=
 
 case $CHOICE in
-	4chan) printf '3\na\naco\nadv\nan\nb\nbant\nbiz\nc\ncgl\nck\ncm\nco\nd\ndiy\ne\nf\nfa\nfit\ng\ngd\ngif\nh\nhc\nhis\nhm\nhr\ni\nic\nint\njp\nk\nlgbt\nlit\nm\nmlp\nmu\nn\nnews\no\nout\np\npo\npol\npw\nqa\nqst\nr\nr9k\ns\ns4s\nsci\nsoc\nsp\nt\ntg\ntoy\ntrv\ntv\nu\nv\nvg\nvip\nvm\nvmg\nvp\nvr\nvrpg\nvst\nvt\nw\nwg\nwsg\nwsr\nx\nxs\ny' | $DMENU_CMD -p 'Board letter:' | sed 's|^|https://4chan.org/|' | xargs $SWALLOW firefox ;;
-	Based.Cooking) $SWALLOW firefox https://based.cooking ;;
-	Git) printf '' | $DMENU_CMD -p 'Repo:' | sed 's|^|https://git.cbps.xyz/swindlesmccoop/|' | xargs $SWALLOW firefox ;;
-	IPLeak) $SWALLOW firefox https://ipleak.net ;;
-	NeverSSL) $SWALLOW firefox http://neverssl.com ;;
-	Searx) printf '' | $DMENU_CMD -p 'Search:' | sed 's|^|https://paulgo.io/search?q=|' | sed 's/ /%20/g' | xargs $SWALLOW firefox ;;
-	swindlesmccoop.xyz) $SWALLOW firefox https://swindlesmccoop.xyz ;;
-	URL) printf '' | $DMENU_CMD -p 'Enter URL(s):' | xargs $SWALLOW firefox ;;
-	YouTube) printf '' | $DMENU_CMD -p 'Search:' | sed 's|^|https://youtube.com/results?search_query=|' | sed 's/ /%20/g' | xargs $SWALLOW firefox ;;
+	4chan) printf '3\na\naco\nadv\nan\nb\nbant\nbiz\nc\ncgl\nck\ncm\nco\nd\ndiy\ne\nf\nfa\nfit\ng\ngd\ngif\nh\nhc\nhis\nhm\nhr\ni\nic\nint\njp\nk\nlgbt\nlit\nm\nmlp\nmu\nn\nnews\no\nout\np\npo\npol\npw\nqa\nqst\nr\nr9k\ns\ns4s\nsci\nsoc\nsp\nt\ntg\ntoy\ntrv\ntv\nu\nv\nvg\nvip\nvm\nvmg\nvp\nvr\nvrpg\nvst\nvt\nw\nwg\nwsg\nwsr\nx\nxs\ny' | $DMENU_CMD -p 'Board letter:' | sed 's|^|https://4chan.org/|' | xargs $SWALLOW firefox 2&>/dev/null ;;
+	Based.Cooking) $SWALLOW firefox https://based.cooking 2&>/dev/null ;;
+	Git) printf '' | $DMENU_CMD -p 'Repo:' | sed 's|^|https://git.cbps.xyz/swindlesmccoop/|' | xargs $SWALLOW firefox 2&>/dev/null ;;
+	IPLeak) $SWALLOW firefox https://ipleak.net 2&>/dev/null ;;
+	NeverSSL) $SWALLOW firefox http://neverssl.com 2&>/dev/null ;;
+	Searx) printf '' | $DMENU_CMD -p 'Search:' | sed 's|^|https://paulgo.io/search?q=|' | sed 's/ /%20/g' | xargs $SWALLOW firefox 2&>/dev/null ;;
+	swindlesmccoop.xyz) $SWALLOW firefox https://swindlesmccoop.xyz 2&>/dev/null ;;
+	URL) printf '' | $DMENU_CMD -p 'Enter URL(s):' | xargs $SWALLOW firefox 2&>/dev/null ;;
+	YouTube) printf '' | $DMENU_CMD -p 'Search:' | sed 's|^|https://youtube.com/results?search_query=|' | sed 's/ /%20/g' | xargs $SWALLOW firefox 2&>/dev/null ;;
 esac
