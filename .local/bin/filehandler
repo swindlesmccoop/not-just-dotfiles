@@ -1,46 +1,6 @@
 #!/bin/sh
 #Handle files from stdin or argument. Used to select a file to handle from something like fzf.
 
-ziphandler () {
-	DIR="$(echo "$INPUT" | sed "s/.zip//")"
-	mkdir "$DIR"
-	mv "$INPUT" "$DIR"
-	cd "$DIR"
-	unzip "$INPUT"
-	rm "$INPUT"
-	cd ..
-}
-
-tarhandler () {
-	DIR="$(echo "$INPUT" | sed "s/.tar//")"
-	mkdir "$DIR"
-	mv "$INPUT" "$DIR"
-	cd "$DIR"
-	tar xpf "$INPUT"
-	rm "$INPUT"
-	cd ..
-}
-
-targzhandler () {
-	gzip -d "$INPUT"
-	DIR="$(echo "$INPUT" | sed "s/.tar.gz//")"
-	mkdir "$DIR"
-	mv "$INPUT" "$DIR"
-	cd "$DIR"
-	INPUT=""$DIR".tar"
-	tarhandler
-}
-
-tarxzhandler () {
-	gzip -d "$INPUT"
-	DIR="$(echo "$INPUT" | sed "s/.tar.xz//")"
-	mkdir "$DIR"
-	mv "$INPUT" "$DIR"
-	cd "$DIR"
-	INPUT=""$DIR".tar"
-	tarhandler
-}
-
 [ -t 0 ] && TYPE="ARG" || TYPE="STDIN"
 [ "$TYPE" = "ARG" ] && INPUT="$1" || INPUT="$(cat)"
 INPUT="$(echo "$INPUT" | sed 's/^ //')"
@@ -58,6 +18,6 @@ case "$INPUT" in
 	*.tar.gz) targzhandler "$@" ;;
 	*.zip) ziphandler "$@" ;;
 	*.rar) unrar e "$INPUT" ;;
-	*.cbz|*.cbr) sxcv "$INPUT" ;;
+	*.cbz) sxcv "$INPUT" ;;
 	*) vim "$INPUT" ;;
 esac
