@@ -1,5 +1,8 @@
+command -v doas && ROOTCOMMAND=doas || ROOTCOMMAND=sudo
+
 #general aliases
-alias sudo="doas"
+alias sudo="$ROOTCOMMAND"
+alias doas="$ROOTCOMMAND"
 alias enc="gpg -c --cipher-algo AES256"
 alias ":q"="exit"
 alias c="clear"
@@ -10,9 +13,9 @@ alias yt="yt-dlp"
 alias showme="mpv /dev/video0 2&> /dev/null &"
 alias asciime="mplayer tv:// -vo caca"
 alias scrk="screenkey --no-whitespace -s small --bak-mode full -t 1 &"
-alias svim="doas vim"
-alias sivm="doas vim"
-alias suvim="doas vim"
+alias svim="$ROOTCOMMAND vim"
+alias sivm="$ROOTCOMMAND vim"
+alias suvim="$ROOTCOMMAND vim"
 alias dmenu_nice="dmenu -i -fn 'monospace:size=8' -nb '#222222' -nf '#bbbbbb' -sb '#005577' -sf '#eeeeee'"
 alias screenshot="ID=$(xdo id); xdo hide $ID && sleep 1 && scrot && xdo show $ID"
 alias ls="exa -a --group-directories-first"
@@ -59,10 +62,10 @@ alias sxiv="swallow sxiv"
 alias nsxiv="swallow nsxiv"
 alias caja="swallow caja"
 
-#replace root-only commands with doas [command]
-if [ -f /usr/bin/doas ]; then
-	for command in mount umount lsblk sv vidoas pkg_add pkg_delete updatedb su shutdown poweroff reboot ; do
-		alias $command="doas $command"
+#replace root-only commands with $ROOTCOMMAND [command]
+if [ -f /usr/bin/$ROOTCOMMAND ]; then
+	for command in mount umount lsblk sv visudo pkg_add pkg_delete updatedb su shutdown poweroff reboot apt pacman ; do
+		alias $command="$ROOTCOMMAND $command"
 	done; unset command
 fi
 
@@ -86,7 +89,7 @@ up() {
 }
 
 #FIX STUFF
-alias fixsound="doas rcctl restart sndiod"
+alias fixsound="$ROOTCOMMAND rcctl restart sndiod"
 alias fixsnd="fixsound"
 alias fixaudio="fixsound"
 alias fixkeys="kill $(pgrep sxhkd); sxhkd & disown sxhkd"
