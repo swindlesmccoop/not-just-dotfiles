@@ -1,10 +1,20 @@
 #!/bin/sh
 #Detect how much memory a process is using
 
-#printf "Enter process name: "
-#[ "$1" = "" ] && read -r PROCESS || PROCESS="$1"
-#ps -C "$PROCESS" -O rss | awk '{ count ++; sum += $2 }; END {count --; print "Number of processes:    \t",count; print "Mem. usage per process:\t",sum/1024/count, "MB"; print "Total memory usage:\t", su    m/1024, "MB" ;};'
+_openbsd() {
+	TEMPMEM="$(doas procmap $(pgrep $1) | grep total | head -n 1 | awk '{print $2}')"
+	echo "$MEM" | grep "K" && FINALMEM=TEMPMEM || FINALMEM="$(echo "$TEMPMEM" | sed 's/K//' | awk '{print $1 / 1000}')M"
+	echo "Total memory usage: $FINALMEM"
+}
 
-TEMPMEM="$(doas procmap $(pgrep $1) | grep total | head -n 1 | awk '{print $2}')"
-echo "$MEM" | grep "K" && FINALMEM=TEMPMEM || FINALMEM="$(echo "$TEMPMEM" | sed 's/K//' | awk '{print $1 / 1000}')M"
-echo "Total memory usage: $FINALMEM"
+_linux() {
+	printf "Enter process name: "
+	[ "$1" = "" ] && read -r PROCESS || PROCESS="$1"
+	ps -C "$PROCESS" -O rss | awk '{ count ++; sum += $2 }; END {count --; print "Number of processes:    \t",count; print "Mem. usage per process:\t",sum/1024/count, "MB"; print "Total memory usage:\t", su    m/1024, "MB" ;};'
+}
+
+OS=$(uname)
+case $OS in
+	Linux) _linux "$@" ;;
+	OpenBSD) _openbsd "$@" ;;
+esac

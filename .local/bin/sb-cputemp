@@ -1,6 +1,14 @@
 #!/bin/sh
 
-case $1 in
-	-c) sysctl | grep hw.sensors.cpu0.temp0 | sed 's/.*=//' | sed 's/\.00//' | sed 's/ deg/°/' ;;
-	-f) printf "$(expr $(sysctl | grep hw.sensors.cpu0.temp0 | sed 's/\.00.*//' | sed 's/.*=//') \* 9 / 5 + 32)°F" ;;
+_linux() {
+	sensors $1 | awk '/^temp1/ {print $2}' | sed 's/+//'
+}
+
+_openbsd() {
+	[ "$1" = "-f" ] && printf "$(expr $(sysctl | grep hw.sensors.cpu0.temp0 | sed 's/\.00.*//' | sed 's/.*=//') \* 9 / 5 + 32)°F" || sysctl | grep hw.sensors.cpu0.temp0 | sed 's/.*=//' | sed 's/\.00//' | sed 's/ deg/°/'
+}
+
+case $(uname) in
+	Linux) _linux "$@" ;;
+	OpenBSD) _openbsd "$@" ;;
 esac

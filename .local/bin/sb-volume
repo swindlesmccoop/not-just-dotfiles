@@ -1,5 +1,17 @@
 #!/bin/sh
-sndioctl -n output.level | sed 's/0\.//' | sed 's/.$/%/' | sed 's/\.//'
-#VOL="$(sndioctl -n output.level | sed 's/0\.//' | sed 's/.$//')"
-#[ "$VOL" = "1.00" ] && echo "VOL: 100%" || echo "VOL: $VOL%"
-#kill -s SIGUSR1 $(pgrep dwmblocks)
+
+_openbsd() {
+	sndioctl -n output.level | sed 's/0\.//' | sed 's/.$/%/' | sed 's/\.//'
+	#kill -s SIGUSR1 $(pgrep dwmblocks)
+}
+
+_linux() {
+	printf "$(pamixer --get-volume)%%"
+	#kill -s SIGUSR1 $(pgrep dwmblocks)
+}
+
+OS=$(uname)
+case $OS in
+	Linux) _linux ;;
+	OpenBSD) _openbsd ;;
+esac

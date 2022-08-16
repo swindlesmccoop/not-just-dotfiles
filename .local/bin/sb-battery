@@ -1,7 +1,23 @@
 #!/bin/sh
-#Prints battery percentage and corresponding emoji
+#Prints battery percentage
 
-#PERCENT="$(apm | sed 's/Battery state:.*, //g' | sed 's/ remaining.*//' | head -n 1)"
-PERCENT="$(apm | grep -o '[0-9].*%')"
-[ "$PERCENT" = "" ] && exit
-echo "$PERCENT"
+_openbsd() {
+	PERCENT="$(apm | grep -o '[0-9].*%')"
+	[ "$PERCENT" = "" ] && printf "None" && exit
+	echo "$PERCENT"
+}
+
+_linux() {
+	[ -f /sys/class/power_supply/BAT* ] || exit
+	for battery in /sys/class/power_supply/BAT?*; do
+	[ -n "${capacity+x}" ] && printf " "
+	capacity="$(cat "$battery/capacity" 2>&1)"
+	printf "%s%s%d%%" "$status" "$warn" "$capacity"; unset warn
+done && printf "\\n"
+}
+
+OS=$(uname)
+case $OS in
+	Linux) _linux "$@" ;;
+	OpenBSD) _openbsd "$@" ;;
+esac

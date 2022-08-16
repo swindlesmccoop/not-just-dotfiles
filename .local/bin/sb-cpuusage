@@ -1,6 +1,18 @@
 #!/bin/sh
 
-CPUS=$(sysctl | grep 'hw.ncpuonline' | sed 's/^.*=//')
-TOTALUSAGE=$(ps aux | awk '{print $3}' | sed '1d' | sort | paste -s -d+ - | bc)
-USAGE=$(printf "$TOTALUSAGE / $CPUS\n" | bc -l)
-printf "$USAGE" | grep "^\.[0-9]" > /dev/null && printf "0$(printf $USAGE | cut -c1-3)%%" || printf "$(printf "$USAGE" | cut -c1-4)%%"
+_openbsd() {
+	CPUS=$(sysctl | grep 'hw.ncpuonline' | sed 's/^.*=//')
+	TOTALUSAGE=$(ps aux | awk '{print $3}' | sed '1d' | sort | paste -s -d+ - | bc)
+	USAGE=$(printf "$TOTALUSAGE / $CPUS\n" | bc -l)
+	printf "$USAGE" | grep "^\.[0-9]" > /dev/null && printf "0$(printf $USAGE | cut -c1-3)%%" || printf "$(printf "$USAGE" | cut -c1-4)%%"
+}
+
+_linux() {
+	printf "$(ps axch -o cmd,%cpu --sort=-%cpu | sed 's/ //' | egrep -o " [0-9].*" | sed 's/ //' | paste -s -d+ - | bc)%%"
+}
+
+OS=$(uname)
+case $OS in
+	Linux) _linux "$@" ;;
+	OpenBSD) _openbsd "$@" ;;
+esac
