@@ -11,8 +11,7 @@ _linux() {
 	printf "$(ps axch -o cmd,%cpu --sort=-%cpu | sed 's/ //' | egrep -o " [0-9].*" | sed 's/ //' | paste -s -d+ - | bc)%%"
 }
 
-OS=$(uname)
-case $OS in
+case $(uname) in
 	Linux) _linux "$@" ;;
 	OpenBSD) _openbsd "$@" ;;
 esac

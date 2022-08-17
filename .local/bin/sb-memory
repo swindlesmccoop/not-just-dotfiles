@@ -14,8 +14,7 @@ _linux() {
 	printf "$FUSED/$TOTAL" | sed 's/Gi/GB/g'
 }
 
-OS=$(uname)
-case $OS in
+case $(uname) in
 	Linux) _linux ;;
 	OpenBSD) _openbsd ;;
 esac
