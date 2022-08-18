@@ -1,0 +1,11 @@
+super + shift + d
+		firemenu
+
+super + shift + l
+		slock
+
+super + shift + r
+		reboot
+
+super + shift + p
+		poweroff
