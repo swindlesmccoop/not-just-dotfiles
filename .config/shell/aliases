@@ -23,7 +23,6 @@ case $(uname) in
 	OpenBSD) command -v exa > /dev/null && alias ls="exa -a --group-directories-first" || alias ls="ls -A" ;;
 esac
 
-command -v exa > /dev/null && alias ls="exa -a --group-directories-first" || alias ls="ls -A"
 alias lsh="exa --group-directories-first"
 alias updateports="cd /usr/ports && cvs -q up -Pd -A"
 alias neofetch="neofetch | sed 's/41742BU/ThinkPad T420s/'"
