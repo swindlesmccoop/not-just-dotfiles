@@ -90,6 +90,7 @@ scrot
 sxhkd
 terminus-font
 tiff
+tmux
 unifont
 unzip
 upower
