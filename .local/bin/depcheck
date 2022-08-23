@@ -1,0 +1,27 @@
+#!/bin/sh
+
+_binary() {
+	command -v
+	printf
+}
+
+_library() {
+	printf ""
+}
+
+_help() {
+	printf "Dependency checker by swindlesmccoop
+Usage: depcheck [mode] [dependency]
+
+Modes:
+-b: command. Example: python
+-l: library. Example: /usr/lib/x86_64-linux-gnu/libcurl.so
+    Note: this should only be used in edge cases. Not portable.\n"
+}
+
+[ "$1" = "" ] && _help && exit 1
+case "$1" in
+	-b) _binary "$@" ;;
+	-l) _library "$@" ;;
+	*) _help ;;
+esac
