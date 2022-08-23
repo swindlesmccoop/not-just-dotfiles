@@ -1,12 +1,21 @@
 #!/bin/sh
 
 _binary() {
-	command -v
-	printf
+	if ! command -v "$2" > /dev/null; then
+		printf "\033[0;31mDependency \033[1;31m$2 \033[0;31munsatisfied. Please install the package containing the program.\n"
+		exit 1
+	else
+		exit 0
+	fi
 }
 
 _library() {
-	printf ""
+	if ! [ -f "$2" ]; then
+		printf "\033[0;31mLibrary \033[1;31m$(printf "$2" | sed 's|^.*/||' | sed 's/\.so//') \033[0;31mmissing. Please install the package containing the library.\n"
+		exit 1
+	else
+		exit 0
+	fi
 }
 
 _help() {
