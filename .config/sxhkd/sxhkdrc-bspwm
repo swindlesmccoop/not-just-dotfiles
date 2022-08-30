@@ -1,0 +1,43 @@
+super + Return
+	st
+
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+super + d
+	dmenu_run
+
+super + shift + Return
+	bspwm-scratchpad
+
+super + f
+	bspc node -t fullscreen
+
+super + space
+	bspc node -t floating
+
+super + b
+	pgrep polybar && kill $(pgrep polybar) || polybar &
+
+super + q
+	bspc node -c
+
+super + shift + q
+	bspc node -k
+
+super + t
+	bspc node -t tiled
+
+#super + m
+
+super + shift + d
+	firemenu
+
+super + shift + r
+	reboot
+
+super + shift + p
+	poweroff
