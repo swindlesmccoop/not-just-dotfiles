@@ -22,11 +22,14 @@ i3:
 	mkdir -p ${CONF}
 	cp -r .config/i3/ ${CONF}
 	cp -r .config/i3blocks/ ${CONF}
+	git clone https://git.cbps.xyz/swindlesmccoop/i3-master-stack && cd i3-master-stack && make && sudo make install
+	rm -rf i3-master-stack
 
 bspwm:
 	mkdir -p ${CONF}
 	cp -r .config/bspwm/ ${CONF}
-	cp -r .config/sxhkd/ ${CONF}
+	mkdir -p ${CONF}/sxhkd/
+	cp -r .config/sxhkd/sxhkdrc-bspwm ${CONF}/sxhkdrc
 	cp -r .config/polybar/ ${CONF}
 
 .PHONY: deps configs scripts dwm i3 bspwm
