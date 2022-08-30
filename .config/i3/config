@@ -154,7 +154,7 @@ bindsym $mod+m exec --no-startup-id swapper
 
 #i3blocks
 bar {
-	font pango:mono 6
+	font pango:mono 8
 	position top
 	strip_workspace_numbers yes
 	status_command i3blocks
