@@ -14,7 +14,7 @@ super + shift + Return
 	bspwm-scratchpad
 
 super + f
-	bspc node -t fullscreen
+	if [ "$FULL" = "0" ]; then bspc node -t tiled; FULL=1; else bspc node -t fullscreen; FULL=0; fi
 
 super + space
 	bspc node -t floating
@@ -26,7 +26,10 @@ super + q
 	bspc node -c
 
 super + shift + q
-	bspc node -k
+	kill $(pgrep bspwm)
+
+super + shift + e
+	kill $(pgrep bspwm)
 
 super + t
 	bspc node -t tiled
@@ -41,3 +44,6 @@ super + shift + r
 
 super + shift + p
 	poweroff
+
+F12
+	bspwm-scratchpad

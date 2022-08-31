@@ -7,21 +7,34 @@ format=ini
 
 [separator]
 
-[forecast]
-full_text=Weather
-command=st -e $HOME/.local/bin/sb-forecast
-
-[ip]
-command=$HOME/.local/bin/sb-network
+[cpuusage]
+command=sb-cpuusage
+full_text="CPU: "
 interval=1
 
-[audio]
-command=$HOME/.local/bin/sb-volume
-interval=persist
-
-[battery]
-command=$HOME/.local/bin/sb-battery
+[volume]
+command=sb-volume
+full_text="Vol: "
 interval=1
+
+[memory]
+command=sb-memory
+full_text="Mem: "
+interval=1
+
+[cputemp]
+command=sb-cputemp -f
+full_text="Temp: "
+interval=1
+
+#[ip]
+#command=$HOME/.local/bin/sb-network
+#interval=1
+
+#[battery]
+#full_text="Bat: "
+#command=$HOME/.local/bin/sb-battery
+#interval=1
 
 [time]
 command=date "+%a %b %d, %T"

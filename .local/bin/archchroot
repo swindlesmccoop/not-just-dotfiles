@@ -1,0 +1,16 @@
+#!/bin/sh
+ARCHDIR=archpkg
+set -e
+
+cd $HOME
+sudo mount --bind /proc $ARCHDIR/proc
+sudo mount --bind /sys $ARCHDIR/sys
+sudo mount --bind /dev $ARCHDIR/dev
+sudo mount --bind /dev/pts $ARCHDIR/dev/pts
+###########################################
+sudo chroot $ARCHDIR
+###########################################
+sudo umount $ARCHDIR/proc
+sudo umount $ARCHDIR/sys
+sudo umount $ARCHDIR/dev/pts
+sudo umount $ARCHDIR/dev

@@ -104,7 +104,7 @@ interval = 1
 format-underline = #6F0185
 format = <label>
 tail = false
-label = %output%
+label = "%output% "
 
 [module/battery]
 type = custom/script

@@ -1,7 +1,7 @@
 #!/bin/sh
 # Show local IP and transfer if connected to the internet. Opens $NETWORKMANAGER on click
 NETWORKMANAGER=connman-gtk
-ifconfig | grep ".*inet.*netmask" | tail -n 1 | sed 's/inet //g' | sed 's/ netmask.*//g' | sed 's/	//g'
+ifconfig | grep ".*inet.*netmask" | tail -n 1 | sed 's/inet //g' | sed 's/ netmask.*//g' | sed 's/	//g' | sed 's/ //g'
 
 case $BLOCK_BUTTON in
 	1) $NETWORKMANAGER ;;
