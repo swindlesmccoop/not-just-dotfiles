@@ -133,7 +133,7 @@ label = %output%
 format-underline = #0004FF
 format = <label>
 tail = false
-interval = 10
+interval = 60
 
 [module/volume]
 type = custom/script
