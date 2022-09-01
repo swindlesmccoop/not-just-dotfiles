@@ -46,10 +46,6 @@ nnoremap S :%s//g<Left><Left>
 
 "some 'macros'
 nnoremap <Leader>so :source ~/.config/vim/vimrc<Enter>
-nnoremap "l I"<Esc>
-nnoremap #l I#<Esc>
-
-"real macros
 
 "disable automatic commenting on newline
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -64,15 +60,6 @@ augroup END
 
 "toggle spell check
 map <leader>sc :setlocal spell! spelllang=en_us<CR>
-
-"delete trailing whitespace and newlines at end of file on save
-autocmd BufWritePre * let currPos = getpos(".")
-autocmd BufWritePre * %s/\s\+$//e
-autocmd BufWritePre * %s/\n\+\%$//e
-autocmd BufWritePre *.[ch] %s/\%$/\r/e
-
-"perform dot commands on visual blocks
-vnoremap . :normal .<CR>
 
 "traditional copy paste commands using device register
 vnoremap <C-C> "*y :let @+=@*<CR>"
