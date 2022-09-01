@@ -30,7 +30,7 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = mono:size=9;3
+font-0 = mono:size=8;3
 
 modules-left = bspwm
 modules-right = wintitle cpuusage volume memory cputemp battery date
