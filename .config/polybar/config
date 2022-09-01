@@ -33,7 +33,7 @@ module-margin-right = 2
 font-0 = mono:size=9;3
 
 modules-left = bspwm
-modules-right = wintitle cpu network volume battery date
+modules-right = wintitle cpuusage volume memory cputemp battery date
 
 tray-position = right
 tray-padding = 2
@@ -81,17 +81,37 @@ format-underline = #FFFFFF
 ;format-background = #FFFFFF
 ;format-foreground = #000000
 
-[module/cpu]
+[module/memory]
+type = custom/script
+exec = sb-memory
+label = Mem: %output%
+format-prefix-foreground = ${colors.foreground.alt}
+format-underline = #40A500
+format = <label>
+tail = false
+interval = 1
+
+[module/cputemp]
+type = custom/script
+exec = sb-cputemp -f
+label = Temp: %output%
+format-prefix-foreground = ${colors.foreground.alt}
+format-underline = #2F00FF
+format = <label>
+tail = false
+interval = 1
+
+[module/cpuusage]
 type = internal/cpu
-interval = 2
+interval = 1
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #CC0005
 label = CPU: %percentage:2%%
 
 [module/network]
 type = custom/script
-exec = $HOME/.local/bin/sb-network
-label = %output%
+exec = sb-network
+label = IP: %output%
 format-underline = #FE8F00
 format = <label>
 tail = false
@@ -108,7 +128,7 @@ label = "%output% "
 
 [module/battery]
 type = custom/script
-exec = $HOME/.local/bin/sb-battery
+exec = sb-battery
 label = %output%
 format-underline = #0004FF
 format = <label>
@@ -117,9 +137,9 @@ interval = 10
 
 [module/volume]
 type = custom/script
-exec = $HOME/.local/bin/sb-volume
-label = %output%
-format-underline = #40A500
+exec = sb-volume
+label = Vol: %output%
+format-underline = #D4FF00
 format = <label>
 tail = false
 interval = 0.1
