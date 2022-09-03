@@ -1,4 +1,4 @@
-command -v doas && ROOTCOMMAND=doas || ROOTCOMMAND=sudo
+command -v doas > /dev/null && ROOTCOMMAND=doas || ROOTCOMMAND=sudo
 
 #general aliases
 alias sudo="$ROOTCOMMAND"
