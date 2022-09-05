@@ -1,0 +1,27 @@
+#!/usr/local/bin/bash
+
+LOCAL=/home/swindles/music/brstm
+REMOTE=/mnt/mods/Project+/pf/sound/strm
+
+cd $LOCAL
+ls -1 *.brstm > songlist.txt
+cp songlist.txt songlist.bak
+
+#cd $REMOTE
+#ls */* > songlist.txt
+#cp songlist.txt songlist.bak
+
+
+_func() {
+	LOCAL_SONG="$(cat $LOCAL/songlist.txt | shuf | head -n 1)"
+	REMOTE_SONG="$(cat $REMOTE/songlist.txt | head -n 1)"
+	
+	echo "Copying $LOCAL_SONG to $REMOTE/$REMOTE_SONG"
+
+	#sed -i "s/$SONG//" $LOCAL/songlist.txt
+	#sed -i "s/$SONG//" $REMOTE/songlist.txt
+
+	#cp $LOCAL/$LOCAL_SONG $REMOTE/$REMOTE_SONG
+}
+
+_func
