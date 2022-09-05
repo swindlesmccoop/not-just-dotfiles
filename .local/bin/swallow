@@ -6,7 +6,7 @@ ARGS="$(printf "$COMMAND" | sed "s/$BINARY //")"
 main() {
 	WINID=$(xdo id)
 	xdo hide $WINID
-	$BINARY "$ARGS"
+	$BINARY "$ARGS" || $BINARY $ARGS
 	xdo show $WINID
 }
 
