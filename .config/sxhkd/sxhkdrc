@@ -1,11 +1,23 @@
 super + shift + d
-		firemenu
+	firemenu
+
+super + shift + f
+	dwmc togglefloating
 
 super + shift + l
-		slock
-
-super + shift + r
-		reboot
+	slock
 
 super + shift + p
-		poweroff
+	poweroff
+
+super + shift + r
+	reboot
+
+super + {c,v,n}
+	st -e {cmus,cmixer,note}
+
+super + F3
+	notify-send "$(apm | sed 's/%.*//' | sed '/[0-9]/ s/$/%/' | head -n 2)"
+
+super + F5
+	video

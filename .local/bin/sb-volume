@@ -1,13 +1,11 @@
 #!/bin/sh
 
 _openbsd() {
-	sndioctl -n output.level | sed 's/0\.//' | sed 's/.$/%/' | sed 's/\.//\n'
-	#kill -s SIGUSR1 $(pgrep dwmblocks)
+	sndioctl -n output.level | sed 's/0\.//' | sed 's/.$/%/' | sed 's/\./\n/'
 }
 
 _linux() {
 	printf "$(pamixer --get-volume)%%\n"
-	#kill -s SIGUSR1 $(pgrep dwmblocks)
 }
 
 OS=$(uname)
