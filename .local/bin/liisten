@@ -2,7 +2,8 @@
 
 #options
 LOOPCOUNT=1 #however many times you want the song to play minus one (for technical reasons)
-SONGDIR="$HOME/music/brstm"
+#SONGDIR="$HOME/music/brstm"
+SONGDIR="/mnt/wii/streaming"
 cd "$SONGDIR"
 
 #check deps are installed
