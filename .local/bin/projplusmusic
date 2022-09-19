@@ -9,8 +9,8 @@ cd $REMOTE
 curl -sO https://swindlesmccoop.xyz/misc/songlist.txt
 curl -sO https://swindlesmccoop.xyz/misc/pmtracklist.txt
 
-rm -- */*.brstm
-rm -- *.brstm
+[ "$1" = "projp" ] && rm -- */*.brstm
+[ "$1" = "projm" ] && rm -- *.brstm
 
 _func() {
 	[ "$1" = "projp" ] && TRACKLIST="songlist.txt"
