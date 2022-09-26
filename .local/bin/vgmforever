@@ -1,0 +1,6 @@
+#!/bin/sh
+
+vgmstream-cli -m "$1" > /tmp/songinfo.txt
+STARTLOOP="$(grep "seconds" /tmp/songinfo.txt | head -n 1 | sed 's/.*(//' | sed 's/ seconds)//')"
+ENDLOOP="$(grep "seconds" /tmp/songinfo.txt | tail -n 1 | sed 's/.*(//' | sed 's/ seconds)//')"
+mpv --ab-loop-a="$STARTLOOP" --ab-loop-b="$ENDLOOP" --loop-file=inf "$1"
