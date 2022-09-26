@@ -1,12 +1,29 @@
 #!/bin/sh
 #Guides the user through setting their system time
 
-read -r -p "Day (ex. 20): " DAY
-read -r -p "Month (ex. Apr): " MON
-read -r -p "Year (ex. 2022): " YEAR
-read -r -p "Hour (ex. 16): " HOUR
-read -r -p "Minutes (ex. 20): " MINS
-read -r -p "Seconds (ex. 42): " SECS
+printf "Day (ex. 20): "
+read DAY
+printf "\n"
 
-sudo printf 'Time is set to: '
-sudo date -s "$DAY $MON $YEAR $HOUR:$MINS:$SECS"
+printf "Month (ex. Apr): "
+read MON
+printf "\n"
+
+printf "Year (ex. 2022): "
+read YEAR
+printf "\n"
+
+printf "Hour (ex. 16): "
+read HOUR
+printf "\n"
+
+printf "Minutes (ex. 20): "
+read MINS
+printf "\n"
+
+printf "Seconds (ex. 42): "
+read SECS
+printf "\n"
+
+printf 'Time is set to: '
+date -s "$DAY $MON $YEAR $HOUR:$MINS:$SECS"
