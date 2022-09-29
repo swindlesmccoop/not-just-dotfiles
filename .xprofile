@@ -16,6 +16,8 @@ do_stuff () {
 	dwmblocks & #statusbar
 	sxhkd & #hotkeys
 	setxkbmap -layout us -option caps:super #caps-->super
+	xrandr --output default --mode "1600x900"
+	exec dwm
 }
 
 kill_stuff () {
