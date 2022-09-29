@@ -1,29 +1,35 @@
 #!/bin/sh
 #Guides the user through setting their system time
 
-printf "Day (ex. 20): "
-read DAY
-printf "\n"
+_openbsd() {
+	printf "Year (ex. 2022): "
+	read -r YEAR
+	printf "Month (ex. 04): "
+	read -r MON
+	printf "Day (ex. 20): "
+	read -r DAY
+	printf "Hour (ex. 16): "
+	read -r HOUR
+	printf "Minute (ex. 20): "
+	read -r MINS
+	
+	printf 'Time is set to: '
+	doas date ""$YEAR""$MON""$DAY""$HOUR""$MINS""
+}
 
-printf "Month (ex. Apr): "
-read MON
-printf "\n"
+_linux() {
+	read -r -p "Day (ex. 20): " DAY
+	read -r -p "Month (ex. Apr): " MON
+	read -r -p "Year (ex. 2022): " YEAR
+	read -r -p "Hour (ex. 16): " HOUR
+	read -r -p "Minutes (ex. 20): " MINS
+	read -r -p "Seconds (ex. 42): " SECS
 
-printf "Year (ex. 2022): "
-read YEAR
-printf "\n"
+	printf 'Time is set to: '
+	sudo date -s "$DAY $MON $YEAR $HOUR:$MINS:$SECS"
+}
 
-printf "Hour (ex. 16): "
-read HOUR
-printf "\n"
-
-printf "Minutes (ex. 20): "
-read MINS
-printf "\n"
-
-printf "Seconds (ex. 42): "
-read SECS
-printf "\n"
-
-printf 'Time is set to: '
-date -s "$DAY $MON $YEAR $HOUR:$MINS:$SECS"
+case $(uname) in
+	Linux) _linux ;;
+	OpenBSD) _openbsd ;;
+esac
