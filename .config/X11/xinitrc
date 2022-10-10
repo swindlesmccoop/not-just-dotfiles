@@ -1,3 +1,5 @@
+export PATH=$PATH:$HOME/.local/bin
+
 do_stuff () {
 	#wallpaper automation
 	WALLDIR="$HOME/.local/share/wallpapers"
@@ -17,6 +19,7 @@ do_stuff () {
 	sxhkd & #hotkeys
 	setxkbmap -layout us -option caps:super #caps-->super
 	xrandr --output default --mode "1600x900"
+	sndiod #sound daemon
 	exec dwm
 }
 
@@ -25,6 +28,7 @@ kill_stuff () {
 	doas killall dunst
 	doas killall sxhkd
 	doas killall dwmblocks
+	doas killall sndiod
 }
 
 restart_stuff () {

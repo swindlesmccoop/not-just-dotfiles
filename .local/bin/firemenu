@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-DMENU_CMD="dmenu -i -fn monospace:size=8 -nb #222222 -nf #bbbbbb -sb #005577 -sf #eeeeee"
+DMENU_CMD="dmenu -i -fn monospace:size=9 -nb #222222 -nf #bbbbbb -sb #005577 -sf #eeeeee"
 CHOICES="4chan
 Based.Cooking
 Git

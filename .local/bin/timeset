@@ -31,5 +31,5 @@ _linux() {
 
 case $(uname) in
 	Linux) _linux ;;
-	OpenBSD) _openbsd ;;
+	*BSD) _openbsd ;;
 esac

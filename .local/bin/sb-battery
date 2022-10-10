@@ -1,8 +1,8 @@
 #!/bin/sh
 #Prints battery percentage
 
-_openbsd() {
-	PERCENT="$(apm | grep -o '[0-9].*%')"
+_bsd() {
+	PERCENT="$(apm | grep -o '[0-9].*%' | head -n 1)"
 	[ "$PERCENT" = "" ] && printf "None" && exit
 	echo "$PERCENT"
 }
@@ -17,6 +17,6 @@ done && printf "\\n"
 }
 
 case $(uname) in
-	Linux) _linux "$@" ;;
-	OpenBSD) _openbsd "$@" ;;
+	Linux) _linux ;;
+	*BSD) _bsd ;;
 esac

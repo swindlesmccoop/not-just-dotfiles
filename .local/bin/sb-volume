@@ -1,6 +1,6 @@
 #!/bin/sh
 
-_openbsd() {
+_bsd() {
 	sndioctl -n output.level | sed 's/0\.//' | sed 's/.$/%/' | sed 's/\.//'
 }
 
@@ -8,8 +8,7 @@ _linux() {
 	printf "$(pamixer --get-volume)%%\n"
 }
 
-OS=$(uname)
-case $OS in
+case $(uname) in
 	Linux) _linux ;;
-	OpenBSD) _openbsd ;;
+	*BSD) _bsd ;;
 esac

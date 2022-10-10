@@ -8,7 +8,13 @@ _openbsd() {
 	[ "$1" = "-f" ] && printf "$(expr $(sysctl | grep hw.sensors.cpu0.temp0 | sed 's/\.00.*//' | sed 's/.*=//') \* 9 / 5 + 32 2> /dev/null)°F" || sysctl | grep hw.sensors.cpu0.temp0 | sed 's/.*=//' | sed 's/\.00//' | sed 's/ deg/°/'
 }
 
+_freebsd() {
+	C_TEMP=$(sysctl hw.acpi.thermal.tz0.temperature | sed 's/^.* //' )
+	[ "$1" = "-f" ] && printf "$(expr $(printf $C_TEMP | sed 's/\..C//') \* 9 / 5 + 32)°F" || printf "$C_TEMP" | sed 's/C/°C/'
+}
+
 case $(uname) in
 	Linux) _linux "$@" ;;
 	OpenBSD) _openbsd "$@" ;;
+	FreeBSD) _freebsd "$@" ;;
 esac

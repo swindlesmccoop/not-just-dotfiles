@@ -7,12 +7,31 @@ _openbsd() {
 	printf "$USAGE" | grep "^\.[0-9]" > /dev/null && printf "0$(printf $USAGE | cut -c1-3)%%" || printf "$(printf "$USAGE" | cut -c1-4)%%\n"
 }
 
+_freebsd() {
+	ALL="$(sysctl dev.cpu | grep "usage:" | awk '{print $2}' | sed 's/%//')"
+	CPUS="$(printf "\n$ALL" | wc -l)"
+	TOTALUSAGE="$(printf "$ALL" | paste -s -d+ - | bc)"
+	USAGE=$(printf "$TOTALUSAGE / $CPUS\n" | bc -l)
+	if printf "$USAGE" | egrep "[0-9]{2}\.[0.9]{2}"; then
+		printf "$USAGE" | tail -n 1 | cut -c1-3
+	else if printf "$USAGE" | egrep "[0-9]{3}\.[0-9]{2}"; then
+		printf "$USAGE" | tail -n 1 | cut -c1-4
+	else
+		printf "$USAGE" | tail -n 1 | cut -c1-4
+	fi
+	fi
+
+# if there are two numbers before decimal, do 69.6%
+# if there is one number, do 9.94%
+}
+
 _linux() {
 	TOTALUSAGE="$(ps axch -o cmd,%cpu --sort=-%cpu | sed 's/ //' | egrep -o " [0-9].*" | sed 's/ //' | paste -s -d+ - | bc)"
 	printf "$(printf "$TOTALUSAGE / $(nproc)\n" | bc -l | cut -c1-4)%%\n"
 }
 
 case $(uname) in
-	Linux) _linux "$@" ;;
-	OpenBSD) _openbsd "$@" ;;
+	Linux) _linux ;;
+	OpenBSD) _openbsd  ;;
+	FreeBSD) _freebsd ;;
 esac

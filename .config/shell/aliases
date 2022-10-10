@@ -1,27 +1,29 @@
-command -v doas > /dev/null && ROOTCOMMAND=doas || ROOTCOMMAND=sudo
+CHECKEXA="command -v exa > /dev/null && alias ls='exa -a --group-directories-first'"
+case $(uname) in
+	Linux) $CHECKEXA > /dev/null && alias ls="ls -A --group-directories-first --color=auto"
+	ROOTCOMMAND=sudo ;;
+	OpenBSD) $CHECKEXA > /dev/null && alias ls="ls -A"
+	ROOTCOMMAND=doas ;;
+	FreeBSD) $CHECKEXA > /dev/null && alias ls="ls -A --color=always"
+	ROOTCOMMAND=doas;;
+esac
 
 #general aliases
-alias sudo="$ROOTCOMMAND"
-alias doas="$ROOTCOMMAND"
 alias enc="gpg -c --cipher-algo AES256"
 alias ":q"="exit"
 alias c="clear"
 alias flac-mp3="flac2mp3 -b 320 *.flac"
-alias vi="vim"
-alias nvim="vim"
+alias vi="$EDITOR"
+alias nvim="$EDITOR"
 alias yt="yt-dlp"
 alias showme="mpv /dev/video0 2&> /dev/null &"
 alias asciime="mplayer tv:// -vo caca"
 alias scrk="screenkey --no-whitespace -s small --bak-mode full -t 1 &"
-alias svim="$ROOTCOMMAND vim"
-alias sivm="$ROOTCOMMAND vim"
-alias suvim="$ROOTCOMMAND vim"
+alias svim="$ROOTCOMMAND $EDITOR"
+alias sivm="svim"
+alias suvim="svim"
 alias dmenu_nice="dmenu -i -fn 'monospace:size=8' -nb '#222222' -nf '#bbbbbb' -sb '#005577' -sf '#eeeeee'"
-
-case $(uname) in
-	Linux) command -v exa > /dev/null && alias ls="exa -a --group-directories-first" || alias ls="ls -A --group-directories-first --color=auto" ;;
-	*BSD) command -v exa > /dev/null && alias ls="exa -a --group-directories-first" || alias ls="ls -A" ;;
-esac
+alias netstart="doas sh /etc/netstart"
 
 alias lsh="exa --group-directories-first"
 alias updateports="cd /usr/ports && cvs -q up -Pd -A"
@@ -67,7 +69,7 @@ alias nsxiv="swallow nsxiv"
 alias caja="swallow caja"
 
 #replace root-only commands with $ROOTCOMMAND [command]
-if [ -f /usr/bin/$ROOTCOMMAND ]; then
+if command -v $ROOTCOMMAND > /dev/null; then
 	for command in mount umount lsblk sv visudo pkg_add pkg_delete pkg updatedb su shutdown poweroff reboot apt pacman ; do
 		alias $command="$ROOTCOMMAND $command"
 	done; unset command
