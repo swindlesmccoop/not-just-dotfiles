@@ -1,11 +1,8 @@
 PREFIX = ${HOME}/.local
 CONF = ${HOME}/.config
+GITSITE = "https://git.cbps.xyz/swindlesmccoop"
 #ROOTCOMMAND = doas
-#ROOTCOMMAND = sudo
-
-define checkroot
-	@[ "${ROOTCOMMAND}" = "" ] && printf "\033[1;31mYou didn't follow the instructions in the README! Go uncomment the line with your system's root command in the Makefile and try again.\033[0m\n" && exit 1
-endef
+ROOTCOMMAND = sudo
 
 deps:
 	@printf "\033[31m:Due to the high amount of dependencies, it's nearly impossible to check for them across all systems. Check pkglist.txt to see if you fulfill the requirements. Alternatively, try installing the scripts and configurations, and individually fix anything broken.\n"
@@ -19,19 +16,22 @@ scripts:
 	cp -r .local/bin/* ${PREFIX}/bin/
 
 dwm:
-	@$(call checkroot)
-	git clone https://git.cbps.xyz/swindlesmccoop/dwm
-	git clone https://git.cbps.xyz/swindlesmccoop/dwmblocks
-	cd dwm && ./configure && make && ${ROOTCOMMAND} make install
-	cd dwmblocks && ./configure && make && ${ROOTCOMMAND} make install
+	[ -d src/dwm ] && cd src/dwm && git pull || git clone ${GITSITE}/dwm src/dwm
+	[ -d src/dwmblocks ] && cd src/dwmblocks && git pull || git clone ${GITSITE}/dwmblocks src/dwmblocks
+	[ -d src/st ] && cd src/st && git pull || git clone ${GITSITE}/st src/st
+	[ -d src/dmenu ] && cd src/dmenu && git pull || git clone ${GITSITE}/dmenu src/dmenu
+	
+	cd src/dwm && ./configure && make && ${ROOTCOMMAND} make install
+	cd src/dwmblocks && ./configure && make && ${ROOTCOMMAND} make install
+	cd src/st && ./configure && make && ${ROOTCOMMAND} make install
+	cd src/dmenu && ./configure && make && ${ROOTCOMMAND} make install
 
 i3:
-	@$(call checkroot)
 	mkdir -p ${CONF}
 	cp -r .config/i3/ ${CONF}
 	cp -r .config/i3blocks/ ${CONF}
-	git clone https://git.cbps.xyz/swindlesmccoop/i3-master-stack && cd i3-master-stack && make && ${ROOTCOMMAND} make install
-	rm -rf i3-master-stack
+	[ -d src/i3-master-stack ] && cd src/i3-master-stack && git pull || git clone ${GITSITE}/i3-master-stack src/i3-master-stack
+	cd src/i3-master-stack && make && ${ROOTCOMMAND} make install
 
 bspwm:
 	mkdir -p ${CONF}
