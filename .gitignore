@@ -6,3 +6,5 @@
 .local/share/newsboat/history.search
 .config/i3/core
 .config/i3blocks/core
+.config/mpv/watch_later/*
+.config/mpv/watch_later
