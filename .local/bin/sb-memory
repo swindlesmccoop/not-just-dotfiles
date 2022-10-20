@@ -11,7 +11,7 @@ _freebsd() {
 	TOTAL="$(freecolor -om | awk '/^Mem:/ {print $2}')"
 	MUSED="$(freecolor -om | awk '/^Mem:/ {print $3}')"
 	printf "$MUSED" | egrep "[0-9]{4}" > /dev/null && FUSED="$(printf "$MUSED" | cut -c -2 | sed 's/./.&/2')G" || FUSED=""$MUSED"M"
-	printf "$TOTAL" | egrep "[0-9]{4}" > /dev/null && TOTAL="$(printf "$TOTAL" | cut -c -3 | sed 's/./.&/3')G" || FUSED=$TOTAL
+	printf "$TOTAL" | egrep "[0-9]{4}" > /dev/null && TOTAL="$(printf "$TOTAL" | cut -c -2 | sed 's/./.&/2')G" || FUSED=$TOTAL
 	printf "$FUSED/$TOTAL\n"
 }
 
