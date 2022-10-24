@@ -25,3 +25,9 @@ I made it super easy to install everything by implementing a [Makefile](Makefile
 
 # Dependencies
 You can find the dependencies at [pkglist.txt](pkglist.txt), but the package names may be different per distribution/OS. I'll try to add an option to the Makefile to get the dependencies for OpenBSD's PKG, FreeBSD's PKG, Apt, and Pacman, but I need GUI environments to test in, which I can barely access.
+
+# Known Issues
+- Sometimes dwmblocks will not properly launch on OpenBSD. Solution: Type `kill $(pgrep dwmblocks); dwmblocks & disown dwmblocks` in the terminal.
+- Sometimes running the volume keybinds on OpenBSD will kill dwmblocks as a whole. Not sure why this happens or how to fix it. Works on my machine, but not in a VM?
+- Volume keybinds on FreeBSD do not work, they just kill dwmblocks instead of sending the refresh signal. Not sure how to fix.
+- Part of the picom config does not work anymore. The part is commented out. Not sure why it doesn't work, however, and I'd like to get it fixed.
