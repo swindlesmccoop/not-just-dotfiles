@@ -1,15 +1,13 @@
 PREFIX = ${HOME}/.local
 CONF = ${HOME}/.config
 GITSITE = "https://git.cbps.xyz/swindlesmccoop"
-#ROOTCOMMAND = doas
-ROOTCOMMAND = sudo
+ROOTCOMMAND = $(shell command -v sudo || command -v doas)
 
-deps:
-	@printf "\033[31m:Due to the high amount of dependencies, it's nearly impossible to check for them across all systems. Check pkglist.txt to see if you fulfill the requirements. Alternatively, try installing the scripts and configurations, and individually fix anything broken.\n"
+all: configs scripts dwm i3 bspwm
 
 configs:
 	mkdir -p ${CONF}
-	cp -r .config ${CONF}/
+	cp -r .config/* ${CONF}/
 
 scripts:
 	mkdir -p ${PREFIX}/bin/
@@ -20,11 +18,11 @@ dwm:
 	[ -d src/dwmblocks ] && cd src/dwmblocks && git pull || git clone ${GITSITE}/dwmblocks src/dwmblocks
 	[ -d src/st ] && cd src/st && git pull || git clone ${GITSITE}/st src/st
 	[ -d src/dmenu ] && cd src/dmenu && git pull || git clone ${GITSITE}/dmenu src/dmenu
-	
 	cd src/dwm && ./configure && make && ${ROOTCOMMAND} make install
 	cd src/dwmblocks && ./configure && make && ${ROOTCOMMAND} make install
 	cd src/st && ./configure && make && ${ROOTCOMMAND} make install
 	cd src/dmenu && ./configure && make && ${ROOTCOMMAND} make install
+	cp .config/sxhkd/sxhkdrc ${CONF}/sxhkd/sxhkdrc
 
 i3:
 	mkdir -p ${CONF}
@@ -37,7 +35,5 @@ bspwm:
 	mkdir -p ${CONF}
 	cp -r .config/bspwm/ ${CONF}
 	mkdir -p ${CONF}/sxhkd/
-	cp -r .config/sxhkd/sxhkdrc-bspwm ${CONF}/sxhkdrc
+	cp .config/sxhkd/sxhkdrc-bspwm ${CONF}/sxhkd/sxhkdrc
 	cp -r .config/polybar/ ${CONF}
-
-.PHONY: deps configs scripts dwm i3 bspwm
