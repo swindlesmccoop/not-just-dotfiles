@@ -1,11 +1,11 @@
-CHECKEXA="command -v exa > /dev/null && alias ls='exa -a --group-directories-first'"
+CHECKEXA="command -v exa > /dev/null && "
 case $(uname) in
-	Linux) $CHECKEXA > /dev/null && alias ls="ls -A --group-directories-first --color=auto"
+	Linux) $CHECKEXA > /dev/null && alias ls='exa -a --group-directories-first' || alias ls="ls -A --group-directories-first --color=auto"
 	ROOTCOMMAND=sudo ;;
-	OpenBSD) $CHECKEXA > /dev/null && alias ls="ls -A"
+	OpenBSD) $CHECKEXA > /dev/null && alias ls='exa -a --group-directories-first' || alias ls="ls -A"
 	ROOTCOMMAND=doas ;;
-	FreeBSD) $CHECKEXA > /dev/null && alias ls="ls -A --color=always"
-	ROOTCOMMAND=doas;;
+	FreeBSD) $CHECKEXA > /dev/null && alias ls='exa -a --group-directories-first' || alias ls="ls -A --color=always"
+	ROOTCOMMAND=doas ;;
 esac
 
 #general aliases
