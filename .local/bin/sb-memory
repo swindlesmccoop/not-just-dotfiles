@@ -1,5 +1,5 @@
 #!/bin/sh
-set -x
+
 _openbsd() {
 	TOTAL="$(free | awk '/^Mem:/ {print $2}')"
 	MUSED="$(top -b -n 1 | grep -o 'Real.*' | sed 's/Real: //' | sed 's/\/.*//')"
@@ -19,7 +19,7 @@ _linux() {
 	TOTAL="$(free -h | awk '/^Mem:/ {print $2}')"
 	MUSED="$(free -h | awk '/^Mem:/ {print $3}')"
 	printf "$MUSED" | egrep "[0-9]{4}" > /dev/null && FUSED="$(printf "$MUSED" | cut -c -2 | sed 's/./.&/2')G" || FUSED=$MUSED
-	printf "$FUSED/$TOTAL\n" | sed 's/Gi/GB/g'
+	printf "$FUSED/$TOTAL\n" | sed 's/Gi/GB/g' | sed 's/Mi/MB/g'
 }
 
 case $(uname) in
