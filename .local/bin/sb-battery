@@ -8,7 +8,10 @@ _bsd() {
 }
 
 _linux() {
-	[ -f /sys/class/power_supply/BAT* ] || exit
+	if ! [ -f /sys/class/power_supply/BAT* ]; then
+		printf "None\n"
+		exit 1
+	fi
 	for battery in /sys/class/power_supply/BAT?*; do
 	[ -n "${capacity+x}" ] && printf " "
 	capacity="$(cat "$battery/capacity" 2>&1)"
