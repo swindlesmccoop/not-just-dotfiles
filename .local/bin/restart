@@ -1,0 +1,13 @@
+#!/bin/sh
+# Restart either the machine or a background process
+
+if [ "$1" = "" ]; then
+	case $(uname) in
+		Linux) sudo reboot ;;
+		*BSD) doas shutdown -r now ;;
+	esac
+else
+	kill $(pgrep $1)
+	$1 &
+	printf "New PID: $(pgrep $1 | tail -n 1)\n"
+fi
