@@ -1,5 +1,6 @@
 #!/bin/sh
-set -x
+#Display CPU usage percentage
+
 _openbsd() {
 	CPUS=$(sysctl | grep 'hw.ncpuonline' | sed 's/^.*=//')
 	TOTALUSAGE=$(ps aux | awk '{print $3}' | sed '1d' | sort | paste -s -d+ - | bc)
