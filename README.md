@@ -6,7 +6,7 @@ I made it super easy to install everything by implementing a [Makefile](Makefile
 
 # Features
 ## Supports multiple window managers
-- DWM
+- [DWM](/swindlesmccoop/dwm)
 - i3(-gaps)
 - BSPWM
 ## Supports multiple status bars
