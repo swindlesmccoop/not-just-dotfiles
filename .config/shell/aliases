@@ -94,6 +94,11 @@ up() {
 	fi
 }
 
+#git clone personal repos
+gitme() {
+	git clone --recurse-submodules git@ssh.git.cbps.xyz:swindlesmccoop/"$1".git
+}
+
 #FIX STUFF
 alias fixsound="$ROOTCOMMAND rcctl restart sndiod"
 alias fixsnd="fixsound"
