@@ -1,4 +1,4 @@
-CHECKEXA="command -v exa > /dev/null && "
+CHECKEXA="command -v exa > /dev/null"
 case $(uname) in
 	Linux) $CHECKEXA > /dev/null && alias ls='exa -a --group-directories-first' || alias ls="ls -A --group-directories-first --color=auto"
 	ROOTCOMMAND=sudo ;;
