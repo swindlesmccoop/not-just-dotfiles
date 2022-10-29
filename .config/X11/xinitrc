@@ -14,6 +14,7 @@ do_stuff () {
 	xinput set-prop "/dev/wsmouse" "WS Pointer Wheel Emulation Axes" 6 7 4 5
 
 	picom & #compositing
+	dbus-uuidgen --ensure
 	dunst & #notifications
 	dwmblocks & #statusbar
 	sxhkd & #hotkeys
