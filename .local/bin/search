@@ -2,5 +2,5 @@
 #Search for files in any given directory and send them to filehandler
 
 FILE="$(tao "$(find "$PWD/" 2> /dev/null | sed 's/^.*\.git.*//g' | sed 's/^.*\.cache.*//g' | sed '/./!d' | fzfse)")"
-
-[ "$1" = "" ] && tao "$FILE" 2>/dev/null || vim "$FILE"
+[ "$FILE" = "" ] && exit 1
+tao "$FILE" 2>/dev/null || vim "$FILE"
