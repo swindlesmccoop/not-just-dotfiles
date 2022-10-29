@@ -1,10 +1,12 @@
 CHECKEXA="command -v exa > /dev/null"
 case $(uname) in
 	Linux) $CHECKEXA > /dev/null && alias ls='exa -a --group-directories-first' || alias ls="ls -A --group-directories-first --color=auto"
+	alias grep="grep --color=auto"
 	ROOTCOMMAND=sudo ;;
 	OpenBSD) $CHECKEXA > /dev/null && alias ls='exa -a --group-directories-first' || alias ls="ls -A"
 	ROOTCOMMAND=doas ;;
 	FreeBSD) $CHECKEXA > /dev/null && alias ls='exa -a --group-directories-first' || alias ls="ls -A --color=always"
+	alias grep="grep --color=auto"
 	ROOTCOMMAND=doas ;;
 esac
 
@@ -103,4 +105,3 @@ gitme() {
 alias fixsound="$ROOTCOMMAND rcctl restart sndiod"
 alias fixsnd="fixsound"
 alias fixaudio="fixsound"
-alias fixkeys="kill $(pgrep sxhkd); sxhkd & disown sxhkd"
