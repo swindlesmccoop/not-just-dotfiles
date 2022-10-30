@@ -11,7 +11,7 @@ super + shift + p
 	poweroff
 
 super + shift + r
-	reboot
+	restart
 
 super + {c,v,n}
 	st -e {cmus,cmixer,note}
