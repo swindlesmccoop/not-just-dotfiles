@@ -17,7 +17,8 @@ _freebsd() {
 
 _linux() {
 	TOTALUSAGE="$(ps axch -o cmd,%cpu --sort=-%cpu | sed 's/ //' | egrep -o " [0-9].*" | sed 's/ //' | paste -s -d+ - | bc)"
-	printf "$(printf "$TOTALUSAGE / $(nproc)\n" | bc -l | cut -c1-4)%%\n"
+	USAGE="$(printf "$(printf "$TOTALUSAGE / $(nproc)\n" | bc -l | cut -c1-4)%%\n")"
+	printf "$USAGE" | grep "^\.[0-9]" > /dev/null && printf "0$(printf $USAGE | cut -c1-3)%%" || printf "$(printf "$USAGE" | cut -c1-4)%%\n"
 }
 
 case $(uname) in
