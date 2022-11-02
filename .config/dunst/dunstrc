@@ -7,7 +7,7 @@
 	padding = 2
 	horizontal_padding = 2
 	transparency = 25
-	font = Monospace 8
+	font = Monospace 12
 
 [urgency_low]
 	background = "#ffffff"

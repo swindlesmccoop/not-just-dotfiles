@@ -11,10 +11,13 @@ super + shift + p
 	poweroff
 
 super + shift + r
-	reboot
+	restart
 
 super + {c,v,n}
 	st -e {cmus,cmixer,note}
+
+super + F2
+	slock
 
 super + F3
 	notify-send "$(apm | sed 's/%.*//' | sed '/[0-9]/ s/$/%/' | head -n 2)"

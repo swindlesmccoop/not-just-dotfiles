@@ -1,12 +1,6 @@
 #!/bin/sh
 #Search for files in any given directory and send them to filehandler
 
-curdir () {
-	tao "$(find "$PWD/" 2> /dev/null | sed 's/^.*\.git.*//g' | sed 's/^.*\.cache.*//g' | sed '/./!d' | fzfse)"
-}
-
-argdir () {
-	tao "$(find "$1/" | find 2> /dev/null | sed 's/^.*\.git.*//g' | sed 's/^.*\.cache.*//g' | sed '/./!d' | fzfse)"
-}
-
-[ "$1" = "" ] && curdir || argdir "$@"
+FILE="$(tao "$(find "$PWD/" 2> /dev/null | sed 's/^.*\.git.*//g' | sed 's/^.*\.cache.*//g' | sed '/./!d' | fzfse)")"
+[ "$FILE" = "" ] && exit 1
+tao "$FILE" 2>/dev/null || vim "$FILE"
