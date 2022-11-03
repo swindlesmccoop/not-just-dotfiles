@@ -13,6 +13,9 @@ super + shift + p
 super + shift + r
 	restart
 
+super + shift + s
+	scrot
+
 super + {c,v,n}
 	st -e {cmus,cmixer,note}
 
