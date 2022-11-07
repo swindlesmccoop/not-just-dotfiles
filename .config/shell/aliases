@@ -14,7 +14,6 @@ esac
 alias enc="gpg -c --cipher-algo AES256"
 alias ":q"="exit"
 alias c="clear"
-alias flac-mp3="flac2mp3 -b 320 *.flac"
 alias vi="$EDITOR"
 alias nvim="$EDITOR"
 alias yt="yt-dlp"
@@ -99,6 +98,15 @@ up() {
 #git clone personal repos
 gitme() {
 	git clone --recurse-submodules git@ssh.git.cbps.xyz:swindlesmccoop/"$1".git
+}
+gitall() {
+	cd $HOME/git
+	for d in ./*; do
+		cd "$d"
+		printf "Checking $d..."
+		git pull
+		cd ..
+	done
 }
 
 #FIX STUFF
