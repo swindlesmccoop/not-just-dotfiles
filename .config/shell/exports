@@ -33,7 +33,7 @@ export VIMINIT="set nocp | source ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc"
 export EDITOR=vim
 export BROWSER=firefox
 export TERMINAL=st
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.local/share/cargo/bin"
 
 export AUTOCONF_VERSION=2.69
 export AUTOMAKE_VERSION=1.15
