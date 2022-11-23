@@ -15,19 +15,17 @@ alias enc="gpg -c --cipher-algo AES256"
 alias ":q"="exit"
 alias c="clear"
 alias vi="$EDITOR"
+alias vim="$EDITOR"
 alias nvim="$EDITOR"
-alias yt="yt-dlp"
 alias showme="mpv /dev/video0 2&> /dev/null &"
 alias asciime="mplayer tv:// -vo caca"
 alias scrk="screenkey --no-whitespace -s small --bak-mode full -t 1 &"
 alias svim="$ROOTCOMMAND $EDITOR"
-alias sivm="svim"
 alias suvim="svim"
 alias dmenu_nice="dmenu -i -fn 'monospace:size=8' -nb '#222222' -nf '#bbbbbb' -sb '#005577' -sf '#eeeeee'"
 alias netstart="doas sh /etc/netstart"
 
 alias lsh="exa --group-directories-first"
-alias updateports="cd /usr/ports && cvs -q up -Pd -A"
 alias neofetch="neofetch | sed 's/41742BU/ThinkPad T420s/'"
 
 #edit configurations
@@ -47,18 +45,14 @@ alias claer="clear"
 alias clare="clear"
 alias cleae="clear"
 alias clera="clear"
-alias shl="lsh"
-alias hls="lsh"
-alias slh="lsh"
-alias lhs="lsh"
 
 #youtube-dl
-alias yt="yt-dlp"
-alias ytdlp="yt"
-alias ytdl="yt"
-alias yt3="yt --audio-format mp3 -k"
-alias yt4="yt --format mp4"
-alias yta="yt -x -f bestaudio/best"
+command -v yt-dlp > /dev/null && YT=yt-dlp || YT=youtube-dl
+alias ytdlp="$YT"
+alias ytdl="$YT"
+alias yt3="$YT --audio-format mp3 -k"
+alias yt4="$YT --format mp4"
+alias yta="$YT -x -f bestaudio/best"
 
 #swallow
 alias mpv="swallow mpv"
@@ -108,8 +102,3 @@ gitall() {
 		cd ..
 	done
 }
-
-#FIX STUFF
-alias fixsound="$ROOTCOMMAND rcctl restart sndiod"
-alias fixsnd="fixsound"
-alias fixaudio="fixsound"
