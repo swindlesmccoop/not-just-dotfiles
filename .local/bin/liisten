@@ -54,7 +54,9 @@ playsong () {
 	vgmstream-cli -m "$SONG" > /tmp/brstminfo.txt
 	STARTLOOP="$(grep "seconds" /tmp/brstminfo.txt | head -n 1 | sed 's/.*(//' | sed 's/ seconds)//')"
 	ENDLOOP="$(grep "seconds" /tmp/brstminfo.txt | tail -n 1 | sed 's/.*(//' | sed 's/ seconds)//')"
-	echo "Now playing: \"$(echo $SONG | sed 's/\.brstm//')\""
+	SONGTITLE="$(echo $SONG | sed 's/\.brstm//')"
+	echo "Now playing: \"$SONGTITLE\""
+	echo -ne "\033]0;$SONGTITLE\007"
 	mpv --ab-loop-a="$STARTLOOP" --ab-loop-b="$ENDLOOP" --ab-loop-count="$LOOPCOUNT" "$SONG"
 	#vgmstream123 -l 2 -f 5 -m "$SONG"
 }
