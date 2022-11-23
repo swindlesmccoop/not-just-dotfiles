@@ -1,0 +1,17 @@
+#!/bin/sh
+
+_linux() {
+	cd "$XDG_CONFIG_HOME"
+	sudo chown $USER:$USER pulse
+	cd pulse
+	sudo chmod 755 daemon.conf
+}
+
+_openbsd() {
+	doas rcctl restart sndiod
+}
+
+case $(uname) in
+	Linux) _linux ;;
+	OpenBSD) _openbsd ;;
+esac

@@ -33,7 +33,7 @@ alias neofetch="neofetch | sed 's/41742BU/ThinkPad T420s/'"
 #edit configurations
 alias vimrc="vim ~/.config/vim/vimrc"
 alias zshrc="vim ~/.config/shell/zshrc"
-alias bashrc="vim ~/.config/bashrc"
+alias bashrc="vim ~/.config/shell/bashrc"
 alias aliases="vim ~/.config/shell/aliases"
 alias xprofile="vim ~/.xprofile"
 
