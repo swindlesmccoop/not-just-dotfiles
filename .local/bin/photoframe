@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ "$1" = "" ]; then
+	IMAGE_DIR=$HOME/images/photoframe
+	SLIDE_DURATION=5
+	FADE_DURATION=2
+else
+	IMAGE_DIR="$1"
+	SLIDE_DURATION=$2
+	FADE_DURATION=$3
+fi
+
+pqiv --fade --fade-duration=$FADE_DURATION --fullscreen --scale-images-up --shuffle --slideshow --slideshow-interval=$SLIDE_DURATION $IMAGE_DIR
