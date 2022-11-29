@@ -1,4 +1,4 @@
 printf "Start X server? (Y/n): "
 read -r STARTX
-[ "$STARTX" != "n" ] && startx $HOME/.config/X11/xinitrc
+[ "$STARTX" != "n" ] && startx $HOME/.config/X11/xinitrc 2&> /dev/null
 source $HOME/.bashrc
