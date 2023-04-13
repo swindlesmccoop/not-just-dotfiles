@@ -91,7 +91,7 @@ up() {
 
 #git clone personal repos
 gitme() {
-	git clone --recurse-submodules git@ssh.git.cbps.xyz:swindlesmccoop/"$1".git
+	git clone --recurse-submodules git@github.com:swindlesmccoop/"$1".git
 }
 gitall() {
 	cd $HOME/git

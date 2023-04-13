@@ -1,6 +1,6 @@
 PREFIX = ${HOME}/.local
 CONF = ${HOME}/.config
-GITSITE = "https://git.cbps.xyz/swindlesmccoop"
+GITSITE = "https://github.com/swindlesmccoop"
 ROOTCOMMAND = $(shell command -v sudo || command -v doas)
 
 all: configs scripts dwm i3 bspwm
