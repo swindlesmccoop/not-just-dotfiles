@@ -10,6 +10,7 @@ set ignorecase
 set smartcase
 set incsearch
 let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+set viminfo+=n~/.vim/viminfo
 filetype plugin on
 set noerrorbells visualbell t_vb=
 set linebreak
