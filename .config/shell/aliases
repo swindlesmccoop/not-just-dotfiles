@@ -30,10 +30,10 @@ alias neofetch="neofetch | sed 's/41742BU/ThinkPad T420s/'"
 
 #edit configurations
 alias vimrc="vim ~/.config/vim/vimrc"
-alias zshrc="vim ~/.config/shell/zshrc"
-alias bashrc="vim ~/.config/shell/bashrc"
-alias aliases="vim ~/.config/shell/aliases"
-alias xprofile="vim ~/.xprofile"
+alias zshrc="vim vim -c 'set syntax=sh' ~/.config/shell/zshrc"
+alias bashrc="vim vim -c 'set syntax=sh' ~/.config/shell/bashrc"
+alias aliases="vim -c 'set syntax=sh' ~/.config/shell/aliases"
+alias xprofile="vim vim -c 'set syntax=sh' ~/.xprofile"
 
 #git aliases
 alias gacap="git add . && git commit -a && git push"
@@ -91,7 +91,7 @@ up() {
 
 #git clone personal repos
 gitme() {
-	git clone --recurse-submodules git@github.com:swindlesmccoop/"$1".git
+	git clone --recurse-submodules git@github.com:swindlesmccoop/"$1".git "$2"
 }
 gitall() {
 	cd $HOME/git
