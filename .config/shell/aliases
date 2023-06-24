@@ -1,6 +1,6 @@
 OS="$(uname)"
 EXACMD="exa --group-directories-first"
-LSCMD="ls --group-directories-first --color=auto"
+LSCMD="command ls --group-directories-first --color=auto"
 command -v exa > /dev/null 2>&1 && EXA="y"
 
 if [ "$OS" = "Linux" ]; then
@@ -11,22 +11,20 @@ if [ "$OS" = "Linux" ]; then
 	else
 		function ls() { [ `pwd` = "$HOME" ] && $LSCMD || $LSCMD -A ;}
 	fi
-else if [ "$OS" = "OpenBSD" ]; then
+elif [ "$OS" = "OpenBSD" ]; then
 	ROOTCOMMAND=doas
 	if [ "$EXA" = "y" ]; then
 		function ls() { [ `pwd` = "$HOME" ] && $EXACMD || $EXACMD -a ;}
 	else
-		function ls() { [ `pwd` = "$HOME" ] && ls || ls -A ;}
+		function ls() { [ `pwd` = "$HOME" ] && command ls || command ls -A ;}
 	fi
-else if [ "$OS" = "FreeBSD" ]; then
+elif [ "$OS" = "FreeBSD" ]; then
 	ROOTCOMMAND=doas
 	if [ "$EXA" = "y" ]; then
 		function ls() { [ `pwd` = "$HOME" ] && $EXACMD || $EXACMD -a ;}
 	else
-		function ls() { [ `pwd` = "$HOME" ] && ls || ls -A --color=always ;}
+		function ls() { [ `pwd` = "$HOME" ] && command ls || command ls -A --color=always ;}
 	fi
-fi
-fi
 fi
 
 #general aliases
