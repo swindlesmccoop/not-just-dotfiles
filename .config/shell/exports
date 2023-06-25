@@ -34,6 +34,7 @@ export EDITOR=vim
 export BROWSER=firefox
 export TERMINAL=st
 export PATH="$PATH:$HOME/.local/bin:$HOME/.local/share/cargo/bin"
+export OS="$(uname)"
 
 export AUTOCONF_VERSION=2.69
 export AUTOMAKE_VERSION=1.15

@@ -1,31 +1,4 @@
-OS="$(uname)"
-EXACMD="exa --group-directories-first"
-LSCMD="command ls --group-directories-first --color=auto"
-command -v exa > /dev/null 2>&1 && EXA="y"
-
-if [ "$OS" = "Linux" ]; then
-	ROOTCOMMAND=sudo
-	alias grep="grep --color=auto"
-	if [ "$EXA" = "y" ]; then
-		function ls() { [ `pwd` = "$HOME" ] && $EXACMD || $EXACMD -a ;}
-	else
-		function ls() { [ `pwd` = "$HOME" ] && $LSCMD || $LSCMD -A ;}
-	fi
-elif [ "$OS" = "OpenBSD" ]; then
-	ROOTCOMMAND=doas
-	if [ "$EXA" = "y" ]; then
-		function ls() { [ `pwd` = "$HOME" ] && $EXACMD || $EXACMD -a ;}
-	else
-		function ls() { [ `pwd` = "$HOME" ] && command ls || command ls -A ;}
-	fi
-elif [ "$OS" = "FreeBSD" ]; then
-	ROOTCOMMAND=doas
-	if [ "$EXA" = "y" ]; then
-		function ls() { [ `pwd` = "$HOME" ] && $EXACMD || $EXACMD -a ;}
-	else
-		function ls() { [ `pwd` = "$HOME" ] && command ls || command ls -A --color=always ;}
-	fi
-fi
+command -v doas > /dev/null 2>&1 && ROOTCOMMAND=doas || ROOTCOMMAND=sudo
 
 #general aliases
 alias enc="gpg -c --cipher-algo AES256"
@@ -41,8 +14,9 @@ alias svim="$ROOTCOMMAND $EDITOR"
 alias suvim="svim"
 alias dmenu_nice="dmenu -i -fn 'monospace:size=8' -nb '#222222' -nf '#bbbbbb' -sb '#005577' -sf '#eeeeee'"
 alias netstart="doas sh /etc/netstart"
-
 alias neofetch="neofetch | sed 's/41742BU/ThinkPad T420s/'"
+
+command -v betterls > /dev/null 2>&1 && alias ls="betterls"
 
 #edit configurations
 alias vimrc="vim ~/.config/vim/vimrc"
@@ -81,7 +55,7 @@ alias caja="swallow caja"
 
 #replace root-only commands with $ROOTCOMMAND [command]
 if command -v $ROOTCOMMAND > /dev/null; then
-	for command in mount umount lsblk sv visudo pkg_add pkg_delete pkg updatedb su shutdown poweroff reboot apt pacman ; do
+	for command in mount umount lsblk sv visudo pkg_add pkg_delete pkg updatedb su shutdown poweroff reboot apt pacman emerge ; do
 		alias $command="$ROOTCOMMAND $command"
 	done; unset command
 fi

@@ -1,0 +1,31 @@
+#!/bin/sh
+
+#command ls -A --color=always
+
+_linux() {
+	[ "$1" = "" ] && [ "$(pwd)" = "$HOME" ] && command ls --group-directories-first --color=auto $@ && exit
+	[ "$1" = "$HOME" ] && command ls --group-directories-first --color=auto $@ || command ls -A --group-directories-first --color=auto $@
+}
+
+_openbsd() {
+	[ "$1" = "" ] && [ "$(pwd)" = "$HOME" ] && command ls $@ && exit
+	[ "$1" = "$HOME" ] && command ls $@ || command ls -A $@
+}
+
+_freebsd() {
+	[ "$1" = "" ] && [ "$(pwd)" = "$HOME" ] && command ls --color=always $@ && exit
+	[ "$1" = "$HOME" ] && command ls $@ || command ls -A --color=always $@
+}
+
+_exa() {
+	[ "$1" = "" ] && [ "$(pwd)" = "$HOME" ] && exa --group-directories-first $@ && exit
+	[ "$1" = "$HOME" ] && exa --group-directories-first $@ || exa -a --group-directories-first $@
+}
+
+command -v exa > /dev/null 2>&1 && _exa "$@"
+
+case "$OS" in
+	Linux) _linux "$@" ;;
+	OpenBSD) _openbsd "$@" ;;
+	FreeBSD) _freebsd "$@" ;;
+esac
