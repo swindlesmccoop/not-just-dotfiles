@@ -14,7 +14,9 @@ else if [ "$HOSTNAME" = "pavilion" ]; then
 	xinput set-prop 9 321 0.65
 fi fi
 
-dbus-uuidgen --ensure #notifications
+dunst & dbus-uuidgen --ensure #notifications
+picom & #compositor
+sxhkd & #keybinds
 dwmblocks & #statusbar
 
 #train myself to use caps for super
