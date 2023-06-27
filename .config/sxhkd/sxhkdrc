@@ -27,3 +27,6 @@ super + F3
 
 super + F5
 	video
+
+super + r
+	randbg
