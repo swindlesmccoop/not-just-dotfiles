@@ -1,0 +1,9 @@
+[Unit]
+Description=Check if laptop is plugged in
+
+[Service]
+ExecStart=/bin/sh -c '${HOME}/.local/bin/plugcheck'
+Type=simple
+
+[Install]
+WantedBy=default.target

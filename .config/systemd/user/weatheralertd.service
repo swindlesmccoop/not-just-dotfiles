@@ -1,0 +1,9 @@
+[Unit]
+Description=Weather alert daemon
+
+[Service]
+ExecStart=/usr/local/bin/weatheralertd
+Type=simple
+
+[Install]
+WantedBy=default.target
