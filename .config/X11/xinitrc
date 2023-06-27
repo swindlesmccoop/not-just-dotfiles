@@ -6,14 +6,17 @@ export WALL="$WALLDIR/$(command ls -1 $WALLDIR | shuf -n 1)"
 xwallpaper --zoom "$WALL"
 wal -q -i "$WALL"
 
-if [ "$(hostname)" = "think420" ]; then
+if [ "$HOSTNAME" = "think420" ]; then
 	xrandr --output default --mode "1600x900"
 	#thinkpad bindings
 	xinput set-prop "/dev/wsmouse" "Device Accel Constant Deceleration" 0.3
 	xinput set-prop "/dev/wsmouse" "WS Pointer Wheel Emulation" 1
 	xinput set-prop "/dev/wsmouse" "WS Pointer Wheel Emulation Button" 2
 	xinput set-prop "/dev/wsmouse" "WS Pointer Wheel Emulation Axes" 6 7 4 5
-fi
+else if [ "$HOSTNAME" = "pavilion" ]; then
+	#increase cursor speed
+	xinput set-prop 9 321 0.65
+fi fi
 
 picom & #compositing
 dbus-uuidgen --ensure && dunst & #notifications
