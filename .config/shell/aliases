@@ -4,6 +4,7 @@ command -v doas > /dev/null 2>&1 && ROOTCOMMAND=doas || ROOTCOMMAND=sudo
 alias enc="gpg -c --cipher-algo AES256"
 alias ":q"="exit"
 alias c="clear"
+alias emacs="emacsclient -nw -ca $EDITOR"
 alias vi="$EDITOR"
 alias vim="$EDITOR"
 alias nvim="$EDITOR"
