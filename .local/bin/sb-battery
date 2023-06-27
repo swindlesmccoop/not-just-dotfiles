@@ -8,7 +8,7 @@ _bsd() {
 }
 
 _linux() {
-	if ! [ -f /sys/class/power_supply/BAT* ]; then
+	if ! [ -d /sys/class/power_supply/BAT* ]; then
 		printf "None\n"
 		exit 1
 	fi
