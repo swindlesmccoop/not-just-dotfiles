@@ -7,4 +7,5 @@
 .config/i3/core
 .config/i3blocks/core
 .config/mpv/watch*
+.config/systemd/user/default.target.wants/
 src/
