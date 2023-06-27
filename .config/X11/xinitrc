@@ -1,10 +1,6 @@
 export PATH=$PATH:$HOME/.local/bin
 
-#wallpaper automation
-WALLDIR="$HOME/.local/share/wallpapers"
-export WALL="$WALLDIR/$(command ls -1 $WALLDIR | shuf -n 1)"
-xwallpaper --zoom "$WALL"
-wal -q -i "$WALL"
+randbg
 
 if [ "$HOSTNAME" = "think420" ]; then
 	xrandr --output default --mode "1600x900"
@@ -18,18 +14,12 @@ else if [ "$HOSTNAME" = "pavilion" ]; then
 	xinput set-prop 9 321 0.65
 fi fi
 
-picom & #compositing
-dbus-uuidgen --ensure && dunst & #notifications
+dbus-uuidgen --ensure #notifications
 dwmblocks & #statusbar
-sxhkd & #hotkeys
 
 #train myself to use caps for super
 setxkbmap -layout us -option caps:super
 setxkbmap -layout us -option super:none
-
-_linux() {
-	pulseaudio &
-}
 
 _openbsd() {
 	apmd #monitoring

@@ -1,0 +1,9 @@
+[Unit]
+Description=Compositor
+
+[Service]
+ExecStart=/usr/bin/picom
+Type=simple
+
+[Install]
+WantedBy=default.target
