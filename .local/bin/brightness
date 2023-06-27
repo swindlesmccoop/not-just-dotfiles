@@ -1,0 +1,15 @@
+#!/bin/sh
+
+CURRENT="$(xrandr --verbose | grep "Brightness" | sed 's/	//' | awk '{print $2}')"
+
+if [ "$1" = "up" ]; then
+	FINAL="$(echo "$CURRENT + 0.1" | bc)"
+else if [ "$1" = "down" ]; then
+	FINAL="$(echo "$CURRENT - 0.1" | bc)"
+else
+	printf "$CURRENT\n"
+	exit 1
+fi fi
+
+DEVICE="$(xrandr | grep -o ".* connected" | awk '{print $1}')"
+xrandr --output $DEVICE --brightness $FINAL
