@@ -1,7 +1,5 @@
 #!/bin/sh
 
-#command ls -A --color=always
-
 _linux() {
 	[ "$1" = "" ] && [ "$(pwd)" = "$HOME" ] && command ls --group-directories-first --color=auto $@ && exit
 	[ "$1" = "$HOME" ] && command ls --group-directories-first --color=auto $@ || command ls -A --group-directories-first --color=auto $@
@@ -22,7 +20,7 @@ _exa() {
 	[ "$1" = "$HOME" ] && exa --group-directories-first $@ || exa -a --group-directories-first $@
 }
 
-command -v exa > /dev/null 2>&1 && _exa "$@"
+command -v exa > /dev/null 2>&1 && _exa "$@" && exit
 
 case "$OS" in
 	Linux) _linux "$@" ;;
