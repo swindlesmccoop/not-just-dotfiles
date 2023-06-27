@@ -1,0 +1,7 @@
+#!/bin/sh
+IMAGE="$(find $HOME/.local/share/wallpapers/ | shuf -n 1)"
+LOCKCMD="slock -i $IMAGE"
+STATUS="$(cat /proc/acpi/button/lid/LID0/state | awk '{print $2}')"
+
+[ "$STATUS" = "closed" ] && $LOCKCMD
+[ "$1" = "--force" ] && $LOCKCMD
