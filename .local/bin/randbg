@@ -2,6 +2,11 @@
 #Set random wallpaper and adjust terminal colors to it
 
 WALLDIR="$HOME/.local/share/wallpapers"
-export WALL="$WALLDIR/$(command ls -1 $WALLDIR | shuf -n 1)"
+alias imgshuf="find $WALLDIR -type f | shuf -n 1"
+export WALL="$(imgshuf)"
+
+while [ "$WALL" = "$(cat $HOME/.cache/lastwall)" ]; do export WALL="$(imgshuf)"; done
+
+echo "$WALL" > $HOME/.cache/lastwall
 xwallpaper --zoom "$WALL"
 wal -q -i "$WALL"
