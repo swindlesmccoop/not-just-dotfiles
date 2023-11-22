@@ -10,7 +10,7 @@ if [ "$HOSTNAME" = "think420" ]; then
 	xinput set-prop "/dev/wsmouse" "WS Pointer Wheel Emulation Button" 2
 	xinput set-prop "/dev/wsmouse" "WS Pointer Wheel Emulation Axes" 6 7 4 5
 else if [ "$HOSTNAME" = "pavilion" ]; then
-	#increase cursor speed
+	increase cursor speed
 	xinput set-prop 9 321 0.65
 fi fi
 
@@ -18,6 +18,7 @@ dunst & dbus-uuidgen --ensure #notifications
 picom & #compositor
 sxhkd & #keybinds
 dwmblocks & #statusbar
+plugcheck & #battery monitoring
 
 #train myself to use caps for super
 setxkbmap -layout us -option caps:super

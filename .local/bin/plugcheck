@@ -1,0 +1,31 @@
+#!/bin/sh
+
+INTERVAL=1
+
+_check() {
+	STATE="$(apm | head -n 2 | tail -n 1 | awk '{print $4}')"
+	
+	if [ "$STATE" = "connected" ]; then
+		export STATE="charging"
+	else if [ "$STATE" = "not" ]; then
+		export STATE="disconnected"
+	else
+		export STATE="kill"
+	fi fi
+}
+
+while true; do
+	_check
+	[ "$LAST_STATE" = "$STATE" ] && continue #return
+
+	if [ "$STATE" = "charging" ]; then
+		notify-send "Charging"
+	else if [ "$STATE" = "disconnected" ]; then
+		notify-send "Disconnected"
+	else
+		kill $$
+	fi fi
+
+	LAST_STATE="$STATE"
+	sleep $INTERVAL
+done
