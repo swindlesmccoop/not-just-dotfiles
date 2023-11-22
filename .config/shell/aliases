@@ -21,10 +21,10 @@ command -v betterls > /dev/null 2>&1 && alias ls="betterls"
 
 #edit configurations
 alias vimrc="vim ~/.config/vim/vimrc"
-alias zshrc="vim vim -c 'set syntax=sh' ~/.config/shell/zshrc"
-alias bashrc="vim vim -c 'set syntax=sh' ~/.config/shell/bashrc"
+alias zshrc="vim -c 'set syntax=sh' ~/.config/shell/zshrc"
+alias bashrc="vim -c 'set syntax=sh' ~/.config/shell/bashrc"
 alias aliases="vim -c 'set syntax=sh' ~/.config/shell/aliases"
-alias xprofile="vim vim -c 'set syntax=sh' ~/.xprofile"
+alias xprofile="vim -c 'set syntax=sh' ~/.xprofile"
 
 #git aliases
 alias gacap="git add . && git commit -a && git push"

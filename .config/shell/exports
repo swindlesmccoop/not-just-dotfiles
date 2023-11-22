@@ -32,8 +32,8 @@ export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export VIMINIT="set nocp | source ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc"
 
-#export EDITOR=vim
-export EDITOR="emacsclient -nw -ca /usr/bin/emacs"
+export EDITOR=vim
+#export EDITOR="emacsclient -nw -ca /usr/bin/emacs"
 export BROWSER=firefox
 export TERMINAL=st
 export PATH="$PATH:$HOME/.local/bin:$HOME/.local/share/cargo/bin"
