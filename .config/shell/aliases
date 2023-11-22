@@ -82,8 +82,11 @@ up() {
 
 #git clone personal repos
 gitme() {
-	git clone --recurse-submodules git@github.com:swindlesmccoop/"$1".git "$2"
+	REPO="$1"
+	[ "$2" = "" ] && DIR="$REPO" || DIR="$2"
+	git clone --recurse-submodules git@github.com:swindlesmccoop/"$REPO".git "$DIR"
 }
+
 gitall() {
 	cd $HOME/git
 	for d in ./*; do
