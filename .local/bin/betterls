@@ -22,8 +22,9 @@ _eza() {
 
 command -v eza > /dev/null 2>&1 && _eza "$@" && exit
 
-case "$OS" in
+case "$(uname -s)" in
 	Linux) _linux "$@" ;;
 	OpenBSD) _openbsd "$@" ;;
 	FreeBSD) _freebsd "$@" ;;
+	*) command ls "$@" ;;
 esac
