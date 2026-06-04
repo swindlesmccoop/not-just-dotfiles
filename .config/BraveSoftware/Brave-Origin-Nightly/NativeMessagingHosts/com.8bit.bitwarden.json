@@ -1,0 +1,9 @@
+{
+  "name": "com.8bit.bitwarden",
+  "description": "Bitwarden to Brave IPC",
+  "path": "/home/swindles/.local/bin/bitwarden-proxy",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://nngceckbapebfimnlniiiahkandclblb/"
+  ]
+}

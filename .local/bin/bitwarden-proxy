@@ -1,0 +1,3 @@
+#!/bin/bash
+#exec flatpak run --command=desktop_proxy com.bitwarden.desktop "$@"
+exec flatpak run --command=/app/Bitwarden/desktop_proxy com.bitwarden.desktop "$@"
