@@ -1,4 +1,0 @@
-#!/bin/sh
-
-curl wttr.in -o "$HOME/.local/share/weatherreport"
-less -Srf "$HOME/.local/share/weatherreport"

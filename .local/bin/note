@@ -1,7 +1,0 @@
-#!/bin/sh
-
-vim /tmp/note_temp
-echo "[$(date)]" >> ~/.notes
-cat /tmp/note_temp >> ~/.notes
-echo "" >> ~/.notes
-rm /tmp/note_temp

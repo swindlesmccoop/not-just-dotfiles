@@ -1,3 +1,0 @@
-#!/bin/sh
-
-fzf --layout=reverse --height 40%

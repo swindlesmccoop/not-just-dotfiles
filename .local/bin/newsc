@@ -1,8 +1,0 @@
-#!/bin/sh
-
-printf "Name of script: "
-[ "$1" = "" ] && read SCRIPTNAME || SCRIPTNAME="$1"
-SCRPATH="$HOME/.local/bin/$SCRIPTNAME"
-echo '#!/bin/sh' > "$SCRPATH"
-chmod +x "$SCRPATH"
-vim "$SCRPATH"

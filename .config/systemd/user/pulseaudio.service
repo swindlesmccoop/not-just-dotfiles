@@ -1,9 +1,0 @@
-[Unit]
-Description=Audio server
-
-[Service]
-ExecStart=/usr/bin/pulseaudio
-Type=simple
-
-[Install]
-WantedBy=default.target

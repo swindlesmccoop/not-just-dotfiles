@@ -1,9 +1,0 @@
-printf "Start X server? (Y/n): "
-read -r STARTX
-
-case "$(uname)" in
-	OpenBSD) sndiod ;;
-esac
-
-[ "$STARTX" != "n" ] && startx $HOME/.config/X11/xinitrc
-source $HOME/.bashrc

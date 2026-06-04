@@ -1,3 +1,0 @@
-#!/bin/sh
-[ "$1" = "" ] && DIR="$PWD" || DIR="$1"
-du -h "$DIR" 2>/dev/null | tail -n 1

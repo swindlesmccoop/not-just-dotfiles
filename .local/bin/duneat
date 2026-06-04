@@ -1,3 +1,0 @@
-#!/bin/sh
-
-du -a "$1" --exclude="*/.cache/*" --exclude="*/.git/*" | awk '{$1=""}1'
