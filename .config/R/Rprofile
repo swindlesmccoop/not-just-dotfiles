@@ -1,0 +1,8 @@
+#options(repos = c(CRAN = "https://cloud.r-project.org"))
+options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/manylinux_2_28/latest"))
+options(download.file.method = "curl")
+options(download.file.extra = paste(
+  "-fsSL",
+  sprintf('--header "User-Agent: R (%s)"',
+          paste(getRversion(), R.version["platform"], R.version["arch"], R.version["os"]))
+))
