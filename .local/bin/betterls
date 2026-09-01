@@ -1,23 +1,23 @@
 #!/bin/sh
 
 _linux() {
-	[ "$1" = "" ] && [ "$(pwd)" = "$HOME" ] && command ls --group-directories-first --color=auto $@ && exit
-	[ "$1" = "$HOME" ] && command ls --group-directories-first --color=auto $@ || command ls -A --group-directories-first --color=auto $@
+	[ "$1" = "" ] && [ "$(pwd)" = "$HOME" ] && command ls --group-directories-first --color=auto "$@" && exit
+	[ "$1" = "$HOME" ] && command ls --group-directories-first --color=auto "$@" || command ls -A --group-directories-first --color=auto "$@"
 }
 
 _openbsd() {
-	[ "$1" = "" ] && [ "$(pwd)" = "$HOME" ] && command ls $@ && exit
-	[ "$1" = "$HOME" ] && command ls $@ || command ls -A $@
+	[ "$1" = "" ] && [ "$(pwd)" = "$HOME" ] && command ls "$@" && exit
+	[ "$1" = "$HOME" ] && command ls "$@" || command ls -A "$@"
 }
 
 _freebsd() {
-	[ "$1" = "" ] && [ "$(pwd)" = "$HOME" ] && command ls --color=always $@ && exit
-	[ "$1" = "$HOME" ] && command ls $@ || command ls -A --color=always $@
+	[ "$1" = "" ] && [ "$(pwd)" = "$HOME" ] && command ls --color=always "$@" && exit
+	[ "$1" = "$HOME" ] && command ls "$@" || command ls -A --color=always "$@"
 }
 
 _eza() {
-	[ "$1" = "" ] && [ "$(pwd)" = "$HOME" ] && eza --group-directories-first --icons $@ && exit
-	[ "$1" = "$HOME" ] && eza --group-directories-first --icons $@ || eza -a --group-directories-first --icons --sort=extension -1 $@
+	[ "$1" = "" ] && [ "$(pwd)" = "$HOME" ] && eza --group-directories-first --icons "$@" && exit
+	[ "$1" = "$HOME" ] && eza --group-directories-first --icons "$@" || eza -a --group-directories-first --icons --sort=extension -1 "$@"
 }
 
 command -v eza > /dev/null 2>&1 && _eza "$@" && exit
