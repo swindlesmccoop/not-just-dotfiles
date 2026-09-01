@@ -1,6 +1,6 @@
 -- declarations --
 local mainMod = "SUPER"
-local terminal = "kitty"
+local terminal = "alacritty"
 local fileManager = "dolphin"
 local menu = "wofi --show drun"
 local lock = "hyprlock"
