@@ -14,8 +14,10 @@ set viminfo+=n~/.cache/vim/viminfo
 filetype plugin on
 set noerrorbells visualbell t_vb=
 set linebreak
-set noendofline
-set nofixendofline
+
+"causes more problems than it fixes
+"set noendofline
+"set nofixendofline
 
 "always start in normal mode
 set t_u7=
