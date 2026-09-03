@@ -1,4 +1,4 @@
-if status is-interactive
+if status is-interactive; and command -q wallust
     set -l wp_file ~/.config/variety/wallpaper/wallpaper.jpg.txt
     set -l cache ~/.cache/wallust/last-wallpaper
 
