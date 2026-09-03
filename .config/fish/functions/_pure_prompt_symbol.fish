@@ -1,5 +1,5 @@
 function _pure_prompt_symbol --description 'Print [user@host] and prompt symbol' --argument-names exit_code
-    set --local bracket (_pure_set_color $pure_color_mute)
+    set --local bracket (_pure_set_color $pure_color_user_host_bracket)
     set --local user_host (_pure_user_at_host)
     set --local prompt_symbol (_pure_get_prompt_symbol)
     set --local symbol_color_success (_pure_set_color $pure_color_prompt_on_success)
