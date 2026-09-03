@@ -1,0 +1,3 @@
+backend = "fastresize"
+palette = "kmeans"
+check_contrast = true
